@@ -1,0 +1,12 @@
+<!-- Home view -->
+<div ng-controller="CategoriesController" id="page_categories">
+    <div class="page-header"><h1>{{_t('Categories')}}</h1></div>
+    <div class="row">
+        <div class="col-lg-2" data-ng-repeat="v in categories">
+            <div class="category-list thumbnail">
+            <a href="#products/category/{{v.id}}"><img src="{{cfg.category_images + v.image}}" width="100" alt="{{v.name}}"/></a>
+            <h3><a href="#products/category/{{v.id}}">{{v.name}}</a></h3>
+            </div>
+        </div>
+    </div>
+</div>

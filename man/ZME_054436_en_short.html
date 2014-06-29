@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/zwave.me.png"><br><h2><span class="brandName"><b>ZME_054436<br><ProductHeadline>Wall Controller Set for DUWI Everluxe</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.1</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/ZME/ZME_054436.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+		<p><span class="icon_black">R</span> This device is a mobile Z-Wave Controller. 2 seconds pressing the "Include" button will include this device into a Z-Wave network. 
+		Triple click on either the button "Down" or the button "Up" will issue a Node Information 
+		Frame and keep the device awake for 2 sec afterwards.</p>
+	</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>This Z-Wave.Me Wall Controller is a single paddle controller to control other Z-Wave devices such as dimmers, switches or window blinds. 
+The unit has dedicated buttons for inclusion, exclusion and association and is able to work as primary controller. The unit is battery powered 
+and can be mounted on every plain and clean place. A mounting frame and a switching paddle is in scope of the delivery.</p>
+</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+		<p>The device can be mounted on every flat surface either using two screws or strong double sides type. 
+		To access the devices base the switching paddle need to be removed. Below the switching paddle the device 
+		has three more network control buttons. Insert both the batteries (2 x LR8D425) into the battery case while 
+		paying attention to the indicated plus (+) / minus (-) poles. The wireless wall switch can now be mounted.</p> 
+		<p><b>Attention: </b>The electronic circuit of the wall-mounted switch can be damaged in the case of wrong 
+		insertion of batteries.</p>
+	</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+ 		<p> Once the primary controller is turned into inclusion mode <b> 2 seconds pressing the "Include" button will
+ 		include this device</b> into the primary controllers network. A green blinking of LED will indicate successfull inclusion 
+ 		that will be turned off shortly afterwards. </p>
+	</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+	<img src="img/ZME/ZME_common/ZME_Funk-Wandsteuerung_common/ZME_wall%20controller_en.png" align="middle" width="200">
+		<p>  Z-Wave.Me Wall Controller controls other devices with its switching paddle (communication pattern 6 and 7). The upper 
+		part of the paddle will issue an ON command, the lower part will issue an OFF command to a group of devices associated with this controller. 
+		Depending on the configuration parameter no 14 the device can also control different devices with double click of the paddle. The device has 
+		a special function to trigger scenes in a static controller. Parameters No. 13 or 14 need to be set accordingly. The following scene IDs are 
+		defined:</p>
+		<ul>	
+		<li> Scene 1: Single Click on Upper Part of Paddle</li>
+		<li> Scene 2: Single Click on Lower Part of Paddle</li>
+		<li> Scene 3: Single Click Dim Up</li>
+		<li> Scene 4: Single Click Dim Down</li>
+		<li> Scene 5: Single Click Dim Up Stop</li>
+		<li> Scene 6: Single Click Dim Down Stop</li>
+		<li> Scene 11: Double Click on Upper Part of Paddle</li>
+		<li> Scene 12: Double Click on Lower Part of Paddle</li>
+		<li> Scene 13: Double Click Dim Up</li>
+		<li> Scene 14: Double Click Dim Down</li>
+		<li> Scene 15: Double Click Dim Up Stop</li>
+		<li> Scene 16: Double Click Dim Down Stop</li>
+		</ul>
+	</Usage><h3 class="chapterTitle">Child Protection</h3>
+<content>
+		<p> The device can be turn into a child protection mode. In this mode all local operation is disabled.</p> 
+		</content><Protection>
+	<p>The child protection mode MUST be turned on wirelessly. However in protected by sequence mode it is possible to unlock the device for local 
+	operation with a triple click. The unlock state will last for 5 seconds.</p>
+	</Protection><h3 class="chapterTitle">Wakeup Intervals - how to communicate with the device?</h3>
+<content>
+ 		<p><span class="icon_white">W</span> This device is battery operated and turned into deep sleep state most of the time to save battery life time.  
+ 		Communication with the device is limited. In order to communicate with the device, a static controller <b>C</b>
+ 		is needed in the network. This controller will maintain a mailbox for the battery operated devices and store 
+ 		commands that can not be received during deep sleep state.
+		Without such a controller, communication may become impossible and/or the battery life time is significantly decreased. </p>
+		<p>This device will wakeup regularly and announce the wakeup state by sending out a so called Wakeup Notification.
+		The controller can then empty the mailbox. Therefore, the device needs to be configured with the desired wakeup 
+		interval and the node ID of the controller. If the device was included by a static controller this 
+		controller will usually perform all necessary configurations. The wakeup interval is a tradeoff between maximal 
+		battery life time and the desired responses of the device. </p>
+		</content><Wakeup>
+		<p> The minimum allowed wakeup time is 240s but it is strongly recommended to define a much longer interval since the 
+		only purpose of a wakeup should be the reporting of the battery status or an update of the child protection settings. 
+		Defining a node id of 0 as a destination of the wakeup information will disable the periodical wakeup function entirely.
+		On factory default the wakeup destination node id is set to 0 - hence the periodical wakeup function is disabled.</p>
+		<p>The device can be waken up manually by tripple pressing the paddle.</p>
+	</Wakeup><small><procontent>
+		<p>It is possible to set the node ID to 255 to send wakeup notifications as broadcast. In this mode device takes more time to go 
+		to sleep and drains battery faster, but can notify all it's direct neighbors about a wakeup. </p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+		<p>Triple click on either the button "Down" or the button "Up" will issue a Node Information Frame and keep 
+		the device awake for 2 seconds afterwards.</p>
+	</NIF><h3 class="chapterTitle">LED Control</h3>
+<LEDControl>
+		<ol>
+		<li>Green for 2 sec = ok</li>
+		<li>Red for 2 sec = failed</li>
+		<li>Green blinking = I am ready and wait</li>
+		<li>Red- Yellow blinking for 2 sec = Can not do it</li>
+		</ol>
+	</LEDControl><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Single press and hold of up/down buttons
+			(max. nodes in group: 10)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Double press and press-hold of up/down buttons
+			(max. nodes in group: 10)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="subchapterTitle">Set and unset associations to actuators</h3>
+<content>
+		<p>Associations can be assigned and remove either via Z-Wave commands or using the device itself.</p>
+		<span class="icon_white">SA</span>
+		</content><SetAssociation>	
+		<ol>
+		<li>Triple click "Association" button.</li>
+		<li>Triple click "Inclusion" for assigning an association or "Exclusion" for removing an association. </li>
+		<li>Single or double click the DOWN or UP Button to device which association the target device shall be 
+		associated to (single click group or double click group) </li>
+		<li>Issue a Node Information Frame from the target device. This is usually done by single or triple click 
+		a button. Please refer to the manual of this device how to issue a NIF.</li>
+		</ol>
+	</SetAssociation><small></small><h3 class="chapterTitle">Special Functions as Z-Wave Controller</h3>
+<content>
+		<p> As long as this device is not included into a Z-Wave network of a different controller it is able
+		to manage its own Z-Wave network as primary controller. As a primary controller the device can include 
+		and exclude other devices in its own network, manage associations, and reorganize the network in case of
+		problems. The following controller functions are supported:</p>
+		</content><h3 class="subchapterTitle">Include other device in own network</h3>
+<content>
+		<p> <span class="icon_white">CI</span> Communication between two Z-Wave devices only works if both belong to the same wireless network. Joining 
+		a network is called inclusion and is initiated by a controller. The controller needs to be turned into the 
+		inclusion mode. Once in this inclusion mode the other device needs to confirm the inclusion - typically by 
+		pressing a button.</p>
+		
+		</content><ControllerInclusion>	
+		<ol>
+		<li>Triple click the button "Inclusion". The LED will start blinking green. The controller is now in the 
+		inclusion mode and ready to include devices into its own network.</li>
+		<li>Confirm the inclusion on the device that shall be included. Please refer to the manual of the device for 
+		more information on the inclusion process of this device.</li>
+		<li>A successful inclusion is indicated by a green LED for 3 seconds. A failed or timed out inclusion
+		is indicated by a red LED.</li>
+		</ol>
+		<p>If inclusion of a new device fails, exclude it first from its previous network or reset it.</p>
+	</ControllerInclusion><small><procontent>
+		<p>If current primary controller in your network is in special SIS mode this and any other secondary controller 
+		can also include and exclude devices.</p>
+		<p> To become primary a contoller have to be resetted  and then include a device.</p>
+		</procontent></small><h3 class="subchapterTitle">Exclude device from network</h3>
+<content>
+		<p>The primary controller can exclude devices from the Z-Wave network. During exclusion the relationship between the device and the network
+		of this controller is terminated. No communication between the device and other devices still in the network can happen after a successful
+		exclusion. The controller needs to be turned into the exclusion mode. Once in this exclusion mode the other device needs to confirm the exclusion - typically by pressing a button.</p>
+		<p><b>Attention:</b> Removing a device from the network means that it is turned back into factory default status.
+		This process can also exclude devices from it's previous network.</p>
+		</content><ControllerExclusion>
+		<ol>	
+		<li>Triple click the button "Exclusion". The LED will start blinking. Now the controller is in the exclusion mode.</li>
+		<li>Press the button on the device to be excluded or refer to manual of this device on how to exclude this device.</li>
+		<li>The LED will turn green for 3 seconds if the exclusion was successful and then turn off. If the exclusion failed 
+		or timed out the LED will turn red.</li>
+		</ol>
+		<p><b>Attention:</b> Removing a device from the network means that it is turned back into factory default status.
+		This process can also exclude devices from its previous network.</p>
+	</ControllerExclusion><h3 class="subchapterTitle">Shift Primary Role to a different Controller</h3>
+<content>
+		<p>The device can hand over its primary role to another controller and become secondary controller.</p>
+		</content><PrimaryShift>
+		<p> The primary shift is initiated on the device by pressing the Association button for 6 seconds 
+		(LED blinks yellow) followed by pressing the include button for three seconds (LED blinks green).
+		Now the new primary controller needs to be turned into the inclusion mode. Pushing UP or DOWN terminates 
+		the primary shift.</p>
+	</PrimaryShift><h3 class="subchapterTitle">Set association between two device in Z-Wave network</h3>
+<content>
+			<p><span class="icon_white">CA</span> The controller is able to set association between two other devices in the network. The controller is turned
+			into an association mode both devices are announced by pressing a button. After both association partners are known
+			the controller will perform all necessary steps to set the association.</p>
+			
+		</content><SetAssignedAssociation>	
+		<ol>
+		<li> Press "Association" button for three seconds. </li>
+		<li> Single click "Inclusion" for assigning an association or "Exclusion" for removing an association. </li>
+		<li> Issue a Node Information Frame from the target device. This is usually done by single or triple click 
+		a button. Please refer to the manual of this device how to issue a NIF. </li>
+		<li> Issue a Node Information Frame from the device where the association will be set. This is usually done 
+		by single or triple click a button. Please refer to the manual of this device how to issue a NIF.</li>
+		</ol>
+	</SetAssignedAssociation><h3 class="subchapterTitle">Update Network Information</h3>
+<content>
+		<p>As a battery operated controller the device will not automatically received updates about the network structure. 
+		This process should be initiated when the primary controller has included/excluded devices and it will result in
+		an update of the network information in the battery operated controller. This prevents wrong communication that
+		may cost battery life and delay other communication.</p>
+		</content><NetworkUpdate>
+		<p> The function is initiated by pressing the Association button for 
+		6 seconds (LED blinks yellow) followed by a triple click of the Inclusion button.</p>
+	</NetworkUpdate><small><procontent>
+		<p> it is possible that a network update fails if the network was changed too much after the last update. In this case 
+		the the device need to be reincluded. Re-Inclusion is similar to a normal inclusion. Its just not needed to exclude 
+		the device before. Re-Inclusion makes sure that the node ID of the device remails unchanged.</p>
+		</procontent></small><h3 class="subchapterTitle">Reset the Controller</h3>
+<content>
+		</content><Reset>
+		<p>Press the button "Exclusion" for 6 seconds (LED starts blinking in all three colors) followed by a triple 
+		click of the UP and then a triple click of the DOWN button. The LED will turn green for 3 seconds if the 
+		reset was successful and then turn off. If the reset failed or timed out the LED will shine red. </p>
+	</Reset><h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Typical click timeout</span><span class="parameterTechnical">
+			(Parameter Number 10, Parameter Size 1)
+		</span><span class="parameterDescription">Typical time used to differenciate click, hold, double and triple clicks</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>in 10ms units
+					(Default 50)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Invert buttons</span><span class="parameterTechnical">
+			(Parameter Number 11, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>No
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Yes</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Action on button single press or hold</span><span class="parameterTechnical">
+			(Parameter Number 13, Parameter Size 1)
+		</span><span class="parameterDescription">Defines which command should be sent on button single press or hold. Basic and Scene commands are sent to Association group. Switch All commands are sent broadcast. Scenes have following meaning: Up = 1, Down = 2, Dim Up = 3, Dim Down = 4, Dim Up Stop = 5, Dim Down Stop = 6.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Switch On, Off and dim using Basic Set
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch All</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Scenes</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Action on button double press or hold</span><span class="parameterTechnical">
+			(Parameter Number 14, Parameter Size 1)
+		</span><span class="parameterDescription">Defines which command should be sent on button double press or press-hold. Basic and Scene commands are sent to Association group. Switch All commands are sent broadcast. If not disabled, the device will wait for a click timeout to see if the second click would be pressed. This will introduce a small delay for single click commands. Scenes have following meaning: Up = 11, Down = 12, Dim Up = 13, Dim Down = 14, Dim Up Stop = 15, Dim Down Stop = 16.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disabled (don't wait for double click)
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Switch On, Off and dim using Basic Set</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch All</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Scenes</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Send the following Switch All commands</span><span class="parameterTechnical">
+			(Parameter Number 15, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Switch off only
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch on only</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Switch all on and off</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Send unsolicited Battery Report on Wake Up</span><span class="parameterTechnical">
+			(Parameter Number 20, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>No
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>To same node as wake up notification</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Broadcast to neighbours</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Battery Type</td>
+<td>2  * AAAA</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>5.03</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Portable controller</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Remote Controller</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Portable Remote Controller</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>No</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.1</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

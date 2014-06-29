@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/fakro.png"><br><h2><span class="brandName"><b>FAK_ZWS230<br><ProductHeadline>
+Kettenantrieb für Klappfenster (230V)
+</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 3.10</h5>
+</td>
+<td align="right"><img class="deviceImage" height="200" src="img/FAK/FAK_ZWS230.png"></td>
+</tr></table>
+<div class="quickstart">
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">A</span> Dies ist ein Z-Wave Aktor.</p>
+	<p>Inklusion und Exklusion werden durch einen Klick auf die Programm Taste bestätigt. Wenn der Fakro Kettenantrieb nicht in einem Z-Wave Netzwerk inkludiert ist, leuchtet die LED dauerhaft.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</div>
+<h3 class="chapterTitle">Was ist Z-Wave?</h3>
+<content>
+			<p>Dieses Produkt entspricht dem Z-Wave-Standard. Z-Wave ist der internationale Funkstandard 
+			zur Kommunikation von Geräten im intelligenten Haus. Z-Wave-Geräte funken in Europa auf der 
+			Frequenz von <b>868.42 MHz</b>.Z-Wave ermöglicht eine sichere und stabile 
+			Kommunikation indem jede Nachricht vom Empfänger 
+			rückbestätigt wird (<b>Zweiwege-Kommunikation</b>) und alle netzbetriebenen Geräte 
+			Nachrichten weiterleiten (<b>Routing</b>) können, wenn eine direkte Funkbeziehung  zwischen 
+			Sender und Empfänger gestört ist. </p>
+			<p>Dank Z-Wave können <b>Produkte unterschiedlicher Hersteller</b> miteinander in einem Funknetz 
+			verwendet werden. Damit ist auch dieses Produkt mit beliebigen anderen Produkten anderer 
+			Hersteller in einem gemeinsamen Z-Wave Funknetz einsetzbar.</p>
+			
+			<p>Z-Wave unterscheidet zwischen Controllern  und Slaves. Slaves sind entweder 
+			Sensoren <span class="icon_black">S</span>, die Daten ermitteln oder Aktoren <span class="icon_black">A</span>, die Aktionen ausführen 
+			(Sensoren und Aktoren sind mitunter in einem Gerät vereint).
+			Controller sind entweder statische netzgespeiste Controller <span class="icon_black">C</span> (auch IP-Gateways genannt) oder
+			mobile batteriebetriebene Controller (Fernbedienungen, Batteriewandschalter)<span class="icon_black">R</span>.
+			Damit ergeben sich eine Reihe prinzipieller  Kommunikationsmöglichkeiten in einem Z-Wave-Netz: 
+			</p>
+			<img src="img/zoverview.png" width="250" align="right">
+			<ol>
+			<li> Controller steuern Aktoren. </li>
+			<li> Aktoren melden Änderungen ihres Schaltzustandes </li>
+			<li> Sensoren melden Messwerte oder Statusänderungen an Controller </li>
+			<li> Sensoren steuern Aktoren direkt bei Ereignissen </li>
+			<li> Aktoren steuern andere Aktoren </li>
+			<li> Fernbedienungen erzeugen Ereignisse in einem statischen Controller, die zum Beispiel zum 
+			Steuern von Szenen genutzt werden </li>
+			<li> Fernbedienungen steuern Aktoren </li>
+			</ol>
+		</content><small><procontent>
+		<p>Controller können in einem Z-Wave Netzwerk zwei unterschiedliche Rollen einnehmen. Es gibt immer genau einen
+		Primärcontroller der das Netzwerk steuert und Geräte in das Netzwerk inkludiert oder aus dem Netzwerk exkludiert.
+		Dieser Controller kann weiter Nutzerfunktionen - zum Beispiel Tasten - besitzen. Alle anderen Controller mit 
+		Nutzerfunktionen erfüllen keine Managementaufgaben. Sie heißen Sekundärcontroller. Trotzdem verfügen sie - sozusagen
+		als Backup - über alle notwendigen Informationen über das Netz. Das Übersichtsbild zeigt, das - batteriegestützt - Sensoren nicht direkt mit 
+		- batteriebetriebenen - Fernbedienungen kommunizieren. Sie senden nur Daten an statische Controller oder steuern Aktoren direkt.</p>
+		</procontent></small><h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Der Kettenantrieb ZWS230 ist aufgrund kompakter Außenmaße und einfacher Einbauweise eine ideale Lösung für Dachfenster verschiedener Hersteller. Er ist mit dem System Z-Wave kompatibel. Der Kettenantrieb ist besonders gut zum Nachrüsten 
+von Schwing- und Klapp-Schwingfenster geeignet.</p>
+<p>Der maximale Ketten-Hub des ZWS230 beträgt 36cm. Der Antrieb ist mit einem integrierten Überlastschutz ausgestattet und fungiert gleichzeitig als ein Fensterschließ-Sensor.</p>
+</ProductDescription><h3 class="chapterTitle">Sicherheitshinweis</h3>
+<content>		
+ 		<p>Lesen Sie dieses Handbuch vor der Installation!</p>
+		<p>Achtung! Dieses Gerät wird mit 230 V Netzspannung betrieben. Beachten Sie die 
+		Sicherheitshinweise während der Installation. Vor Beginn der Installation müssen alle
+		Anschlussleitungen potentialfrei sein. Weiterhin muss sichergestellt sein, dass während
+		der Installation niemand die Spannung wieder zuschalten kann (Sicherung wieder aktivieren).
+		Elektrische Arbeiten dürfen nur von einer Elektrofachkraft in Übereinstimmung mit den 
+		geltenden Regeln und Vorschriften durchgeführt werden.</p>
+		<p>Verwenden Sie das Gerät auf keine andere Weise als im Handbuch angegeben. 
+		Der Hersteller übernimmt keine Garantie für unsachgemäße Bedienung. </p>
+ 		</content><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+<p>Der Kettenantrieb für Klappfenster (230V) ist für die Steurung von Dachfenstern vorgesehen. Der Kettenantrieb ist mit 
+einem 2-Wege Z-Wave Funkmodul ausgestattet. Das Gerät kann im Netz mit verschlüsseltem Transfer (SECURE) eingesetzt werden,
+wenn der Controller ist ebenfalls verschlüsselten Transfer unterstützt. Die Funktion des Motors ist identisch, egal ob er
+Secure oder Nicht-Secure Gerät inkludiert ist.</p>
+<p>Die ZWS Kettenmotoren sind mit zwei Schutzschaltern ausgestattet:</p>
+	<ul>
+	<li>Schutzschalter bei max. Ketten-Hub</li>
+	<li>Schutzschalter bei Überlastung (behilflich beim Schließen des Fensters)</li>
+	</ul>
+<p>Installieren Sie den ZWS Kettenmotor gemäß der unter folgenden Link erreichbaren Anleitung.</p>
+<a href="pdf/FAK/FAK_ZWS230.pdf"> <img src="http://manuals.zwaveeurope.com/images/pdflogo.jpeg" height="30">FAK_ZWS230 Installations-Anleitung</a>
+<p>Lesen Sie vor der Montage bitte sorgfältig die untenstehenden Punkte, um Verletzungen oder Stromschläge zu vermeiden.
+Für die Montage des Kettenantriebs müssen folgende Anweisungen beachtet werden:</p>
+	<ul>
+	<li>Beachten Sie die Sicherheitshinweise! Die Verwendung des Kettenantriebes bringt trotz des Überlastungsschutzes Gefahren mit sich.</li>
+	<li>Wenn ein Fenster mit einem Kettenantrieb ausgestattet und leicht zugänglich ist, z.B. wenn sich die Fensterunterkante 
+	in Höhe von weniger als 2,5 Metern vom Fußboden befindet, dann müssen entsprechende Maßnahmen getroffen werden, um Verletzungen zu vermeiden.</li>
+	<li>Nach dem Auspacken muss das Gerät auf eventuelle mechanische Beschädigungen überprüft werden.</li>
+	<li>Die Montage sollte von einem Fachmann gemäß der Montageanleitung durchgeführt werden.</li>
+	<li>Vergewissern Sie sich vor dem Anschließen des Gerätes, dass die richtige Netzspannung gemäß den technischen Daten anliegt (230V AC - dreipoliges Kabel).</li>
+	<li>Schliessen Sie den Kettenantrieb an und überprüfen Sie ihn auf Funktion ohne eine angeschlossene Last. Fahren Sie die Kette 5cm aus, und lassen Sie sie für die Montage in diesem Zustand.</li>
+	<li>Kunststoffbeutel und Kleinteile der Verpackung müssen außerhalb der Reichweite von Kindern aufbewahrt werden.</li>
+	<li>Der Kettenantrieb darf nur für Zwecke verwendet werden, für die er gebaut wurde. Der Hersteller übernimmt keine Haftung für Schäden durch anschgemäßen Gebrauch.</li>
+	<li>Trennen Sie das Gerät von der Stromversorgung für alle Reinigungs-, Einstell- und Aufbauarbeiten.</li>
+	<li>Zum Reinigen des Gerätes darf kein Verdünner oder Wasser verwendet werden. Das Gerät darf nicht unter Wasser getaucht werden.</li>
+	<li>Reparaturen am Gerät sollten nur von qualifiziertem Fachpersonal durchgeführt werden.</li>
+	<li>Die Stromzuleitung muss einen Querschnitt von mindestens 2x1mm^2 aufweisen. Für diesen Querschnitt darf die Kabellänge 30 Meter nicht überschreiten.</li>
+	<li>Der Kettenmotor darf ausschließlich innerhalb von Gebäuden eingesetzt werden.</li>
+	<li>Der Kettenmotor darf nicht für Rauchabzugsfenster verwendet werden.</li>
+	</ul>
+<p><b>Vorsicht bei der Benutzung!</b> Der Motor entwickelt beim Schließen eine Zugkraft von 250N (entspricht 25kg).</p>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+<p>Bringen Sie Ihren Z-Wave Controller in den Inklusions-/Exklusions-Modus. Drücken Sie die Programm Taste zum bestätigen.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+<p>Bevor Sie den Kettenmotor nach der Montage endgültig verwenden können, müssen Sie folgende Schritte durchführen:</p>
+	<ul>
+		<li>1. Inkludieren Sie das Gerät mit einem Controller in ein Z-Wave Netzwerk.</li>
+		<li>2. Assoziieren Sie das Gerät mit entsprechenden Bedienelementen (Schalter).</li>
+	</ul>
+<p align="center"> <img src="img/FAK/FAK_ZWS230_de.png" width="700" align="center"></p>
+<p>Das Gerät kann in verschiedenen Modi verwendet werden:</p>
+<p><b>"PROTECTION"</b> - gesicherter Modus zur Verhinderung von unbeabsichtigter Bedienung z.B. von Kindern. Die Controller unterstützen dabei drei Stufen.</p>
+	<li>Ungesichert - Motor kann normal lokal oder per Funk bedient werden</li>
+	<li>Gesichert durch Sequenz - Motor kann nur lokal am Gerät nach Drücken der Sequenz (dreimal kurz) bedient werden</li>
+	<li>Keine Beidenung möglich - manuelle Bedienung und Fernbedienung gesperrt</li>
+<p><b>Beachte:</b> Die genaue Beschreibung zum Aktivieren und Deaktivieren des gesicherten Modus entnehmen Sie bitte der Bedienungsanleitung Ihres Controllers.</p>
+<p><b>"RETURN ROUTE ASSIGNING"</b> - abhängig von der Version kann das Gerät mit einem Regensensor-Eingang ausgestattet werden. Damit ist es möglich dieses Gerät mit anderen Aktoren zu verlinken, die keinen Regensensor-Eingang haben. 
+Dafür muss die "ASSIGN" Funktion am Controller zu aktivieren. Das kann für verschiedene Controller variieren, wird aber standardmäßig wie folgt gemacht:</p>
+<p>Starten der "ASSIGN" Funktion - Programm Taste am Aktor ohne Regensensor-Eingang drücken (1 Sekunde) - Programm Taste am Aktor mit Regensensor-Eingang drücken (1 Sekunde).</p>
+<p><b>Beachte:</b> Die genaue Beschreibung zum Aktivieren und Deaktivieren der "ASSIGN" Funktion entnehmen Sie bitte der Bedienungsanleitung des entsprechenden Herstellers.</p>
+<p><b>"All ON" oder "All OFF"</b> - es ist möglich festzulegen, ob das Gerät die "Alle An" und "Alle Aus" Funktion unterstützt.</p>
+<p><b>Beachte:</b> Die genaue Beschreibung zur "All ON" oder "All OFF" Funktion entnehmen Sie bitte der Bedienungsanleitung des entsprechenden Herstellers.</p>
+<p><b>"SECURITY"</b> Das Gerät unterstützt den "SECURITY" Modus. Dieser ermöglicht geschützte Kommunikation zwischen den Geräten im Netzwerk.</p>
+<p><b>Beachte:</b> Der "SECURITY" Modus kann nur voll genutzt werden, wenn der Z-Wave Controller die funktion unterstützt.</p>
+<p><b>"MANUAL OPERATING"</b> Manuelle Bedienung ist direkt nach dem Anstecken der Stromversorgung mit der Manuellen Bedientaste möglich. Manuelle Bedienung funktioniert sequenziell; einmaliges Drücken der Taste für nächten Befehl: Start, Stop, Start in andere 
+Richtung, Stop.</p>
+	<li>Das erste drücken der Taste nach Stromanschluss fährt die Kette aus.</li>
+	<li>Das zweite Drücken stoppt den Motor.</li>
+	<li>Das dritte Drücken läßt die Kette wieder einfahren.</li>
+<p><b>Beachte:</b> Die Netzwerk LED zeigt den Status des Gerätes. Blinkt diese, ist der gesicherte Modus aktiviert, und die Bedienung des Gerätes ist eventuell nicht möglich.</p>
+</Usage><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+<p>Der Einfach-Klick auf die Programm Taste führt zum Senden eines Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="subchapterTitle">Setzen und Löschen von Assoziationsbeziehungen</h3>
+<content>
+		<p><span class="icon_white">SA</span> Assoziationen können entweder per Funkkommando oder direkt am Gerät gesetzt werden.</p>
+		</content><SetAssociation>
+<p>Bringen Sie Ihren Z-Wave Controller in den Assoziations-Modus. Drücken Sie die Programm Taste zum bestätigen.</p>
+</SetAssociation><small></small><h3 class="chapterTitle">Kommandoklassen</h3>
+<span class="supportedCommandClasses">Unterstützte Kommandoklassen</span><p><ul>
+<li>All Switch
+		(Version 1)
+	</li>
+<li>Association
+		(Version 2)
+	</li>
+<li>Basic
+		(Version 1)
+	</li>
+<li>Binary Switch
+		(Version 1)
+	</li>
+<li>Manufacturer Specific
+		(Version 1)
+	</li>
+<li>Multilevel Switch
+		(Version 3)
+	</li>
+<li>Powerlevel
+		(Version 1)
+	</li>
+<li>Protection
+		(Version 1)
+	</li>
+<li>Security
+		(Version 1)
+	</li>
+<li>Version
+		(Version 1)
+	</li>
+</ul></p>
+<span class="supportedCommandClasses">Zum Steuern genutzte Kommandoklassen</span><p><ul>
+<li>Basic
+		(Version 1)
+	</li>
+<li>Security
+		(Version 1)
+	</li>
+</ul></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.51</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Multilevel Switch</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Motor Control Class B</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>3.10</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Erläuterung Z-Wave-spezifischer Begriffe</h3>
+<content>
+		<ul>
+		<li>
+<b>Controller</b>... ist ein Z-Wave-Gerät mit erweiterten Fähigkeiten zur Verwaltung eines Netzes. Dies sind in der Regel
+		Gateways oder Fernbedienungen. Batteriegespeiste Wandschalter können auch Controller sein. </li>
+		<li>
+<b>Slave</b>... ist ein Z-Wave-Gerät mit erweiterten Fähigkeiten zur Verwaltung eines Netzes. Es gibt Sensoren,
+		Aktoren und auch Fernbedienungen als Slaves.</li>
+		<li>
+<b>Primärcontroller <i>(engl. Primary Controller)</i></b>... ist der zentrale Netzverwalter des Z-Wave-Netzes.</li>
+		<li>
+<b>Inklusion <i>(eng. Inclusion)</i></b>... ist der Prozess des Einbindens eines neuen Gerätes ins Z-Wave-Netz.</li>
+		<li>
+<b>Exklusion <i>(engl. Exclusion)</i></b>... ist der Prozess des Entfernens eines Gerätes aus dem Z-Wave-Netz.</li>
+		<li>
+<b>Assoziation <i>(engl. Association)</i></b>... ist eine Steuerbeziehung zwischen einem steuernden und einem 
+		gesteuerten Gerät. Die Information dazu wird im steuernden Gerät in einer <b>Assoziationsgruppe</b> hinterlegt.</li>	
+		<li>
+<b>Wakeup Notifikation <i>(engl. Wakeup Notification)</i> </b>... ist eine spezielle Funknachricht, mit der ein 
+		batteriegespeistes Gerät bekanntmacht, daß es im Aufwachstatus ist 
+		und Z-Wave-Nachrichten empfangen kann.</li>
+		<li>
+<b>Node Information Frame</b>... ist eine spezielle Funknachricht, mit der ein Z-Wave-Gerät seine Geräteeigenschaften bekanntgibt.</li>		
+		</ul>
+		</content><h3 class="chapterTitle">Entsorgungshinweis</h3>
+<p>Dieses Gerät enthält keine Batterien.</p>
+<content>
+ 		<p> Das ist ein elektrisches Gerät. Es kann kostenfrei bei entsprechenden Annahmestellen abgegeben werden.</p>
+ 		</content>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

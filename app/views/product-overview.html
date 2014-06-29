@@ -1,0 +1,55 @@
+<!-- Home view -->
+<div ng-controller="ProductOverviewController" id="page_products">
+    <div class="page-header row clearfix">
+        <div class="col-md-6"><h1>{{_t('Products')}}</h1></div>
+        <div class="input-group col-md-6 search-form">
+            <input type="text" ng-model="q" class="form-control">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        <a href="" ng-click="orderBy('vendor')">{{_t('Vendor')}}  
+                            <span ng-show="predicate == 'vendor'"><i ng-show="!reverse" class="fa fa-sort-asc"></i><i ng-show="reverse" class="fa fa-sort-desc"></i></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="orderBy('sku')">{{_t('SKU')}}
+                            <span ng-show="predicate == 'sku'"><i ng-show="!reverse" class="fa fa-sort-asc"></i><i ng-show="reverse" class="fa fa-sort-desc"></i></span>
+                        </a> 
+                    </th>
+                    <th>
+                        <a href="" ng-click="orderBy('basic')">{{_t('Basic')}}
+                            <span ng-show="predicate == 'basic'"><i ng-show="!reverse" class="fa fa-sort-asc"></i><i ng-show="reverse" class="fa fa-sort-desc"></i></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="orderBy('generic')">{{_t('Generic')}}
+                            <span ng-show="predicate == 'generic'"><i ng-show="!reverse" class="fa fa-sort-asc"></i><i ng-show="reverse" class="fa fa-sort-desc"></i></span>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="" ng-click="orderBy('inclusion')">{{_t('Inclusion')}}
+                            <span ng-show="predicate == 'inclusion'"><i ng-show="!reverse" class="fa fa-sort-asc"></i><i ng-show="reverse" class="fa fa-sort-desc"></i></span>
+                        </a>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="(k,v) in products | filter:q | orderBy:predicate:reverse">
+                    <td>{{v.vendor}}</td>
+                    <td><a href="#product/{{v.sku}}"><i class="fa fa-caret-right"></i> {{v.sku}}</a></td>
+                    <td>{{v.basic}}</td>
+                    <td>{{v.generic}}</td>
+                    <td>{{v.inclusion}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

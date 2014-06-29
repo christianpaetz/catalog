@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/everspring.png"><br><h2><span class="brandName"><b>EVR_ST814<br><ProductHeadline>Z-Wave Temperatur und Feuchtigkeitssensor</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.8</h5>
+</td>
+<td align="right"><img class="deviceImage" height="200" src="img/EVR/EVR_ST814.png"></td>
+</tr></table>
+<div class="quickstart">
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">S</span>Dieses Gerät ist ein Z-Wave Sensor. Drücken Sie zum Inkludieren, Exkludieren 
+und Aufwecken des Gerätes dreimal schnell hintereinander die Verlinkungstaste (zweite von links) an der Forderseite des Gerätes.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</div>
+<h3 class="chapterTitle">Was ist Z-Wave?</h3>
+<content>
+			<p>Dieses Produkt entspricht dem Z-Wave-Standard. Z-Wave ist der internationale Funkstandard 
+			zur Kommunikation von Geräten im intelligenten Haus. Z-Wave-Geräte funken in Europa auf der 
+			Frequenz von <b>868.42 MHz</b>.Z-Wave ermöglicht eine sichere und stabile 
+			Kommunikation indem jede Nachricht vom Empfänger 
+			rückbestätigt wird (<b>Zweiwege-Kommunikation</b>) und alle netzbetriebenen Geräte 
+			Nachrichten weiterleiten (<b>Routing</b>) können, wenn eine direkte Funkbeziehung  zwischen 
+			Sender und Empfänger gestört ist. </p>
+			<p>Dank Z-Wave können <b>Produkte unterschiedlicher Hersteller</b> miteinander in einem Funknetz 
+			verwendet werden. Damit ist auch dieses Produkt mit beliebigen anderen Produkten anderer 
+			Hersteller in einem gemeinsamen Z-Wave Funknetz einsetzbar.</p>
+			
+			<p>Z-Wave unterscheidet zwischen Controllern  und Slaves. Slaves sind entweder 
+			Sensoren <span class="icon_black">S</span>, die Daten ermitteln oder Aktoren <span class="icon_black">A</span>, die Aktionen ausführen 
+			(Sensoren und Aktoren sind mitunter in einem Gerät vereint).
+			Controller sind entweder statische netzgespeiste Controller <span class="icon_black">C</span> (auch IP-Gateways genannt) oder
+			mobile batteriebetriebene Controller (Fernbedienungen, Batteriewandschalter)<span class="icon_black">R</span>.
+			Damit ergeben sich eine Reihe prinzipieller  Kommunikationsmöglichkeiten in einem Z-Wave-Netz: 
+			</p>
+			<img src="img/zoverview.png" width="250" align="right">
+			<ol>
+			<li> Controller steuern Aktoren. </li>
+			<li> Aktoren melden Änderungen ihres Schaltzustandes </li>
+			<li> Sensoren melden Messwerte oder Statusänderungen an Controller </li>
+			<li> Sensoren steuern Aktoren direkt bei Ereignissen </li>
+			<li> Aktoren steuern andere Aktoren </li>
+			<li> Fernbedienungen erzeugen Ereignisse in einem statischen Controller, die zum Beispiel zum 
+			Steuern von Szenen genutzt werden </li>
+			<li> Fernbedienungen steuern Aktoren </li>
+			</ol>
+		</content><small><procontent>
+		<p>Controller können in einem Z-Wave Netzwerk zwei unterschiedliche Rollen einnehmen. Es gibt immer genau einen
+		Primärcontroller der das Netzwerk steuert und Geräte in das Netzwerk inkludiert oder aus dem Netzwerk exkludiert.
+		Dieser Controller kann weiter Nutzerfunktionen - zum Beispiel Tasten - besitzen. Alle anderen Controller mit 
+		Nutzerfunktionen erfüllen keine Managementaufgaben. Sie heißen Sekundärcontroller. Trotzdem verfügen sie - sozusagen
+		als Backup - über alle notwendigen Informationen über das Netz. Das Übersichtsbild zeigt, das - batteriegestützt - Sensoren nicht direkt mit 
+		- batteriebetriebenen - Fernbedienungen kommunizieren. Sie senden nur Daten an statische Controller oder steuern Aktoren direkt.</p>
+		</procontent></small><h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>Der ST814 ist ein kombinierter Temperatur- und Luftfeuchtesensor mit lokaler Messwertanzeige an einem LCD Display. Das Gerät ist für die Wandmontage oder als Tischgerät geeignet. Am Display werden 
+aktuelle Werte sowie historische Maximal- und Minimalwerte angezeigt. Der Sensorzustand kann an einen Controller gemeldet werden oder andere Z-Wave Geräte - wie z.B. das Licht - werden direkt vom ST814 gesteuert. 
+Dazu können über Z-Wave Schwellwerte für Temperatur und Feuchtigkeit definiert werden, bei deren Unter- oder Überschreitung ein entsprechend assoziiertes Gerät geschaltet wird. Der Sensor ist ein batteriebetriebenes Gerät. 
+Die Batterien können gewechselt werden, ohne dass die Befestigung des Gerätes gelöst werden muss. Das Gerät verfügt zusätzlich über eine Manipulationssicherung, die bei unbefugter Entfernung des Gerätes einen Alarm sendet.
+</ProductDescription><h3 class="chapterTitle">Batterien</h3>
+<content>
+			<p>Dieses Gerät wird mit Batterien betrieben. Nur Batterien des angegebenen Typs verwenden. 
+			Niemals alte und neue Batterien im gleichen Gerät vermischen. Gebrauchte Batterien enthalten 
+			gefährliche Stoffe und dürfen nicht mit dem Hausmüll entsorgt werden! </p>
+ 		</content><p>Batterietyp: 
+				3  * AA</p>
+<h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+	<p align="center"> <img src="img/EVR/EVR_ST814/EVR_ST814_b_de.png" width="800" align="middle"></p>
+	<p>Das Gerät kann an der Wand montiert oder frei auf einem Tisch aufgestellt werden.</p>
+	<p>1. Lösen Sie die Verriegelungsschrauben an der Rückseite des Gerätes und entfernen Sie die Wandhalterung sowie die Batterieabdeckung.</p>
+	<p>2. Legen Sie die 3 * AA 1.5V Batterien, wie auf der Abbildung zu sehen, in das Batteriefach ein.</p>
+	<p>3. Für die Wandmontage verwenden Sie die Befestigungsplatte und die mitgelieferten Schrauben.</p>
+	<p>4. Schließen Sie Batteriefach und Wandhalterung wieder mit den Verriegelungsschrauben.</p>
+	<p>5. Für das Aufstellen auf einem Tisch arretieren Sie den mitgelieferten Standfuß, indem Sie diesen um 90 Grad in Uhrzeigerrichtung drehen.</p>
+	<p>6. Ist der Standfuß hörbar eingerastet, könne Sie das Gerät an einem beliebigen Platz aufstellen.</p>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+	<p>Bringen Sie den Controller in den Inklusion-/Exklusion-Modus. Drücken Sie zum Bestätigen des Inklusion-/ Exklusion-Prozesses dreimal schnell hintereinander die Verlinkungstaste an der Forderseite des Gerätes.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+<p align="center"> <img src="img/EVR/EVR_ST814/EVR_ST814_a_de.png" width="1000" align="middle"></p>
+<p>Sie können an Ihrem Gerät zwischen 8 verschiedenen Modi wählen. Die einzelnen Modi müssen unterschiedlich konfiguriert werden.</p>
+<p align="center"> <img src="img/EVR/EVR_ST814/EVR_ST814_e_de.png" width="600" align="middle"></p>
+<p>MODE 1 und MODE 2 zeigen Temperatur bzw. Luftfeuchtigkeit an. Nach dem Beenden der Einstellungen (MODE 3 und MODE 8) kehrt das Gerät nach 12 Sekunden automatisch oder durch Drücken der Verlinkungstaste auf den 
+Ausgangsbildschirm zurück.</p>
+<p><strong>1. Temperatur</strong></p>
+<p><strong>1.1 Aktuelle Temperatur anzeigen</strong></p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 1, um die aktuelle Temperatur anzeigen zu lassen. Mit dem Schalter Temperatureinheit wählen können Sie die Anzeigeeinheit bestimmen (°C oder °F).</p>
+<p>Der Anzeigebereich geht von -20°C bis 50°C. Um den letzten Maximal- oder Minimalwert aufzurufen, drücken Sie die Max. bzw. Min. Taste. Um den jeweiligen Wert zu löschen, drücken sie Max. und Min. gleichzeitig.</p>
+<p><strong>Grenzwert Warnung:</strong></p>
+<p>Wenn die Temperatur einen Grenzwert erreicht, wird das entspechende Zeichen MIN oder MAX angezeigt.</p>
+<p><strong>Frost Warnung:</strong></p>
+<p>Wenn die Temperatur auf 0°C fällt, wird die Temperaturanzeige beleuchtet und ein Signalton ertönt. Drücken Sie eine beliebige Taste, um den Signalton zu beenden.</p>
+<p><strong>1.2 Temperatur Warnung-AN</strong></p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 3, um in die Einstellungen für den Mode Temperatur Warnung-AN zu gelangen. Auf der Anzeige wird die eingestellte Warn-Temperatur angezeigt. Ist keine Temperatur 
+eingestellt, wird " - - -°C " angezeigt.</p>
+<p>Um den Wert für die Warnung eizustellen, drücken Sie den Mode Wahlschalter für 5 Sekunden, bis ein langer Signalton ertönt. In der Anzeige beginnt "- - -" zu blinken. Drücken Sie Min. oder Max., um den gewünschten 
+Temperaturwert einzustellen (zwischen -20°C und 50°C). Haben sie den gewünschten Wert erreicht, drücken Sie zur Bestätigung den Mode Wahlschalter oder zum Verwerfen die Verlinkungstaste.</p>
+<p>Um den festgelegten Wert zu löschen, drücken Sie die gleichzeitig die Min. und Max. Taste, bis ein langer Signalton ertönt.</p>
+<p>Wenn die Temperatur den eingestellten Grenzwert erreicht, sendet das Gerät ein Z-Wave Signal. Die Anzeige geht zurück auf MODE 1, das Zeichen "ON" wird mit Hintergrundbeleuchtung angezeigt, und es ertönt ein Signalton. 
+Drücken Sie eine beliebige Taste, um den Signalton zu beenden.</p>
+<p><strong>1.3 Temperatur Warnung-AUS</strong></p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 4, um in die Einstellungen für den Mode Temperatur Warnung-AUS zu gelangen. Auf der Anzeige wird die eingestellte Warn-Temperatur angezeigt. Ist keine Temperatur 
+eingestellt, wird " - - -°C " angezeigt.</p>
+<p>Um den Wert für die Warnung eizustellen, drücken Sie den Mode Wahlschalter für 5 Sekunden, bis ein langer Signalton ertönt. In der Anzeige beginnt "- - -" zu blinken. Drücken Sie Min. oder Max., um den gewünschten 
+Temperaturwert einzustellen (zwischen -20°C und 50°C). Haben sie den gewünschten Wert erreicht, drücken Sie zur Bestätigung den Mode Wahlschalter oder zum Verwerfen die Verlinkungstaste.</p>
+<p>Um den festgelegten Wert zu löschen, drücken Sie die gleichzeitig die Min. und Max. Taste, bis ein langer Signalton ertönt.</p>
+<p>Wenn die Temperatur den eingestellten Grenzwert erreicht, sendet das Gerät ein Z-Wave Signal. Die Anzeige geht zurück auf MODE 1, das Zeichen "OFF" wird mit Hintergrundbeleuchtung angezeigt, und es ertönt ein Signalton. 
+Drücken Sie eine beliebige Taste, um den Signalton zu beenden.</p>
+<p><strong>Beachte:</strong></p>
+<p>Die beiden Werte für Temperatur Warnung-AN und Warnung-AUS dürfen nicht gleich sein; sie müssen mindestens 2°C auseinander liegen. Ist der Wert für Temperatur Warnung-AUS beispielsweise auf 20°C eingestellt, kann der Wert 
+für Temperatur Warnung-AN nur kleiner 18°C oder größer 22°C sein (Werte zwischen 18°C und 22°C können nicht gesetzt werden).</p>
+<p>Wird der Alarm beim Erreichen eines Grenzwertes ausgelöst, muss die Temperatur um mindestens 2°C sinken oder ansteigen, damit der Alarm erneut ausgelöst wird. Wird ein Alarm beispielsweise bei 20°C ausgelöst, muss sich die 
+Temperatur mindestens auf  über 22°C oder unter 18°C ändern, damit der Alarm erneut ausgelöst wird.</p>
+<p><strong>2. Luftfeuchtigkeit</strong></p>
+<p><strong>2.1 Aktuelle Luftfeuchtigkeit anzeigen</strong></p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 2, um die aktuelle Luftfeuchtigkeit anzeigen zu lassen.</p>
+<p>Der Anzeigebereich geht von 20% RH bis 90% RH. Um den letzten Maximal- oder Minimalwert aufzurufen, drücken Sie die Max. bzw. Min. Taste. Um den jeweiligen Wert zu löschen, drücken sie Max. und Min. gleichzeitig.</p>
+<p><strong>Grenzwert Warnung:</strong></p>
+<p>Wenn die Luftfeuchtigkeit den eingestellten Grenzwert erreicht, wird das entspechende Zeichen MIN oder MAX angezeigt.</p>
+<p><strong>2.2 Luftfeuchtigkeitswarnung-AN</strong></p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 5, um in die Einstellungen für den Mode Luftfeuchtigkeit Warnung-AN zu gelangen. Auf der Anzeige wird die eingestellte Warn-Luftfeuchtigkeit angezeigt. Ist kein Wert 
+eingestellt, wird " - - -%" angezeigt.</p>
+<p>Um den Wert für die Warnung eizustellen, drücken Sie den Mode Wahlschalter für 5 Sekunden, bis ein langer Signalton ertönt. In der Anzeige beginnt "- - -" zu blinken. Drücken Sie Min. oder Max., um den gewünschten 
+Luftfeuchtigkeitswert einzustellen (zwischen 20%RH und 90%RH). Haben sie den gewünschten Wert erreicht, drücken Sie zur Bestätigung den Mode Wahlschalter oder zum Verwerfen die Verlinkungstaste.</p>
+<p>Um den festgelegten Wert zu löschen, drücken Sie die gleichzeitig die Min. und Max. Taste, bis ein langer Signalton ertönt.</p>
+<p>Wenn die Luftfeuchtigkeit den eingestellten Grenzwert erreicht, sendet das Gerät ein Z-Wave Signal. Die Anzeige geht zurück auf MODE 2, das Zeichen "ON" wird mit Hintergrundbeleuchtung angezeigt, und es ertönt ein Signalton. 
+Drücken Sie eine beliebige Taste, um den Signalton zu beenden.</p>
+<p><strong>2.3 Luftfeuchtigkeitswarnung-AUS</strong></p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 6, um in die Einstellungen für den Mode Luftfeuchtigkeit Warnung-AUS zu gelangen. Auf der Anzeige wird die eingestellte Warn-Luftfeuchtigkeit angezeigt. Ist kein Wert 
+eingestellt, wird " - - -%" angezeigt.</p>
+<p>Um den Wert für die Warnung eizustellen, drücken Sie den Mode Wahlschalter für 5 Sekunden, bis ein langer Signalton ertönt. In der Anzeige beginnt "- - -" zu blinken. Drücken Sie Min. oder Max., um den gewünschten 
+Luftfeuchtigkeitswert einzustellen (zwischen 20%RH und 90%RH). Haben sie den gewünschten Wert erreicht, drücken Sie zur Bestätigung den Mode Wahlschalter oder zum Verwerfen die Verlinkungstaste.</p>
+<p>Um den festgelegten Wert zu löschen, drücken Sie die gleichzeitig die Min. und Max. Taste, bis ein langer Signalton ertönt.</p>
+<p>Wenn die Luftfeuchtigkeit den eingestellten Grenzwert erreicht, sendet das Gerät ein Z-Wave Signal. Die Anzeige geht zurück auf MODE 2, das Zeichen "OFF" wird mit Hintergrundbeleuchtung angezeigt, und es ertönt ein Signalton. 
+Drücken Sie eine beliebige Taste, um den Signalton zu beenden.</p>
+<p><strong>Beachte:</strong></p>
+<p>Die beiden Grenzwerte für Luftfeuchtigkeit Warnung-AN und Warnung-AUS dürfen nicht gleich sein; sie müssen mindestens 5% auseinander liegen. Ist der Wert für Luftfeuchtigkeit Warnung-AUS beispielsweise auf 50% eingestellt, 
+kann der Wert für Luftfeuchtigkeit Warnung-AN nur kleiner 45% oder größer 55% sein (Werte zwischen 45% und 55% können nicht gesetzt werden).</p>
+<p>Wird der Alarm beim Erreichen eines Grenzwertes ausgelöst, muss die Luftfeuchtigkeit um mindestens 5°C sinken oder ansteigen, damit der Alarm erneut ausgelöst wird. Wird ein Alarm beispielsweise bei 50% ausgelöst, muss 
+sich die Luftfeuchtigkeit mindestens auf über 55% oder unter 45% ändern, damit der Alarm erneut ausgelöst wird.</p>
+<p><strong>3. Z-Wave Funktionen</strong></p>
+<p>Diese Funktion ermöglicht das Aktivieren oder Deaktivieren von Z-Wave Kommandos, um assoziierte Geräte bei Alarm steuern zu können.</p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 7, um in die Einstellungen für Z-Wave zu gelangen. Der eingestellte Status ist in der Anzeige zu sehen. Mit Max. kann die Funktion aktiviert und mit Min. 
+deaktiviert werden.</p>
+<p><strong>3.1 Z-Wave Konfigurieren</strong></p>
+<p><strong>Z-Wave Gruppen (Assoziations-Kommandoklassen Version 2)</strong></p>
+<p>Das Gerät kann Statusmeldungen oder Steuersignale an andere Z-Wave Geräte senden. Es unterstützt zwei Assoziationsgruppen. Die Gruppe 1 unterstützt dabei ein Gerät, Gruppe 2 bis zu drei Geräte.</p>
+<p>Gruppe 1 unterstützt die Kommandoklassen POWER_APPLIED, SENSOR_MULTILEVEL _REPORT, ALARM_REPORT und BATTERY_REPORT_COMMAND, Gruppe 2 die Klasse BASIC_SET.</p>
+<p><strong>Gruppe 1</strong></p>
+<p><strong>POWER_APPLIED</strong></p>
+<p>Immer wenn das Gerät mit Strom versorgt wird (Einlegen der Batterien), sendet es an das assoziierte Gerät der Gruppe 1 einen Report.</p>
+<p><strong>MULTILEVEL_SENSOR_REPORT</strong></p>
+<p>Das Gerät sendet die mit SENSOR_MULTILEVEL_REPORT die aktuell gemessene Temperatur und Luftfeuchtigkeit an das assoziierte Gerät der Gruppe 1. Die genauen Einstellungen zum automatischen Report werden an anderer Stelle im 
+Handbuch genauer beschrieben.</p>
+<p><strong>Niedriger Batteriestand</strong></p>
+<p>Wenn der Batteriestand unter einen bestimmten Wert fällt, wird das Batterie-Symbol im Display des Gerätes angezeigt und ein Batterie-Alarm wird an das assoziierte Gerät der Gruppe 1 gesendet.</p>
+<p><strong>Gruppe 2 (bis zu 3 Geräte)</strong></p>
+<p>Wenn ein Temperatur- oder Feuchtigkeitsalarm ausgelöst wird, sendet das Gerät ein Schaltsignal (BASIC_SET_COMMAND) an alle assoziierten Geräte der Gruppe 2.</p>
+<p>In der unten stehenden Tabelle werden die Einstellungen zum BASIC_SET_COMMAND genauer aufgeführt.</p>
+<p><strong>Beachte:</strong></p>
+<p>Wenn die Z-Wave Funktion deaktiviert ist, wird kein Temeperatur- oder Luftfeuchtigkeitsalarm an ein anderes Gerät gemeldet. Wenn die Z-Wave Funktion aktiviert ist, werden die Alarme an alle assoziierten Geräte der Gruppe 2 
+gesendet.</p>
+<p>Wenn im Z-Wave Mode (MODE 7) "00" auf der Anzeige erscheint, ist kein Z-Wave Controller mit ihm verbunden. Inkludieren Sie das Gerät in ein Z-Wave Netzwerk, wie im Abschnitt "Inklusion" beschrieben.</p>
+<p><strong>4. Signalton (Beep Tone)</strong></p>
+<p>Drücken Sie die den Mode Wahlschalter und wählen MODE 8, um in die Einstellungen für den Signalton zu gelangen. Mit Max. kann die Funktion aktiviert und mit Min. deaktiviert werden. Wenn der Signalton aktiviert ist, ist 
+bei jedem Tastendruck am Gerät Signalton zu hören. Wenn ein Alarm durch einen der Sensoren ausgelöst wird, ist ein viermaliger Piepton zu hören.</p>
+</Usage><h3 class="chapterTitle">Kommunikation mit einem batteriebetriebenen Gerät</h3>
+<content>
+ 		<p> <span class="icon_white">W</span> Das Gerät ist batteriegespeist und damit in der Regel in einem Tiefschlafmodus um Strom zu sparen. Im Tiefschlafmodus 
+ 		kann das Gerät keine Funksignale empfangen. Daher wird ein (statischer) Controller benötigt, der netzgespeist und damit 
+ 		immer funkaktiv ist.  Dieser Controller - zum Beispiel ein IP-Gateway - 
+ 		verwaltet eine Nachrichten-Mailbox für dieses batteriegespeiste Gerät, in dem Nachrichten an dieses Gerät 
+ 		zwischengespeichert werden.
+ 		Ohne einen solchen statischen Controller wird die Nutzung dieses batteriebetriebenen Gerätes sehr schnell
+ 		zur Entladung der Batterie führen oder die Nutzung ist komplett unmöglich.</p>
+		<p>Dieses Gerät weckt regelmäßig auf, meldet dies durch Aussenden einer sogenannten Wakeup-Notifikation und leert dann seine Mailbox 
+		im statischen Controller. Dafür muss bei der Inclusion die Node-ID des Controllers 
+		und ein Aufweckinterval definiert werden. Erfolgt die Inklusion durch einen statischen Controller wie zum Beispiel ein IP-Gateway, wird dieser Controller
+		diese Konfiguration automatisch erledigen und in der Regel eine Nutzerschnittstelle anbieten, um das Aufweckinterval den Nutzerbedürfnissen anzupassen.
+		Das Aufweckinterval ist ein Kompromiss zwischen maximaler Batterielaufzeit und minimaler Reaktionszeit des batteriegespeisten Gerätes.  
+		</p>
+		</content><Wakeup>
+	<p>Durch dreimaliges schnelles Drücken der Verlinkungstaste an der Forderseite des Gerätes oder das Aktivieren eines Alarms wird das Gerät aufgeweckt und kann Netzwerkbefehle erhalten.</p>
+</Wakeup><small><procontent>
+		<p>Es ist möglich die Gerätenummer 255 als Zielgerät für die Wakeup-Notifikation anzugeben. In diesem Falle wird die Nachricht
+		als Broadcast an alle Geräte mit direkter Funkverbindung gesendet. Dem Vorteil der sofortigen Benachrichtigung steht
+		als Nachteil gegenüber, das das Gerät gegebenenfalls mehr Zeit im aktiven Modus und damit mehr Batterieladekapazität verbraucht.</p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Durch dreimaliges schnelles Drücken der Verlinkungstaste an der Forderseite des Gerätes oder das Aktivieren eines Alarms wird das Gerät aufgeweckt und kann Netzwerkbefehle erhalten.</p>
+</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Battery Status und Sensor Report
+			(max. Anzahl Geräte: 1)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sensor Sendet Alarm Meldung
+			(max. Anzahl Geräte: 3)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Basic Level Set</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert, ob der Schaltimpuls des Gerätes bei Erreichen der Triggerschwelle EIN oder AUS sein soll.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>1
+				—
+				99</td>
+<td>
+					(Voreingestellt 99)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Temperaturschwellwert zum Einschalten</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 1)
+		</span><span class="parameterDescription">Der Temperaturschwellwert, bei dem ein assoziiertes Gerät eingeschaltet wird.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>236
+				—
+				255</td>
+<td></td>
+</tr>
+<tr>
+<td>0
+				—
+				50</td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Temperaturschwellwert zum Ausschalten</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription">Der Temperaturschwellwert, bei dem ein assoziiertes Gerät ausgeschaltet wird.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>236
+				—
+				255</td>
+<td></td>
+</tr>
+<tr>
+<td>0
+				—
+				50</td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Feuchtigkeitschwellwert zum Einschalten</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription">Der Feuchtigkeitsschwellwert, bei dem ein assoziiertes Gerät eingeschaltet wird.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>20
+				—
+				90</td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Feuchtigkeitschwellwert zum Ausschalten</span><span class="parameterTechnical">
+			(Parameternummer 5, Parametergröße 1)
+		</span><span class="parameterDescription">Der Feuchtigkeitsschwellwert, bei dem ein assoziiertes Gerät ausgeschaltet wird.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>20
+				—
+				90</td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Status-Interval</span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 2)
+		</span><span class="parameterDescription">Der Zeitinterval innerhalb dessen ein automatisch zu sendender Statuswert gesendet wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				1439</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Status-Interval für Temperatur</span><span class="parameterTechnical">
+			(Parameternummer 7, Parametergröße 1)
+		</span><span class="parameterDescription">Der Zeitinterval innerhalb dessen ein automatisch zu sendender Statuswert gesendet wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				70</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Status-Interval für Feuchtigkeit</span><span class="parameterTechnical">
+			(Parameternummer 8, Parametergröße 1)
+		</span><span class="parameterDescription">Der Zeitinterval innerhalb dessen ein automatisch zu sendender Statuswert gesendet wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>5
+				—
+				70</td>
+<td></td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Kommandoklassen</h3>
+<span class="supportedCommandClasses">Unterstützte Kommandoklassen</span><p><ul>
+<li>Basic
+		(Version 1)
+	</li>
+<li>Multi Channel
+		(Version 2)
+	</li>
+<li>Wake Up
+		(Version 2)
+	</li>
+<li>Association
+		(Version 2)
+	</li>
+<li>Version
+		(Version 1)
+	</li>
+<li>Battery
+		(Version 1)
+	</li>
+<li>Configuration
+		(Version 1)
+	</li>
+<li>Multilevel Sensor
+		(Version 2)
+	</li>
+<li>Manufacturer Specific
+		(Version 1)
+	</li>
+</ul></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Batterietyp</td>
+<td>3  * AA</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td></td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Multilevel Sensor</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Routing Multilevel Sensor</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.8</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Erläuterung Z-Wave-spezifischer Begriffe</h3>
+<content>
+		<ul>
+		<li>
+<b>Controller</b>... ist ein Z-Wave-Gerät mit erweiterten Fähigkeiten zur Verwaltung eines Netzes. Dies sind in der Regel
+		Gateways oder Fernbedienungen. Batteriegespeiste Wandschalter können auch Controller sein. </li>
+		<li>
+<b>Slave</b>... ist ein Z-Wave-Gerät mit erweiterten Fähigkeiten zur Verwaltung eines Netzes. Es gibt Sensoren,
+		Aktoren und auch Fernbedienungen als Slaves.</li>
+		<li>
+<b>Primärcontroller <i>(engl. Primary Controller)</i></b>... ist der zentrale Netzverwalter des Z-Wave-Netzes.</li>
+		<li>
+<b>Inklusion <i>(eng. Inclusion)</i></b>... ist der Prozess des Einbindens eines neuen Gerätes ins Z-Wave-Netz.</li>
+		<li>
+<b>Exklusion <i>(engl. Exclusion)</i></b>... ist der Prozess des Entfernens eines Gerätes aus dem Z-Wave-Netz.</li>
+		<li>
+<b>Assoziation <i>(engl. Association)</i></b>... ist eine Steuerbeziehung zwischen einem steuernden und einem 
+		gesteuerten Gerät. Die Information dazu wird im steuernden Gerät in einer <b>Assoziationsgruppe</b> hinterlegt.</li>	
+		<li>
+<b>Wakeup Notifikation <i>(engl. Wakeup Notification)</i> </b>... ist eine spezielle Funknachricht, mit der ein 
+		batteriegespeistes Gerät bekanntmacht, daß es im Aufwachstatus ist 
+		und Z-Wave-Nachrichten empfangen kann.</li>
+		<li>
+<b>Node Information Frame</b>... ist eine spezielle Funknachricht, mit der ein Z-Wave-Gerät seine Geräteeigenschaften bekanntgibt.</li>		
+		</ul>
+		</content><h3 class="chapterTitle">Entsorgungshinweis</h3>
+<p>Dieses Gerät enthält Batterien. Bitte beachten Sie die gültigen Entsorgungsvorschriften für Batterien.</p>
+<content>
+ 		<p> Das ist ein elektrisches Gerät. Es kann kostenfrei bei entsprechenden Annahmestellen abgegeben werden.</p>
+ 		</content>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

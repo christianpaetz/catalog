@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/zwave.me.png"><br><h2><span class="brandName"><b>ZME_05436<br><ProductHeadline>Jalousie-Steuerungs-Set für Design Everlux</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.8</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/ZME/neue/ZME_05457.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+		<p><span class="icon_black">A</span> Dieses Gerät ist ein Z-Wave-Aktor. 
+		Nachdem der Controller in den Inklusion-Modus gesetzt wurde, bestätigt dreimal Drücken auf die 
+		Bedienwippe des Schalters die Inclusion. Eine grün leuchtende LED bestätigt den Erfolg. </p>
+</Quickstart><Quickstart>
+		<p>Nachdem Sie den Controller in den Inklusion-Modus gesetzt haben, drücken Sie dreimal hintereinander die Bedienwippe des Schalters.
+		Eine grün leuchtende LED bestätigt die erfolgreiche Inklusion des Schalter in das Netzwerk des Controllers.</p>
+	</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Der Z-Wave.Me Wandeinsatz ist ein Funk-Aktor zum Steuern von Motoren für Jalousien, Markisen oder Rollläden bis zu einer Motorleistung von 1800 W an 230 V.
+Das Gerät wird als Set mit Schalteinsatz, Bedienwippe und Montagerahmen kompatibel zur Schalterserie Everlix in Farbe weiß des Herstellers 
+REV / Duewi geliefert. Der Unterputzeinsatz kann aber auch in Wanddosen, Fehlböden oder in Lampen eingebaut werden. Eine Schaltaktion an den lokalen Tasten 
+wird zu einem eventuell vorhandenen IP-Gateway gemeldet. Die Schaltwippen können ebenfalls zum Aktivieren von Szenen in einem IP Gateway verwendet werden. Das 
+Gerät ist für ein Dreileitersystem vorgesehen, d.h. es muss zur Installation ein Neutralleiter (blau) vorhanden sein.</p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+		 <p>Das Gerät passt in standardisierte 60 mm Unterputzdosen. Nachdem der Funk-Einsatz elektrisch angeschlossen 
+		 wurde, kann er mit der Montageplatte mit Hilfe der beigelegten Schrauben auf der Wanddose fixiert werden. Der Montagerahmen
+		 wird auf die Montageplatte aufgesteckt und die Installation durch Aufdrücken der Schaltwippe vervollständigt. Bitte beachten Sie 
+		 die Einbaurichtung (Pfeil nach oben auf der Montageplatte). Der Schaltaktor kann auch ohne lokale Bedienmöglichkeit innerhalb 
+		 der Wanddose betrieben werden. Montageplatte, Rahmen und Schaltwippe sind dann unnötig. </p>
+		 <p align="center"> <img src="img/ZME/ZME_common/ZME_montage/ZME_montage_de.png" width="300" align="center"></p>
+		 <p> Die untenstehende Abbildung zeigt die elektrische Verschaltung des Aktors. Die Stromzuführung vom Schaltkasten wird auf die 
+		 Kontakte <b>N</b> und <b>L</b> gelegt. Der Kontakt <b>S</b> ist der geschaltete Kontakt, der mit dem elektrischen 
+		 Verbraucher verbunden wird. Für zweite Ableitung vom Verbraucher ist eine zweite Schaltklemme <b>N</b> vorhanden. Beide 
+		 Schaltklemmen <b>N</b> sind permanent miteinander verbunden.</p>
+		 <p align="center"> <img src="img/ZME/ZME_common/ZME_blind%20control_common/ZME_Jalousiesteuerung_common_de.png" align="middle"></p>
+		 <p> Die Elektronik des Aktors ist durch eine Feinsicherung geschützt, die über einen entsprechenden Steckkontakt
+		 zugänglich ist. In diesem Stecker befindet sich über der eigentlichen Sicherung eine Ersatzsicherung.</p>
+		 <p align="center"> <img src="img/duwfuse.png" width="300" align="middle"></p>
+ 	</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+		<p> Der Auslieferungszustand wird durch abwechselndes rot/grünes Blinken der LED angezeigt.
+ 		Die Bestätigung der <b><i>Inclusion</i> an diesem Gerät erfolgt durch schnelles dreifaches Drücken auf eine der beiden Tasten</b>.
+ 		Die erfolgreiche Inclusion wird durch eine grüne LED quittiert. Danach erlischt die LED.</p>
+   		<p>Die Bestätigung der <b><i>Exclusion</i> erfolgt an diesem Gerät durch schnelles dreifaches 
+ 		Drücken auf eine der beiden Tasten</b>.</p>
+	</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+ 		<p> Der Schalteinsatz wird über die Schaltwippen oder per Funk (Kommunikationmuster 1 und 4) geschaltet. Wenn der Schalteinsatz in 
+		der richtigen Orientierung eingebaut wurde, bewirkt der Druck auf den oberen Wippenteil das Hochfahren der Jalousie. Ein Druck auf 
+		den unteren Wippenteil führt zum Schließen der Jalousie. Durch kurzes Drücken der entgegengesetzten Richtung wird die Jalousie gestoppt. 
+		Ebenfalls möglich ist ein Drücken und Halten der Schaltwippe bis die gewünschte Position erreicht ist.</p>
+		<p> Das Gerät kann Statusänderungen an einen Controller melden (Kommunikationsmuster 2) und selbst auch andere Z-Wave-Aktoren 
+		über Funk steuern (Kommunikationsmuster 5). Wenn diese anderen Geräte ebenfalls Schaltaktoren sind, erfolgt
+		die Bedienung analog zur lokalen Bedienung. Der Aktor kann aber auch über entsprechend gesetzte Konfigurationsparameter <b>13</b>
+		und <b>14</b> entfernte Dimmer dimmen. Die Dimmfunktion wird erreicht, indem die Schaltwippe gedrückt gehalten wird. Weiterhin
+		kann der Doppelklick auf die Schaltwippe mit einer Steuerfunktion für ein oder mehrere entfernte Geräte belegt werden.</p>
+		<p>Eine Sonderfunktion kann durch Setzen des Konfigurationsparameters <b>2</b> realisiert werden. Hier wird ein geschalteter Verbraucher
+		nach einer definierten Zeit automatisch wieder ausgeschaltet.</p>
+	</Usage><h3 class="chapterTitle">Kinderschutz</h3>
+<content>
+		<p> Das Gerät verfügt über einen Kinderschutzmechanismus. Dabei wird die lokale Bedienung über Tasten gesperrt und es 
+		ist nur noch eine Bedoenung über Funk möglich.</p> 
+		</content><Protection>
+	<p>Die Aktivierung eines Kinderschutzmodus kann nur via Funk, z.B. durch eine Funkfernbedienung, erfolgen. Durch 3-maliges Drücken der Taste 
+	kann diese Sicherung deaktiviert werden. Nach 5 Sekunden ohne Aktion wird der Kinderschutzmodus automatisch wieder aktiviert.</p>
+	</Protection><h3 class="chapterTitle">Bedeutung der LED-Signale</h3>
+<LEDControl>
+	<ul>
+	<li> Rot/ Grünes Blinken: Gerät nicht programmiert</li>
+	<li> Rotes Blinken: Gerät fehlerhaft/ Konfiguration nicht erfolgreich </li>
+	<li> Grünes Blinken: Konfigurationsmodus aktiv </li>
+	<li> Grün oder kein Licht: Konfiguration erfolgreich </li>
+	</ul>
+	</LEDControl><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>
+			(max. Anzahl Geräte: 14)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+			(max. Anzahl Geräte: 14)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+			(max. Anzahl Geräte: 14)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 2)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				65535</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td>
+					(Voreingestellt 60)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 5, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td>
+					(Voreingestellt 60)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				232</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 7, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 8, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 9, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 10, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>
+					(Voreingestellt 50)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 11, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 12, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 13, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Schaltkommandos Ein und Aus mittels 'Basic' und 'SwitchMultilevel' Kommando
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Schaltkommandos Ein und Aus mittels 'Basic' Kommando</td>
+</tr>
+<tr>
+<td>2</td>
+<td>'Switch All" Kommando</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Szenenaktivierung</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 14, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Schaltkommandos Ein und Aus mittels 'Basic' und 'SwitchMultilevel' Kommando</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Schaltkommandos Ein und Aus mittels 'Basic' Kommando</td>
+</tr>
+<tr>
+<td>2</td>
+<td>'Switch All" Kommando</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Szenenaktivierung</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 15, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>255</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 16, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName"></span><span class="parameterTechnical">
+			(Parameternummer 17, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Stromversorgung</td>
+<td>230V ~50-60 Hz</td>
+</tr>
+<tr>
+<td>Schaltbare Lasten</td>
+<td> Motoren bis 1800 W</td>
+</tr>
+<tr>
+<td>Schutzklasse</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54 pl1</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Multilevel Switch</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Motor Control Class C</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.8</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

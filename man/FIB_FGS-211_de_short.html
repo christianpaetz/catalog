@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/fibaro.png"><br><h2><span class="brandName"><b>FIB_FGS-211<br><ProductHeadline>Relais Unterputzeinsatz 1 Schalter 3kW</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.3</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/FIB/FIB_FGS-211_1.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+		<p>Inklusion durch dreifachen Schaltimpuls am steuernden analogen Lichtschalter oder alternativ Einfachklick auf den 
+		kleinen Schalter am Gehäuse.</p>
+	</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+	<p>Der Fibar-Schalteinsatz für eine Last bis 3 kW ermöglicht die Nachrüstung einer Standard-Elektroinstallation zu 
+	einem intelligenten Z-Wave-basierten System. Das Gerät wird in einer Wanddose direkt hinter dem dort bereits befindlichen 
+	konventionellen Schalter platziert. Der Schalter schaltet den Verbraucher nun nicht mehr direkt, sondern liefert nur 
+	noch ein Steuersignal zum Fibar-Gerät, das wiederum den Verbraucher steuert. Diese Steuerung erfolgt entweder über den 
+	lokalen Schalter oder über Funk. Dieses Produkt funktioniert mit jeder Schalterserie und jedem Design, wenn in der 
+	Einbaudose genügend Platz zur Installation vorhanden ist. In großen 60 mm tiefen Dosen sollte dies regelmäßig der Fall 
+	sein. In kleineren Dosen (z.B. 45 mm) hängt die Einsatzmöglichkeit von der benötigten Tiefe des konventionellen Schalters 
+	sowie vom Platzbedarf der gegebenenfalls ebenfalls in der Dose befindlichen Elektroverbinder ab. Dieses Gerät ist für 
+	ein Dreileitersystem vorgesehen, dass heisst, es muss zur Installation ein Neutralleiter (blau) vorhanden sein.</p>
+	</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+		<p> Der Schalteinsatz passt in normale Europäische Wanddosen mit 60 mm Durchmesser und ist mit 15 mm Höhe sehr klein, um
+		auch hinter einen traditionellen Wandschalter montiert zu werden. Dieser Wandschalter dient dann als externer Steuerschalter
+		zum Schalter von Lasten - das Schaltrelais selbst ist im Einsatz realisiert.</p>
+		<p> Der Schalter kann direkt die 230 V Speisespannung als geschaltete Spannung abgeben oder eine zweite externe Spannung schalten. 
+		Die Schaltungen sind unten angegeben. Die Anschlussklemmen <b>N</b> und <b>L</b> werden in beiden Fällen direkt mit den Zuleitungen 
+		des Stromnetzes verbunden. Je nachdem, ob die 230 V Speisespannung des Schalters oder eine externe Spannungsquelle zum Betrieb der elektrischen
+		Last genutzt werden soll, wird entweder die 230 V Speisespannung oder die externe Spannungsquelle an die Anschlussklemme <b>I</b> gelegt.
+		Die elektrische Last wird dann entsprechend mit dem anderen Pol der 230 V Spannungsversorgnung oder mit dem zweiten Pol der zusätzlichen
+		Spannungsversorgung verbunden.</p>
+		
+		<p align="center"> <img src="img/FIB/FIB_FGS-211/FIB_FGS-211_1.png" align="middle">
+		<img src="img/FIB/FIB_FGS-211/FIB_FGS-211_2.png" align="middle">
+		</p>
+		<p> Es ist möglich aber nicht zwingend notwendig, eine lokale Bedienung des Schalters durch einen direkt auf die Wanddose installierten 
+		traditionellen Schalter zu realisieren. Dazu dienen die Anschlussklemmen <b>S1 und S2 </b>.</p>
+		<p> Die lokale Steuerung kann durch einen einfachen Kippschalter (bistabil), einen Doppelkippschalter (bistabil), einen einfachen Taster 
+		(monostabil) oder einen Doppeltaster (monostabil) erfolgen. Der angeschlossene Schaltertyp muss nach der Inklsuion über das Setzen des 
+		Konfigurationsparameter 14 gewählt werden. Die Werkseinstellung lautet auf Taster. Der lokale Steuerschalter wird wie in den oben angegebenen
+		Schaltungen an den Schalter angeschlossen. Sollte ein bistabiler Schalter angeschlossen werden, muss der Schalter ausgeschaltet bleiben, solange
+		der Dimmer nicht in das Z-Wave Netz inkludiert wurde.</p>
+		
+		<p> Es ist ebenfalls möglich, einen Doppelschalter zur lokalen Steuerung zu verwenden. In diesem Falle wird die zweite Schaltwippe nur zur 
+		Funksteuerung verwendet und hat keine lokale Funktion. Die untenstehenden Schaltpläne zeigen der Verdrahtung in diesem Falle mit 230 V Netzspeisung 
+		oder unter Verwendung einer alternativen Stromquelle.</p>
+		<p align="center"> <img src="img/FIB/FIB_FGS-211/FIB_FGS-211_3.png" align="middle">
+		<img src="img/FIB/FIB_FGS-211/FIB_FGS-211_4.png" align="middle"></p>
+	</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+ 		<p> Das Gerät wird durch <b>dreifachen Schaltimpuls am steuernden analogen Lichtschalter oder alternativ durch Einfachklick auf den 
+		kleinen Schalter am Gehäuse </b>inkludiert oder exkludiert, je nachdem, ob sich der entsprechende Controller im Inklusion-Modus
+		oder Exklusion-Modus befindet. </p>
+	</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+ 		<p> Der Schalteinsatz ermöglicht das Schalten verschiedener Typen von elektrischen Lasten. Ein lokale angeschlossener konventioneller Schalter
+ 		kann den Schalter direkt bedienen. Ist dieser Schalter ein konventioneller Tastschalter, wird mit jedem Tastimpuls der Schalter entweder 
+ 		ein- oder ausgeschaltet. Bei Kipptastern erfolgt die Bedienung genauso, nur dass der Schalter nach betätigtem Schaltimpuls manuell wieder
+ 		in den Ausgangszustand AUS gesetzt werden muss.</p>
+ 		<p> Der Schalteinsatz kann seinen Status an einen Controller senden (Kommunikationsart 2) und andere Aktoren steuern (Kommunikationsart 5).
+ 		Eine Steuerung des Schalters ist von jedem Z-Wave Gerät aus möglich (Kommunikationsarten 1,4 und 7). Ein eventuell vorhandener zweiter Schalter
+ 		dient <b>nicht</b> der Steuerung des lokalen Schalters, sondern nur der Fernsteuerung von anderen Aktoren nach Kommunikationsart 5. </p>
+	</Usage><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>externer Schalter 1
+			(max. Anzahl Geräte: 16)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>externer Schalter 2
+			(max. Anzahl Geräte: 16)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+			(max. Anzahl Geräte: 1)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Alles-Aus-Steuerung</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Verhalten bei Alles-AUS- und Alles-AN-Befehlen </span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>weder AUS noch EIN werden ausgeführt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nur AUS wird ausgeführt</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Nur EIN wird ausgeführt</td>
+</tr>
+<tr>
+<td>255</td>
+<td>sowohl AUS als EIN werden ausgeführt
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Automatisches Abschalten nach definierter Zeit</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription">Ermöglicht eine automatische Abschaltfunktion nach einer in Parameter 4 festgelegten Zeit</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Aktiviert
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Deaktiviert</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Automatische Abschaltzeit</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription">definiert die Zeit, nach der bei gesetztem Parameter 3 das Relais ausgeschaltet wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				255</td>
+<td>ms
+					(Voreingestellt 200)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Kommandos die an Assoziationsgruppe 1 gesendet werden</span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 1)
+		</span><span class="parameterDescription">Legt fest, welche Schaltoperation andere Geräte in Assoziationsgruppen steuert. Um die Doppelklcikfunktion zu unterstützen, muss Parameter 15 auf den Wert 1 gesetzt werden.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>sowohl Einschalten als auch Ausschalten senden ein Funkkommando
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Das Ausschalten sendet ein Funkkommando. Ein Doppelklick führt zum Einschalten aller Geräte, Dimmer kehren zu ihrem letzten Zustand zurück.  </td>
+</tr>
+<tr>
+<td>2</td>
+<td>Das Ausschalten sendet ein Funkkommando. Ein Doppelklick führt zum Einschalten aller Geräte, Dimmer dimmen auf 100 %.  </td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Bistabiler Schalter</span><span class="parameterTechnical">
+			(Parameternummer 13, Parametergröße 1)
+		</span><span class="parameterDescription">Typ des angeschlossenen bistabilen Schalters</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>EIN/AUS werden entsprechend dem angeschossenen Schalterzustand gesetzt
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>EIN is aktiv, wenn der Schalter geschlossen ist, AUS ist aktiv, wenn der Schalter ausgeschaltet ist</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Schaltertyp</span><span class="parameterTechnical">
+			(Parameternummer 14, Parametergröße 1)
+		</span><span class="parameterDescription">definiert den Typ des verwendeten Schalters</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Monostabiler Schalter
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bistabiler Schalter</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Sichern des letzten Schaltzustandes</span><span class="parameterTechnical">
+			(Parameternummer 16, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Verhalten nach Wiedereinschalten des Stromes</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Keine Rückkehr zum alten Schaltzustand
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Rückkehr zum alten Schaltzustand</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 1 bei Allgemeinem Alarm</span><span class="parameterTechnical">
+			(Parameternummer 30, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 1 bei Allgemeinem Alarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 1 bei WasserAlarm</span><span class="parameterTechnical">
+			(Parameternummer 31, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 1 bei Wasserschadens-Alarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 1 bei Rauchmelder-Alarm</span><span class="parameterTechnical">
+			(Parameternummer 32, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 1 bei Rauchmelder-Alarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 1 bei Temperatur-Alarm</span><span class="parameterTechnical">
+			(Parameternummer 33, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 1 bei TemperaturAlarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Zeitdauer des Alarms</span><span class="parameterTechnical">
+			(Parameternummer 39, Parametergröße 2)
+		</span><span class="parameterDescription">definiert die Länge eines Alarmzustandes</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				20000</td>
+<td>Sekunden 
+					(Voreingestellt 600)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 2 bei Allgemeinem Alarm</span><span class="parameterTechnical">
+			(Parameternummer 40, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 2 bei Allgemeinem Alarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 2 bei WasserAlarm</span><span class="parameterTechnical">
+			(Parameternummer 41, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 2 bei Wasserschadens-Alarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 2 bei Rauchmelder-Alarm</span><span class="parameterTechnical">
+			(Parameternummer 42, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 2 bei Rauchmelder-Alarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten des Relais 2 bei Temperatur-Alarm</span><span class="parameterTechnical">
+			(Parameternummer 43, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltverhaltens des Relais 2 bei TemperaturAlarm</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert- Schalter reagiert nicht auf Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td> Schalter schalter AUS bei Alarm
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td> Schalter schalter EIN bei Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalter erzeugt 10 Minuten lang Blinken bei Alarm</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Stromversorgung</td>
+<td>230V ~50-60 Hz</td>
+</tr>
+<tr>
+<td>Schaltbare Lasten</td>
+<td> 16 A (3500 kW), geringer bei stark induktiver oder kapazitiver Last </td>
+</tr>
+<tr>
+<td>Schutzklasse</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.52</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Switch</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Binary Power Switch</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.3</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

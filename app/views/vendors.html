@@ -1,0 +1,9 @@
+<!-- Home view -->
+<div ng-controller="VendorsController" id="page_vendors">
+    <div class="page-header"><h1>{{_t('Vendor')}}</h1></div>
+    <div class="row">
+        <div class="col-lg-2" data-ng-repeat="v in vendors|unique: ZManufacturersName | filter:query">
+            <a href="#products/vendor/{{v.name}}" class="vendor-list"><img src="{{v.image}}" width="100" alt="{{v.name}}"/></a>
+         </div>
+    </div>
+</div>

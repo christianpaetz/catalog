@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/fibaro.png"><br><h2><span class="brandName"><b>FIB_FGFS-101<br><ProductHeadline>Flood Sensor</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 23.23</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/FIB/FIB_FGFS-101.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+<p><span class="icon_black">S</span> This device is a Z-Wave Sensor. Inclusion, Exclusion and wakeup are confirmed by triple clicking the Z-Wave button inside the case.</p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The Fibaro Flood Sensor will alert you of a threatening flood or a rapid temperature rise or drop and has a wide variety of additional functions. Thanks to its flexible gold telescopic probes the device can even work on uneven surfaces. 
+The Flood Sensor has a built in alarm siren which will help you to react quickly in case of a flood, rapid temperature change or the attempt to tamper with it. Aside from the alarm siren, the device can alert you of a threat using colour displays 
+from the built in RGB diode. In addition to this a tilt sensor will detect tilt and movement over 15 degrees and send out a report to the main controller. The built in temperature sensor can not only be used to serve as a fire alarm sensor, 
+it may also be used to manage an in-floor heating system.</p>
+<p>The Input terminal allows you to connect an external probe and install the sensor in any location. The Output terminal allows for a connection to an alarm system. The Sensor will work on 12 or 24V DC or battery.</p>
+</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+	<p align="center"> <img src="img/FIB/FIB_FGFS-101/FIB_FGFS-101_b.png" width="900" align="middle"></p>
+	<p>There are two powering modes for the Fibaro Flood Sensor, <b>battery</b> or <b>mains current</b>. By default it's powered by a factory included battery. In addition it can work with a constant current, after connecting a 12 / 24V DC power supply to +12 
+	and GND terminals. Powering mode configuration is carried out automatically, while a sensor is being included into the Z-Wave network. When battery powered, a Fibaro Flood Sensor communicates with a Z-Wave network main controller periodically. 
+	Detected alarms are sent immediately, but configuration parameters and associations settings only at specified wake up intervals, or at a manual wake up (button triple click). In DC powering mode, configuration and associations parameters are sent 
+	when necessary, and in addition a sensor serves as a Z-Wave signal repeater.</p>
+	<p>Switching to a constant current powering mode:</p>
+	<ul>
+	<li>Exclude a sensor from the Z-Wave network.</li>
+	<li>Connect constant current power source (12 / 24 VDC) to +12 and GND terminals observing wiring (figure 1).</li>
+	<li>Include the Fibaro Flood Sensor into the Z-Wave network.</li>
+	</ul>
+	<p>In constant powering mode a sensor may operate without a battery. Installing a battery is recommended though, as it will serve as an emergency power source. When constant power fails, sensor will automatically shift to an emergency mode. 
+	All reports, including flood and temperature, will be sent immediately, but it will not be possible to modify the configuration or association settings until constant power returns. If a sensor served as a signal repeater for other Z-Wave devices, 
+	in emergency mode signal repeating function will be deactivated.</p>
+	<p><b>Note:</b> Fibaro Flood Sensor will automatically exit emergency mode once 12/24 VDC at +12 and GND terminals is detected and the device wakes up after detecting an event, i.e. flood alarm, temperature report, tilt, or manual wake up using button.</p>
+	<p align="center"> <img src="img/FIB/FIB_FGFS-101/FIB_FGFS-101_a.png" width="450" align="middle"></p>
+	<p>The Flood Sensor can also be used with an additional extended wire for the water sensor. Drill a hole into the casing and connect the wire as shown in figure 2.</p>
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+	<p>Make sure that your Z-Wave Controller is in the Inclusion-/Exclusion-Mode. Tripple click the Z-Wave button inside the case to confirm the process.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+	<p>Fibaro Flood Sensor has two sensors built in - flood and temperature sensors, meaning it's a multichannel device. In the Z-Wave network's main controller the Sensor will be shown as two devices.</p>
+	<p>Through an association Fibaro Flood Sensor may control another Z-Wave network device, e.g. a Dimmer, Relay Switch, Roller Shutter, RGBW Controller, Wall Plug, or a scene (scene only through the Home Center 2 main controller).</p>
+	<p>Fibaro Flood Sensor allows for the associations of three groups.</p>
+	<p><b>1-st Association Group is assigned to the device status</b> - sending the BASIC SET (default) or ALARM control frame to the associated devices.</p>
+	<p><b>2-nd Association Group is assigned to a TMP button and tilt sensor</b> - ALARM GENERIC control frame will be sent to the associated devices in case a TMP button is released or a tilt sensor triggered (depending on parameter 74 settings).</p>
+	<p><b>3-rd Association Group reports the device status and allows for assigning single device only</b> (the main controller by default - the device reports its status to the main controller).</p>
+	<p>Fibaro Flood Sensor allows for controlling 5 regular and 5 multichannel devices per an association group, out of which 1 field is reserved for the Z-Wave network main controller.</p>
+	<p><b>Z-Wave Range Test</b></p>
+	<p>Fibaro Flood Sensor has a built in Z-Wave network range test for the main controller. Follow the instruction to test the main controller's range:</p>
+	<ul>
+	<li>Press and hold a TMP button for 10 - 15 seconds, until a LED indicator colour changes to violet.</li>
+	<li>Release the TMP button.</li>
+	<li>Click the TMP button again.</li>
+	<li>LED indicator will signal the Z-Wave network range (see description below).</li>
+	<li>To exit the Range Tester click the TMP button.</li>
+	</ul>
+	<p>Z-Wave Range Tester signaling modes:</p>
+	<p><b>LED Indicator pulsing green</b> - Fibaro Flood Sensor attempts to directly communicate with the main controller. If the direct communication attempt fails, the sensor will try routed communication, through other devices, which will be signaled 
+	with LED Indicator blinking yellow.</p>
+	<p><b>LED Indicator glowing green</b> - Fibaro Flood Sensor directly communicating with the main controller.</p>
+	<p><b>LED Indicator pulsing yellow</b> - Fibaro Flood Sensor tries to establish routed connection with the main controller, through intermediary devices.</p>
+	<p><b>LED Indicator glowing yellow</b> - Fibaro Flood Sensor communicates with the main controller through other, intermediary devices. After two seconds the Sensor will retry to directly connect to the main controller, which will be signaled with the 
+	Indicator pulsing green.</p>
+	<p><b>LED Indicator pulsing violet</b> - Fibaro Flood Sensor communicates at the range limit. If connection proves successful it will be confirmed with a yellow glow. It's not recommended to use the sensor at the range limit.</p>
+	<p><b>LED Indicator glowing red</b> - Fibaro Flood Sensor unable to connect to the main controller directly or through another Z-Wave network nodes.</p>
+</Usage><h3 class="chapterTitle">Wakeup Intervals - how to communicate with the device?</h3>
+<content>
+ 		<p><span class="icon_white">W</span> This device is battery operated and turned into deep sleep state most of the time to save battery life time.  
+ 		Communication with the device is limited. In order to communicate with the device, a static controller <b>C</b>
+ 		is needed in the network. This controller will maintain a mailbox for the battery operated devices and store 
+ 		commands that can not be received during deep sleep state.
+		Without such a controller, communication may become impossible and/or the battery life time is significantly decreased. </p>
+		<p>This device will wakeup regularly and announce the wakeup state by sending out a so called Wakeup Notification.
+		The controller can then empty the mailbox. Therefore, the device needs to be configured with the desired wakeup 
+		interval and the node ID of the controller. If the device was included by a static controller this 
+		controller will usually perform all necessary configurations. The wakeup interval is a tradeoff between maximal 
+		battery life time and the desired responses of the device. </p>
+		</content><Wakeup>
+	<p>Tripple click on the Z-Wave button inside the case will wake up the device.</p>
+</Wakeup><small><procontent>
+		<p>It is possible to set the node ID to 255 to send wakeup notifications as broadcast. In this mode device takes more time to go 
+		to sleep and drains battery faster, but can notify all it's direct neighbors about a wakeup. </p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+	<p>Tripple click on the Z-Wave button inside the case or a detection by one of the sensors will send a Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">LED Control</h3>
+<LEDControl>
+	<p>Fibaro Flood Sensor is equipped with a LED diode, signaling sensor's operating modes and alarms. In addition the LED indicator may inform of the Z-Wave network range and the current temperature.</p>
+	<p>LED indicator signaling modes:</p>
+	<ul>
+	<li>Flood alarm is signaled with alternating white and blue light.</li>
+	<li>In battery powering mode, with parameter no.63 set to 1, LED indicator will periodically show temperature readouts (depending on parameters 50, 51, 61 and 62 settings).</li>
+	<li>In constant powering mode, the current temperature readouts will be continuously signaled with a colour depending on the parameters 50, 51, 61 and 62 settings.</li>
+	<li>
+<p>Currently chosen MENU position is signaled with an illumination colour. Press and hold the TMP button for at least 3 seconds to enter MENU. Inside MENU, each of the positions will be signaled by another LED colour:</p>
+	<p>WHITE - entering MENU confirmation.</p>
+	<p>GREEN - cancel alarm for associated devices.</p>
+	<p>PINK - Z-Wave network's range test.</p>
+	<p>YELLOW - sensor reset.</p>
+</li>
+	</ul>
+</LEDControl><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Flood Alarm with BASIC SET
+			(max. nodes in group: 5)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tilt Sensor alarm and TMP button events
+			(max. nodes in group: 5)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>reports device status
+			(max. nodes in group: 1)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Alarm cancellation delay</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 2)
+		</span><span class="parameterDescription">Delays flood alarm cancelation for the device after flooding has ceased</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0
+				—
+				3600</td>
+<td>delay in seconds (each 1s);
+0 (no delay, immediate alarm cancelation)
+					(Default 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Acoustic and visual signals On / Off in case of flooding</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 1)
+		</span><span class="parameterDescription">parameter allows for LED indicator and acoustic alarm deactivation in case of
+flooding detection</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>acoustic and visual alarms inactive</td>
+</tr>
+<tr>
+<td>1</td>
+<td>acoustic alarm inactive, visual alarm active</td>
+</tr>
+<tr>
+<td>2</td>
+<td>acoustic alarm active, visual alarm inactive</td>
+</tr>
+<tr>
+<td>3</td>
+<td>acoustic and visual alarms active
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Type of alarm frame sent to 1-st association group (FLOOD)</span><span class="parameterTechnical">
+			(Parameter Number 5, Parameter Size 1)
+		</span><span class="parameterDescription">parameter determines a type of command frame sent by the Sensor in case
+flooding has been detected or cancelled</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>ALARM WATER command frame</td>
+</tr>
+<tr>
+<td>129</td>
+<td>BASIC SET command frame
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Forced dimming level sent to 1-st association group devices</span><span class="parameterTechnical">
+			(Parameter Number 7, Parameter Size 1)
+		</span><span class="parameterDescription">Forced dimming level / roller blind opening level, when sending turn on /
+open</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				99</td>
+<td>1-99 (or 255)
+					(Default 99)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Alarm cancelling or turning a device off (Basic) command frame deactivation</span><span class="parameterTechnical">
+			(Parameter Number 9, Parameter Size 1)
+		</span><span class="parameterDescription">Allows for deactivating device turn off and alarm cancellation functions for the
+devices assigned to 1-st association group</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Alarm (flooding) cancellation inactive
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Alarm (flooding) cancellation active</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Temperature measurement interval</span><span class="parameterTechnical">
+			(Parameter Number 10, Parameter Size 2)
+		</span><span class="parameterDescription">Time interval, in seconds, between consecutive temperature measurements</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				32767</td>
+<td>Time interval in seconds
+					(Default 300)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Temperature measurement hysteresis</span><span class="parameterTechnical">
+			(Parameter Number 12, Parameter Size 2)
+		</span><span class="parameterDescription">Determines a minimum temperature change value (insensitivity level), resulting in
+a temperature report being sent</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				1000</td>
+<td>each 0,01°C;
+(default 50 = 0,5°C)
+					(Default 50)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Alarm BROADCAST</span><span class="parameterTechnical">
+			(Parameter Number 13, Parameter Size 1)
+		</span><span class="parameterDescription">Value other than 0 means alarms are sent in BROADCAST mode (with a priority
+over other communicates), to all devices within the Sensor’s range</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>broadcasts inactive
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>flood (1-st Association Group) broadcast active; tamper (2-nd Association
+Group) broadcast inactive</td>
+</tr>
+<tr>
+<td>2</td>
+<td>flood broadcast inactive; tamper broadcast active</td>
+</tr>
+<tr>
+<td>3</td>
+<td>flood broadcast active; tamper broadcast active</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Low temperature alarm threshold</span><span class="parameterTechnical">
+			(Parameter Number 50, Parameter Size 2)
+		</span><span class="parameterDescription">parameter stores a temperature value, below which LED indicator blinks with
+a definable colour</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>55536
+				—
+				10000</td>
+<td>value 1500 (15,00°C)</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">High temperature alarm threshold</span><span class="parameterTechnical">
+			(Parameter Number 51, Parameter Size 2)
+		</span><span class="parameterDescription">parameter stores a temperature value, above which LED indicator blinks with
+a definable colour</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>55536
+				—
+				10000</td>
+<td>value 3500 (35,0°C)</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Low temperature alarm indicator LED colour</span><span class="parameterTechnical">
+			(Parameter Number 61, Parameter Size 4)
+		</span><span class="parameterDescription">Parameter stores RGB colour value</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0
+				—
+				16777215</td>
+<td>255 (blue 0x000000FF)
+					(Default 255)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">High temperature alarm indicator LED colour</span><span class="parameterTechnical">
+			(Parameter Number 62, Parameter Size 4)
+		</span><span class="parameterDescription">Parameter stores RGB colour value</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0
+				—
+				16777215</td>
+<td>16711680 (red 0x00FF0000)
+					(Default 16711680)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Managing a LED indicator under standard operation</span><span class="parameterTechnical">
+			(Parameter Number 63, Parameter Size 1)
+		</span><span class="parameterDescription">Parameter determines LED indicator’s operation. Set to 0 turns the indicator off,
+saving a battery life</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>LED indicator doesn’t indicate the temperature</td>
+</tr>
+<tr>
+<td>1</td>
+<td>LED indicator indicates the temperature (blink) every Temperature
+Measurement Interval (Parameter 10, constant current and battery) or Wake
+Up Interval (battery mode)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LED indicator indicates the temperature continuously, only in constant power
+mode
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Temperature measurement compensation</span><span class="parameterTechnical">
+			(Parameter Number 73, Parameter Size 2)
+		</span><span class="parameterDescription">Parameter stores a temperature value to be added to or deducted from the current
+temperature measured to compensate temperature deflection</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>55536
+				—
+				10000</td>
+<td></td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Alarm frame sent to 2-nd Association Group activation</span><span class="parameterTechnical">
+			(Parameter Number 74, Parameter Size 1)
+		</span><span class="parameterDescription">parameter to device wich sensors send Alarm to 2. association group</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>tamper alarms inactive</td>
+</tr>
+<tr>
+<td>1</td>
+<td>button tamper alarm active</td>
+</tr>
+<tr>
+<td>2</td>
+<td>movement tamper alarm active
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>3</td>
+<td>button and movement tampers alarm active</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Visual and audible alarms duration</span><span class="parameterTechnical">
+			(Parameter Number 75, Parameter Size 2)
+		</span><span class="parameterDescription">parameter determines a time period after which visual and audible alarm will become “quiet”</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0
+				—
+				32767</td>
+<td>value of 0 means visual and acoustic alarms are active indefinitely
+					(Default 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Alarm frame / Basic Set frame retransmission time when retaining flood alarm</span><span class="parameterTechnical">
+			(Parameter Number 76, Parameter Size 2)
+		</span><span class="parameterDescription">Parameter determines a time period after which an alarm frame will be retransmitted</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0
+				—
+				32767</td>
+<td>value of 0 cancels an alarm frame retransmission
+					(Default 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Flood sensor functionality turned off</span><span class="parameterTechnical">
+			(Parameter Number 77, Parameter Size 1)
+		</span><span class="parameterDescription">Allows for turning off the internal flood sensor. Tamper and built in temperature
+sensor will remain active.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Default flood sensor operation (flood detection, reactions)
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Built in flood sensor TURNED OFF (doesn’t change its state in the main
+controller, doesn’t send Alarms and Basic Set frames with flood state changes.
+Always visible in the main controller as turned off)</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>IP Rating</td>
+<td></td>
+</tr>
+<tr>
+<td>Battery Type</td>
+<td>1  * CR123A</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.55</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Alarm Sensor</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Routing Alarm Sensor</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>No</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>23.23</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

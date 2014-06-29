@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/Philio.png"><br><h2><span class="brandName"><b>PHI_PAN11<br><ProductHeadline>Z-Wave Schuko-Zwischenstecker mit Strommessfunktion</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.1</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/PHI/PHI_PAN11.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">A</span> Dieses Gerät ist ein Z-Wave-Aktor. Die Inklusion und Exklusion wird durch dreifaches Klicken auf die ON/ OFF-Taste bestätigt.
+Direkt nach dem Anstecken bleibt das Gerät für 4 Minuten im Auto-Inklusion-Modus.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Der PAN11 ist ein Zwischenstecker Schalter, der zwischen Schuko-Steckdosen und über Kabel angeschlossenen elektrischen Verbrauchern mit einer ohmschen Last bis 
+3000W eingesetzt wird. Zusätzlich ist dieser intelligente Plug-in-Schalter in der Lage, 
+die Spannung, Strom, Leistungsfaktor, die elektrische Leistung des Verbrauchers - in Watt - zu messen sowie den aktuellen Stromverbrauch - in kWh - zu zählen
+Eine mögliche Überlastung (bei 3010 ~ 3300W) des angeschlossenen elektrischen Gerätes wird erkannt und die Last abgeschaltet. Diese Abschaltung wird
+30 Sekunden lang durch eine blinkende LED angezeigt.</p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+	<p align="center"> <img src="img/PHI/PHI_PAN11/PHI_PAN11_de.png" width="300" align="middle"></p>
+	<p>An der Forderseite des Gerätes befindet sich der An/Aus Schalter mit integrierter LED Anzeige. Mit dem Schalter kann Inklusion, Exklusion, Assoziation und Zurücksetzen bestätigt werden. Wird das Gerät erstmalig in Betrieb genommen, blinkt die LED 
+	mit 2-Sekunden Intervall an und aus. Das zeigt an, dass das Gerät in keine Z-Wave Netz inkludiert ist, und noch mit keiner Node ID verbunden ist.</p>
+	<p><b>Auto Inklusion</b></p>
+	<p>Die Auto Inklusion startet automatisch, wenn das Gerät in keinem Z-Wave Netz inkludiert ist, und mit Netzspannung versorgt wird. Dabei wird aller 5 Sekunden ein Node Information Frame ausgesendet. Die Auto Inklusion endet nach 4 Minuten. Im 
+	Gegensatz zur normalen Inklusion, muss bei der Auto Inklusion nicht der An/Aus Schalter betätigt werden. Wenn die Auto Inklusion beendet ist, kann das Gerät weiterhin normal manuell inkludiert werden.</p>
+	<p><b>Achtung: </b>Verwenden Sie das Gerät nicht in feuchten oder staubigen Umgebungen und setzen Sie es nicht direktem Sonnenlicht aus. Die normale Umgebungstemperatur ist 0°C - 40°C. Verwenden Sie das Gerät nicht in der Nähe von leicht entflammbaren 
+	Materialien und Hitzequellen. Während der Benutzung kann das Gerät etwas warm werden.</p>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+	<p>Zur Bestätigung von Inklusion und Exklusion wird die An/Aus Taste dreimal schnell hintereinander gedrückt. Direkt nach dem Anstecken bleibt das Gerät für 4 Minuten im Auto-Inklusion-Modus.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+	<p>	<p><b>Manuelle Bedienung</b></p>
+	<ul>
+	<li>Stecken sie den Zwischenstecker in eine Steckdose in der Nähe des zu schaltenden Gerätes.</li>
+	<li>Schließen Sie die Last an den Zwischenstecker an. Stellen Sie sicher, dass die Leistungsaufnahme des Gerätes 3000 Watt nicht überschreitet.</li>
+	<li>Schalten Sie das Gerät an.</li>
+	<li>Für die manuelle Bedienung drücken Sie den An/Aus Taster am Zwischenstecker. Die LED leuchtet und das angeschlossene Gerät wird angeschaltet.</li>
+	<li>Um das Gerät wieder auszuschalten, drücken Sie erneut den An/Aus Taster. Die LED geht aus und das angeschlossene Gerät wird ausgeschaltet.</li>
+	</ul></p>
+	<p><b>Bedienung per Funk</b></p>
+	<p>Das Gerät lässt sich mit Z-Wave Controllern von jedem Hersteller bedienen. Sie können Assoziationen erstellen, und andere Z-Wave Geräte wie Sensoren den Zwischenstecker schalten lassen.</p>
+	<p>Der Zwischenstecker kann die aktuell verbrauchte Leistung in Watt (5 - 3150W) und Überlast (3010 - 3300W) messen und anzeigen. Wenn eine Überlastung festegstellt wird, lässt sich das Gerät nicht mehr manuell bedienen und die LED beginnt schnell zu 
+	blinken. Um den Zwischenstecker wieder verwenden zu können, trennen Sie ihn vom Netz und schließen alle Geräte erneut an.</p>
+</Usage><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Das dreimalige schnelle Drücken der An/Aus Taste führt zum Aussenden eines Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>Wenn die Leistungsaufnahme mehr als 5% schwankt sendet das PAN11 einen Meter Report. Wenn sich der An/Aus-Status ändert sendet das PAN11 einen Binary Switch Report.
+			(max. Anzahl Geräte: 1)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Zeitinterval für einen automatischen Report des Stromverbrauches</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 2)
+		</span><span class="parameterDescription">Wird ein Wert von 720 eingestellt, so meldet das PAN11 jede Stunde den momentan Stromverbrauch an den Z-Wave Controller.
+
+Einheit: 5 Sekunden</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				32767</td>
+<td>720 * 5 Sekunden = 3600 Sekunden = 1 Stunde 
+					(Voreingestellt 720)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Zeitinterval für einen automatischenReport der elektr. Arbeit (kWh)</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 2)
+		</span><span class="parameterDescription">Wird ein Wert von 6 eingestellt, so meldet das PAN11 jede Stunde die innerhalb einer Stunde aufgenommen Leistung (KW/h) an den Z-Wave Controller.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				32767</td>
+<td>6  * 10 Minuten = 1 Stunde
+					(Voreingestellt 6)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Threshold of Watt for Load caution</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 2)
+		</span><span class="parameterDescription">Übersteigt die Wattleistung den hier festgelegten Wert, so sendet das PAN11 einen Alarm Report an den Z-Wave Controller.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>10
+				—
+				3000</td>
+<td>Wattzahl Schwellenwert
+					(Voreingestellt 3000)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Schwellwert zum Erkennen der Überlastsituation</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 2)
+		</span><span class="parameterDescription">Übersteigt die innerhalb einer Stunde aufgenommen Leistung den hier festgelegten Wert, so sendet das PAN11 einen Alarm Report an den Z-Wave Controller.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				10000</td>
+<td>KWh Schwellenwert
+					(Voreingestellt 10000)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Schutzklasse</td>
+<td>IP ‚20</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Switch</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Binary Power Switch</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.1</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

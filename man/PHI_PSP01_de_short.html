@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/Philio.png"><br><h2><span class="brandName"><b>PHI_PSP01<br><ProductHeadline>Z-Wave 3 in 1 Sensor (Bewegung, Helligkeit, Temperatur)</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.0</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/PHI/PHI_PSP01.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">S</span> Dieses Gerät ist ein Z-Wave-Sensor. Die Inklusion und Exklusion wird durch dreifaches Klicken auf des Manipulationsschutz-Tasters auf der Rückseite des Gerätes bestätigt.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Der Z-Wave 3 in 1 Sensor ist mit drei verschiedenen Sensoren ausgestattet:</p>
+<ul>
+<li>PIR/Bewegungsmelder</li>
+<li>Temperatur</li>
+<li>Lichtsensor</li>
+</ul>
+<p>Der Detektor kann als ein Sicherheitsgerät oder zur Heimautomatisierung genutzt werden. Als Sicherheitsgerät kann der Detektor Veränderungen der Infrarot-Strahlungsmenge wahrnehmen. Wenn sich eine Person im Sichtfeld befindet oder sich durch dieses 
+bewegt, wird ein Funksignal abgegeben um einen Alarmzustand zu signalisieren um damit Einbrecher abzuschrecken. Alternativ kann der Detektor als Z-Wave Controller fungieren und er kann so konfiguriert werden, dass er sowohl Veränderungen der 
+Infrarot-Strahlungsmenge, als auch die Lichtstärke misst. Wenn die Nacht hereinbricht, ist die Lichtstärke der Umgebung geringer als der Standardwert. Wenn sich jetzt eine Person durch das Sichtfeld des Sensors bewegt, wird ein Funksignal übertragen, 
+um die verbundenen Lampen anzuschalten um für bessere Beleuchtung zu sorgen. Jedes Mal wenn der PIR Sensor auslöst, sendet der Sensor auch Temperatur und Helligkeitswerte.</p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+	<p align="center"> <img src="img/PHI/PHI_PSP01/PHI_PSP01_de.png" width="700" align="middle"></p>
+	<ul>
+	<li>Öffnen Sie das Gehäuse indem Sie die Gehäusevorderseite abnehmen.</li>
+	<li>Legen Sie die mitgelieferte CR123A Batterie in das Batteriefach, und schließen Sie das Gerät wieder.</li>
+	<li>Befestigen Sie das Gerät mit Hilfe der Schrauben oder des doppelseitigen Klebebandes in einer Höhe von ca. 2m. Um sicherzustellen, dass das Gerät seine volle Funktionsfähigkeit erbringen kann, bringen Sie das Gerät in eine Position, die eine 
+	große Reichweite im Raum ermöglicht.</li>
+	</ul>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+	<p>Zur Bestätigung von Inklusion und Exklusion wird der Manipulationsschutz-Taster auf der Rückseite des Gerätes dreimal schnell hintereinander gedrückt.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+	<p>Der Bewegungsmelder sendet ein Funksignal bei erkannter Bewegung. Nachdem das Gerät in Betrieb genommen wurde, benötigt es einige Minuten, bis es voll einsatzbereit ist und Bewegungen richtig erkennt.</p>
+	<p>Der Multisensor ist mit einem Schutzschalter ausgestattet, der beim Entfernen des Gerätes einen Alarm auslöst.</p>
+</Usage><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Das dreimalige schnelle Drücken des Manipulationsschutz-Tasters auf der Rückseite des Gerätes führt zum Aussenden eines Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Gruppe 1 ist für empfang der Reports wie ausgelöster Event, Temperatur, Helligkeit usw.
+			(max. Anzahl Geräte: 7)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Gruppe 2 ist für Lichtsteuerung, das Gerät sendet “Basic Set” Kommandos zu dieser Gruppe
+			(max. Anzahl Geräte: 7)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Basic Set Level</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 1)
+		</span><span class="parameterDescription">Setzt des Basic Command Wertes um Licht zu schalten</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>255</td>
+<td>0xFF(-1) schaltet Licht ein.
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>Für Dimmer 1 bis 100 Beleuchtungsstärke</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">PIR Empfindlichkeit</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription">Parameter um die Empfindlichkeit des PIR (Passiv Infrarot Sensor) festzulegen</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 bedeutet PIR deaktiviert; </td>
+</tr>
+<tr>
+<td>1
+				—
+				99</td>
+<td>1 geringste Empfindlichkeit; 99 höchste Empfindlichkeit
+					(Voreingestellt 70)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Licht Grenzwert</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription">Grenzwert, bei dem das Licht bei ausgelöstem Event in Abhängigkeit von der Umgebungshelligkeit geschaltet wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 bedeutet Helligkeitsabhängiges Einschalten deaktiviert;  Licht nie einschalten. </td>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>1 dunkelste Stufe. 99 hellste Stufe. 100 bedeutet Helligkeitsabhängiges Einschalten deaktiviert; Licht immer einschalten
+					(Voreingestellt 99)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Operations Modus</span><span class="parameterTechnical">
+			(Parameternummer 5, Parametergröße 1)
+		</span><span class="parameterDescription">Parameter zum Festlegen der Funktionsweise</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				127</td>
+<td>Bit 0: 1 Security Modus aktiviert 0 Home Automation Modus aktiviert.
+Bit 1: 1 Test Modus aktiviert; 0 Test Modus deaktiviert
+Bit 2: reserviert, immer 1.
+Bit 3: Festlegen der Temperatureinheit; 0: Fahrenheit, 1:Celsius
+Bit 4: Deaktivieren des Beleuchtungs-Reports nach einem ausgelösten Event.
+Bit 5: Deaktivieren des Temperatur-Reports nach einem ausgelösten Event.
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Multi-Sensor Funktionsschalter</span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 1)
+		</span><span class="parameterDescription">Parameter zum Festlegen der Sensor-Funktionen</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				127</td>
+<td>Bit 0: reserviert, immer 1.
+Bit 1: deaktiviert die integrierte PIR Beleuchtung.
+Bit 2: reserviert, immer 1.
+Bit 3: reserviert.
+Bit 4: reserviert.
+Bit 5: reserviert.
+Bit 6: aktiviert Temperatur Messung. Wenn aktiviert wird bei Temperaturänderung von 3° ein Temperatur-Report gesendet. Ebenfalls wird ein Temperatur-Report (aller 64 Sekunden) gesendet, wenn diese über 140° Fahrenheit steigt.
+					(Voreingestellt 4)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">PIR Intervall Zeit für erneutes Erkennen</span><span class="parameterTechnical">
+			(Parameternummer 8, Parametergröße 1)
+		</span><span class="parameterDescription">Im Security Modus, nach Erkennung des Bewegungssensors, festlegen der Zeit zum erneuten Erkennen</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>3
+				—
+				127</td>
+<td>8 Sekunden pro Tick, minimale Verzögerung 24 Sekunden (3 Ticks = 24 Sekunden).
+					(Voreingestellt 3)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Ausschaltzeit Beleuchtung</span><span class="parameterTechnical">
+			(Parameternummer 9, Parametergröße 1)
+		</span><span class="parameterDescription">Nach Aktivieren der Beleuchtung, Verzögerung bis Beleuchtung wieder deaktiviert wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>4
+				—
+				127</td>
+<td>8 Sekunden pro Tick, minimal 32 Sekunden, Standard 4 Ticks = 32 Sekunden
+					(Voreingestellt 4)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Auto Report Batterie Zeit</span><span class="parameterTechnical">
+			(Parameternummer 10, Parametergröße 1)
+		</span><span class="parameterDescription">Intervall-Zeit für automatischen Report des Batterie-Status</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				127</td>
+<td>30 Minuten pro Tick, minimal 30 Minuten, Standard sind 12 Ticks = 6 Stunden
+					(Voreingestellt 12)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Auto Report Helligkeit Zeit</span><span class="parameterTechnical">
+			(Parameternummer 12, Parametergröße 1)
+		</span><span class="parameterDescription">Intervall-Zeit für automatischen Report des Helligkeits-Status</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				127</td>
+<td>30 Minuten pro Tick, minmal 30 Minuten, Standard sind 12 Ticks = 6 Stunden
+					(Voreingestellt 12)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Auto Report Temperatur Zeit</span><span class="parameterTechnical">
+			(Parameternummer 13, Parametergröße 1)
+		</span><span class="parameterDescription">Intervall-Zeit für automatischen Report des Temperatur-Status</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				127</td>
+<td>30 Minuten pro Tick, minimal 30 Minuten, Standard 12 Ticks = 6 Stunden
+					(Voreingestellt 12)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Batterietyp</td>
+<td>1  * CR123A</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Sensor</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Routing Binary Sensor</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.0</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

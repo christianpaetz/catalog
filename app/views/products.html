@@ -1,0 +1,32 @@
+<!-- Home view -->
+<div ng-controller="ProductsController" id="page_products">
+    <div class="page-header row">
+        <div class="col-md-6"><h1>{{_t(headline)}}</h1></div>
+        <div class="input-group col-md-6 search-form">
+            <input type="text" ng-model="q" class="form-control">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
+    </div>
+    
+    <div ng-switch on="pageType">
+      <div ng-switch-when="vendors" class="perex"><div ng-include="'app/views/vendor.html'"></div></div>
+      <div ng-switch-when="categories" class="perex" ng-bind-html="pageDescription | stripTags | unsafeHtml"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6" dir-paginate="v in products | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+            <div class="product-list _thumbnail">
+                <a href="#product/{{v.TechData.ZProductsSku}}">
+                        <img src="images/products/md/{{v.ZProductImage}}"  class="img-responsive_"  height="130" alt="{{v.ZProductHeadline}}"/>
+                    </a>
+                <div class="list-info">
+                    <h3><a href="#product/{{v.TechData.ZProductsSku}}">{{v.ZProductHeadline}}</a></h3>
+                    <div class=" text-bottom">{{_t('SKU')}}: {{v.TechData.ZProductsSku}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+         <dir-pagination-controls boundary-links="true"></dir-pagination-controls>
+    </div>
+</div>

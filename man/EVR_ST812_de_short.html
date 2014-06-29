@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/everspring.png"><br><h2><span class="brandName"><b>EVR_ST812<br><ProductHeadline>Z-Wave Wassersensor</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.3</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/EVR/EVR_ST812.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">S</span>Dieses Gerät ist ein Z-Wave Sensor. Drücken Sie zum Inkludieren, Exkludieren und Aufwecken des
+Gerätes drei Sekunden die Inklusions-/Exklusionstaste hinter der Wandhalterung.
+</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>Der Wassersensor kann Wasserstand oder Überflutung von Räumen, Behältern oder Schwimmbecken erkennen. Er verfügt über einen Messfühler, der bis zu 3 m vom eigentlichen Gerät entfernt angebracht werden 
+kann und per Kabel mit dem Gerät verbunden ist. Die Montage von Hauptgerät und Messfühler erfolgt mittels Schrauben oder Kleber. Der Sensorzustand kann an einen Controller gemeldet werden oder andere Z-Wave Geräte 
+- wie z.B. das Licht - werden direkt vom Wassersensor gesteuert. Diese Geräte müssen dazu mit dem Sensor assoziiert werden. Der Sensor ist ein batteriebetriebenes Gerät. Die Batterien können gewechselt werden, 
+ohne dass die Befestigung des Gerätes gelöst werden muss. Das Gerät verfügt zusätzlich über eine Manipulationssicherung, die bei unbefugter Entfernung des Gerätes einen Alarm sendet.</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+	<p align="center"> <img src="img/EVR/EVR_ST812/EVR_ST812_a.png" width="300" align="middle"></p>
+	<p>1. Lösen Sie die Verriegelungsschrauben an der Rückseite des Gerätes und entfernen Sie die Wandhalterung sowie die Batterieabdeckung.</p>
+	<p>2. Legen Sie die 3 * AA 1.5V Batterien, wie auf der Abbildung zu sehen, in das Batteriefach ein.</p>
+	<p>3. Zur Befestigung verwenden Sie die Befestigungsplatte und die mitgelieferten Schrauben.</p>
+	<p>4. Schließen Sie Batteriefach und Wandhalterung wieder mit den Verriegelungsschrauben.</p>
+	<p align="center"> <img src="img/EVR/EVR_ST812/EVR_ST812_b.png" width="500" align="middle"></p>
+	<p>Installieren Sie das Gerät auf einer ebenen und glatten Oberfläche. Das Kabel des Messfühler hat eine Länge von 3 Metern. Rollen Sie überschüssiges Kabel zusammen, und befestigen Sie es mit Kabelbinder. Das Hauptgerät
+	sollte im Raum so hoch wie möglich angebracht werden, um die Kommunikation zu verbessern und das Gerät vor Wasser zu schützen.</p>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+	<p>Bringen Sie den Controller in den Inklusion-/Exklusion-Modus. Drücken Sie zum Bestätigen des Inklusion-/ Exklusion-Prozesses drei Sekunden den Z-Wave Taster 
+	hinter der Wandhalterung des Gerätes.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+<p align="center"> <img src="img/EVR/EVR_ST812/EVR_ST812_c_de.png" width="800" align="middle"></p>
+<ol>
+	<li>Wenn der Sensor Wasser registriert, blinkt die LED einmal kurz pro Minute und piept für 30 Sekunden. Optional sendet das Gerät zeitgleich ein Signal zum Z-Wave Controller oder einem anderen assoziierten Gerät. Im 
+	Normal-Mode kann der Sensor einmal pro Minute ausgelöst werden, um Fehlalarm zu vermeiden.</li>
+	<li>Wenn das Wasser wieder entfernt wird, leuchet die grüne LED einmal kurz auf. Optional wird ein Signal an den Z-Wave Controller oder ein anderes assoziiertes Gerät gesendet.</li>
+	<li>Wenn die Batterieladung unter einen gewissen Punkt fällt, blinkt die rote LED einmal aller 30 Sekunden und optional wird ein Signal an den Z-Wave Controller gesendet. In diesem Fall 
+	tauschen Sie die Batterien, wie in der Anleitung beschrieben, umgehend aus.</li>
+</ol>
+</Usage><h3 class="chapterTitle">Kommunikation mit einem batteriebetriebenen Gerät</h3>
+<content>
+ 		<p> <span class="icon_white">W</span> Das Gerät ist batteriegespeist und damit in der Regel in einem Tiefschlafmodus um Strom zu sparen. Im Tiefschlafmodus 
+ 		kann das Gerät keine Funksignale empfangen. Daher wird ein (statischer) Controller benötigt, der netzgespeist und damit 
+ 		immer funkaktiv ist.  Dieser Controller - zum Beispiel ein IP-Gateway - 
+ 		verwaltet eine Nachrichten-Mailbox für dieses batteriegespeiste Gerät, in dem Nachrichten an dieses Gerät 
+ 		zwischengespeichert werden.
+ 		Ohne einen solchen statischen Controller wird die Nutzung dieses batteriebetriebenen Gerätes sehr schnell
+ 		zur Entladung der Batterie führen oder die Nutzung ist komplett unmöglich.</p>
+		<p>Dieses Gerät weckt regelmäßig auf, meldet dies durch Aussenden einer sogenannten Wakeup-Notifikation und leert dann seine Mailbox 
+		im statischen Controller. Dafür muss bei der Inclusion die Node-ID des Controllers 
+		und ein Aufweckinterval definiert werden. Erfolgt die Inklusion durch einen statischen Controller wie zum Beispiel ein IP-Gateway, wird dieser Controller
+		diese Konfiguration automatisch erledigen und in der Regel eine Nutzerschnittstelle anbieten, um das Aufweckinterval den Nutzerbedürfnissen anzupassen.
+		Das Aufweckinterval ist ein Kompromiss zwischen maximaler Batterielaufzeit und minimaler Reaktionszeit des batteriegespeisten Gerätes.  
+		</p>
+		</content><Wakeup>
+	<p>Durch Drücken der In-/Exklusiontaste hinter der Wandhalterung für drei Sekunden oder das Aktivieren des Sensors wird das Gerät aufgeweckt und kann Netzwerkbefehle erhalten.</p>
+</Wakeup><small><procontent>
+		<p>Es ist möglich die Gerätenummer 255 als Zielgerät für die Wakeup-Notifikation anzugeben. In diesem Falle wird die Nachricht
+		als Broadcast an alle Geräte mit direkter Funkverbindung gesendet. Dem Vorteil der sofortigen Benachrichtigung steht
+		als Nachteil gegenüber, das das Gerät gegebenenfalls mehr Zeit im aktiven Modus und damit mehr Batterieladekapazität verbraucht.</p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Drücken der In-/Exklusiontaste hinter der Wandhalterung für drei Sekunden oder das Aktivieren des Sensors führt zum Senden eines Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>Geräte, die durch Kommandos  des Sensors gesteuert werden
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Batterietyp</td>
+<td>1  * CR2</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>5.02 pl2</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Sensor</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Routing Binary Sensor</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.3</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

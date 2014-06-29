@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/fibaro.png"><br><h2><span class="brandName"><b>FIB_FGBS-001<br><ProductHeadline>Universal Binärsensor</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 3.49</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/FIB/FIB_FGBS-001.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">A</span> Dieses Gerät ist ein Z-Wave Aktor. Der Dreifachklick auf die Taste 'B' am Gerät 
+bestätigt die Inklusion und Exklusion.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Der Z-Wave Universalsensor mit Binäreingang ist ein kabelloses Modul, zur Verbesserung der Funktionalität 
+elektrischer Geräte mit ON-/ OFF-Schalter oder einem Binärausgang, indem es sie mit dem drahtlosen Z-Wave-Netzwerk 
+verbindet. Das Gerät besitzt <b> zwei Binäreingänge </b> und bis zu <b> vier DS18B20 Temperatursonden</b>.
+Zudem kann das Gerät <b> bis zu zwei externe digitale </b> Eingänge steuern (max. bis 150mA).
+Der Sensor wurde dafür konzipiert, in das Gehäuse anderer Geräte eingebaut zu werden und dort mit 9 - 30V DC Strom 
+versorgt zu werden.
+</p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+<img src="img/FIB/FIB_FGBS-001/FIB_FGBS321_1_en.png" width="500" align="middle">
+<p>
+<img src="img/FIB/FIB_FGBS-001/FIB_FGBS321_3_en.png" width="500" align="middle">
+
+<b>Erläuterung der Kabelbezeichnungen </b>
+<ul>
+<li>P (POWER), Stromversorgungskabel, rot</li>
+<li>GND (Ground), Erdungskabel, blau</li>
+<li>OUT1, Ausgang Nr. 1, zugeteilt zu Eingang IN1</li>
+<li>OUT2, Ausgang Nr. 2, zugeteilt zu Eingang IN2</li>
+<li>TP (TEMP_POWER), Stromversorgungskabel zum DS18B20 Temperatursensor, braun</li>
+<li>TD (TEMP_DATA), Signalkabel zum DS18B20 Temperatursensors, weiss</li>
+<li>ANT, Antenne, schwarz</li>
+<li>OUT1, Ausgang Nr. 1 -  zugeteilt zu Eingang IN1</li>
+<li>OUT2, Ausgang Nr. 2 -  zugeteilt zu Eingang IN2</li>
+<li>B, Bedientaste</li>
+</ul>
+</p>
+<p>
+<img src="img/FIB/FIB_FGBS-001/FIB_FGBS321_4_en.png" width="500" align="middle">
+<p> Die externen Temperatursensoren DS18B20 werden wie in der Abbildung dargestellt mit dem Gerät verbunden.
+Das nachfolgende Bild zeigt wie ein solcher externer Schalter oder externer Sensor mit den Anschlüssen verbunden wird.
+</p>
+<img src="img/FIB/FIB_FGBS-001/FIB_FGBS321_5_en.png" width="500" align="middle">
+</p>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+<p>Der Dreifachklick auf die Taste 'B' am Gerät bestätigt die Inklusion und Exklusion.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+<p>Ein Dreifachklick auf die Taste 'B' am Gerät führt zum Senden eines Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Eingang IN1
+			(max. Anzahl Geräte: 1)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Eingang IN2
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Report des Gerätestatus
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Alarmverzögerung für Alarm durch Eingang 1</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 2)
+		</span><span class="parameterDescription">Es kann festgelegt werden, nach welcher Zeit Ein Signal am Eingang 1 einen Alarm auslösen soll. Verschwindet
+        die Alarmbedingung in dieser Zeit, wird kein Alarm ausgelöst.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				32000</td>
+<td>Sekunden
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Alarmverzögerung für Alarm durch Eingang 2</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 2)
+		</span><span class="parameterDescription">Es kann festgelegt werden, nach welcher Zeit Ein Signal am Eingang 2 einen Alarm auslösen soll. Verschwindet
+        die Alarmbedingung in dieser Zeit, wird kein Alarm ausgelöst.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				32000</td>
+<td>Sekunden
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Art des Eingangssignals 1</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>INPUT_NO (normaler Öffner)
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>INPUT_NC (normaler Schließer)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>INPUT_MONOSTABLE (Monostabil)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>INPUT_BISTABLE (bistabil)</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Art des Eingangssignals 2</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>INPUT_NO (normaler Öffner)
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>INPUT_NC (normaler Schließer)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>INPUT_MONOSTABLE (Monostabil)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>INPUT_BISTABLE (bistabil)</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Art der Alarmmeldung für Eingang 1</span><span class="parameterTechnical">
+			(Parameternummer 5, Parametergröße 1)
+		</span><span class="parameterDescription">erlaubt die Art der Alarmmeldung des Einganges 1 zu spezifizieren.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Allgemeiner Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Rauchalarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Kohlenmonoxid-Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kohlendioxid.Alarm</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Überhitzungs-Alarm</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Überflutungsalarm</td>
+</tr>
+<tr>
+<td>255</td>
+<td>BASIC SET Kommando
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Art der Alarmmeldung für Eingang 2</span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 1)
+		</span><span class="parameterDescription">erlaubt die Art der Alarmmeldung des Einganges 2 zu spezifizieren.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Allgemeiner Alarm</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Rauchalarm</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Kohlenmonoxid-Alarm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kohlendioxid.Alarm</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Überhitzungs-Alarm</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Überflutungsalarm</td>
+</tr>
+<tr>
+<td>255</td>
+<td>BASIC SET Kommando
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Dimmer/Motorsteuerung Niveau bei Alarmsteuerung am Eingang 1</span><span class="parameterTechnical">
+			(Parameternummer 7, Parametergröße 1)
+		</span><span class="parameterDescription">
+Im Alarmfall wird eine Alarmmeldung ausgesendet und es kann ein Aktor geschaltet werden. Für Dimmer und 
+Jalousiecontroller kann definiert werden, auf welches Dimmerniveau oder welche Motorposition der Aktor 
+gesteuert werden soll
+</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				99</td>
+<td>Dimming-Niveau</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Einschalten
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Dimmer/Motorsteuerung Niveau bei Alarmsteuerung am Eingang 2</span><span class="parameterTechnical">
+			(Parameternummer 8, Parametergröße 1)
+		</span><span class="parameterDescription">
+Im Alarmfall wird eine Alarmmeldung ausgesendet und es kann ein Aktor geschaltet werden. Für Dimmer und 
+Jalousiecontroller kann definiert werden, auf welches Dimmerniveau oder welche Motorposition der Aktor 
+gesteuert werden soll
+</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				99</td>
+<td>Dimming-Niveau</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Einschalten
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Senden einer Alarmdeaktivierungsnachricht</span><span class="parameterTechnical">
+			(Parameternummer 9, Parametergröße 1)
+		</span><span class="parameterDescription">
+Es wird definiert, das Verschwinden der Alarmbedingung zum erneuten Schalten eines Aktors oder zum Aussenden einer Alarmdeaktivierungsnachricht führen soll
+</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Information wird gesendet an Gruppe 1 und Gruppe 2
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Information wird nicht gesendet für Gruppe 2 und gesendet für Gruppe 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Information wird nicht gesendet für Gruppe 1 und gesendet für Gruppe 2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Information wird nicht gesendet</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Interval des periodischen Erfassens aller Temperaturwerte  </span><span class="parameterTechnical">
+			(Parameternummer 10, Parametergröße 1)
+		</span><span class="parameterDescription"> </span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				255</td>
+<td>Sekunden
+					(Voreingestellt 20)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Schwellwert zum Aussenden eines Temperatur-Reports</span><span class="parameterTechnical">
+			(Parameternummer 12, Parametergröße 1)
+		</span><span class="parameterDescription">
+Es wird die Abweichung der gemessenen Temperatur zur letzten per Funk gesendeten Temperatur definiert, die zu einem erneuten Report der Temperatur an die Geräte in Assoziationsgruppe 3 führt. Ist der Wert = Null, wird ein Temperatur mindestens aller 4 Minuten oder bei jedem Aufweckintervall gesendet.
+</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				255</td>
+<td>1/16 Kelvin
+					(Voreingestellt 8)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Sendemodus für Alarm-Nachricht</span><span class="parameterTechnical">
+			(Parameternummer 13, Parametergröße 1)
+		</span><span class="parameterDescription">
+Definiert, wie Alarmmeldungen gesendet werden. Nachrichten im Broadcast Mode werden von allen umgebenden Geräten empfangen jedoch nicht geroutet.
+</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>IN1 und IN2 Broadcast inaktiv
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>IN1 Broadcast aktiv, IN2 Broadcast inaktiv</td>
+</tr>
+<tr>
+<td>2</td>
+<td>IN1 Broadcase inakiv und IN2 Broadcast aktiv</td>
+</tr>
+<tr>
+<td>3</td>
+<td>IN1 und IN2 Broadcast aktiv</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Szenenaktivierungsoption </span><span class="parameterTechnical">
+			(Parameternummer 14, Parametergröße 1)
+		</span><span class="parameterDescription">
+von "AUS" nach "EIN" generiert id 10, von "EIN" nach "AUS" generiert id 11, Taste gedrückt halten generiert id 12, Loslassen generiert id 13, Doppelklick generiert id 14, Dreifachklick generiert id 15: Achtung: Szenenaktivierung entlädt die Batterie schneller.
+</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Aktiviert</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Schutzklasse</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.53</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Sensor</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Routing Binary Sensor</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>3.49</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

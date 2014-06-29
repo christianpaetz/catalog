@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/Vision.png"><br><h2><span class="brandName"><b>VIS_ZD2102<br><ProductHeadline>Tür- und Fenstersensor</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 4.84</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/VIS/ZD2102.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+ 	<p><span class="icon_black">S</span> Dieses Gerät ist ein Z-Wave-Sensor.
+ 	Drücken Sie zum Inkludieren oder Exkludieren des Gerätes den Manipulationssicherungsschalter hinter der Batterieabdeckung. Das Öffnen 
+der Abdeckung weckt das Gerät auf und hält es im Wachzustand.</p>
+	</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Dieser Sensor liefert Informationen, ob ein Fenster oder eine Tür offen oder geschlossen ist. Das Gerät besteht aus einem Magneten, 
+der an dem beweglichen Teil des Fensters oder der Tür angebracht ist sowie dem Hauptgerät, das auf den feststehenden Teil montiert werden kann. 
+Die Montage erfolgt mit Schrauben oder mit doppelseitigem Klebeband. Der ZD2102 ist ein batteriebetriebenes Gerät. Die Batterien können gewechselt 
+werden, ohne dass die Befestigung des Gerätes gelöst werden muss. Das Gerät verfügt zusätzlich über eine Manipulationssicherung, die bei unbefugter 
+Entfernung des Gerätes einen Alarm an den Controller sendet. Der Tür/ Fenstersensor ZD2102 kann über Z-Wave den Sensorzustand an einen Controller 
+melden oder andere Z-Wave Geräte direkt in Abhängigkeit vom Sensorzustand steuern. Die zu steuernden Geräte müssen dazu mit dem Sensor assoziiert 
+werden. Bis zu vier Z-Wave Geräte können mit dem ZD2102 assoziiert werden. </p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+ <p>1. Lösen Sie die Schraube an der Abdeckung und schieben Sie die Abdeckung nach unten.</p> 
+	<p> 2. Legen Sie die CR123A Batterie in die Batteriefassung. Die LED wird beginnen langsam zu leuchten.
+	Dies bedeutet, dass das Gerät noch nicht in das Z-Wave Netzwerk inkludiert ist.</p> 
+	<p align="center"> <img src="img/VIS/VIS_ZD2102/VIS_ZD2102_de.png" width="500" align="middle"></p>	
+	<p>3. Für die Montage des Sensors befestigen Sie die Abdeckung mittels der Schrauben oder doppelseitigem Klebeband am zu öffnenden Teil des 
+	Fensters oder der Tür.  
+	<p align="center"> <img src="img/VIS/VIS_ZD2102/VIS_ZD2102_2_de.png" width="500" align="middle"></p>
+	</p>
+	</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+ 		<p><b>Setzen Sie den Controller in den Inklusions-/ Exklusion-Modus. Durch Drücken des Manipulationssicherungsschalters für eine Sekunde bestätigen 
+		Sie die Inklusion and Exklusion des Gerätes.</b></p>
+	</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+<p> Immer, wenn das Fenster oder die Tür, an der der Sensr installiert ist, geöffnet oder geschlossen
+wird, sender der Sensor ein entsprechendes Funksignal aus. </p>
+</Usage><h3 class="chapterTitle">Kommunikation mit einem batteriebetriebenen Gerät</h3>
+<content>
+ 		<p> <span class="icon_white">W</span> Das Gerät ist batteriegespeist und damit in der Regel in einem Tiefschlafmodus um Strom zu sparen. Im Tiefschlafmodus 
+ 		kann das Gerät keine Funksignale empfangen. Daher wird ein (statischer) Controller benötigt, der netzgespeist und damit 
+ 		immer funkaktiv ist.  Dieser Controller - zum Beispiel ein IP-Gateway - 
+ 		verwaltet eine Nachrichten-Mailbox für dieses batteriegespeiste Gerät, in dem Nachrichten an dieses Gerät 
+ 		zwischengespeichert werden.
+ 		Ohne einen solchen statischen Controller wird die Nutzung dieses batteriebetriebenen Gerätes sehr schnell
+ 		zur Entladung der Batterie führen oder die Nutzung ist komplett unmöglich.</p>
+		<p>Dieses Gerät weckt regelmäßig auf, meldet dies durch Aussenden einer sogenannten Wakeup-Notifikation und leert dann seine Mailbox 
+		im statischen Controller. Dafür muss bei der Inclusion die Node-ID des Controllers 
+		und ein Aufweckinterval definiert werden. Erfolgt die Inklusion durch einen statischen Controller wie zum Beispiel ein IP-Gateway, wird dieser Controller
+		diese Konfiguration automatisch erledigen und in der Regel eine Nutzerschnittstelle anbieten, um das Aufweckinterval den Nutzerbedürfnissen anzupassen.
+		Das Aufweckinterval ist ein Kompromiss zwischen maximaler Batterielaufzeit und minimaler Reaktionszeit des batteriegespeisten Gerätes.  
+		</p>
+		</content><Wakeup>
+ 		<p><b> Das Öffnen der Abdeckung und somit Betätigen des Manipulationssicherungsschalters weckt das Gerät auf und hält es im Wachzustand.</b></p>
+ 	</Wakeup><small><procontent>
+		<p>Es ist möglich die Gerätenummer 255 als Zielgerät für die Wakeup-Notifikation anzugeben. In diesem Falle wird die Nachricht
+		als Broadcast an alle Geräte mit direkter Funkverbindung gesendet. Dem Vorteil der sofortigen Benachrichtigung steht
+		als Nachteil gegenüber, das das Gerät gegebenenfalls mehr Zeit im aktiven Modus und damit mehr Batterieladekapazität verbraucht.</p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Ein Druck auf den Manipulationssicherungsschalter führt zum Senden eines Node Information Frame.</p>
+	</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>BASIC Kommando bei erkannter Öffnung
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Schutzklasse</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Batterietyp</td>
+<td>1  * C123A</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Sensor</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Routing Binary Sensor</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>4.84</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

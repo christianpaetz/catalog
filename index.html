@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Z-Wave</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Bootstrap css -->
+        <link media="screen" type="text/css" rel="stylesheet" href="app/css/bootstrap/bootstrap.css">
+        <!-- Z-Wave css -->
+        <link media="screen" type="text/css" rel="stylesheet" href="app/css/main.css">
+         <link media="screen" type="text/css" rel="stylesheet" href="app/css/main-responsive.css">
+        <!-- Font awesome css -->
+        <link media="screen" type="text/css" rel="stylesheet" href="app/css/font-awesome-4.1.0/css/font-awesome.min.css">
+        <!-- jQuery js -->
+        <script src="app/vendor/jquery/jquery-1.11.1.js"></script>
+        <!-- Angular js -->
+        <script src="app/vendor/angular/angular-1.2.14/angular.js"></script>
+        <script src="app/vendor/angular/angular-1.2.14/angular-route.js"></script>
+        <script src="app/vendor/angular/angular-1.2.14/angular-resource.js"></script>
+        <script src="app/vendor/angular/angular-1.2.14/angular-cookies.js"></script>
+        <!-- Bootstrap js -->
+        <script src="app/vendor/bootstrap/bootstrap.js"></script>
+        <!-- Z-Wave app js -->
+        <script src="app/core/app.js"></script>
+        <script src="app/core/config.js"></script>
+        <script src="app/core/lang.js"></script>
+        <script src="app/vendor/pagination/dir-pagination.js"></script>
+         <script src="app/core/factories.js"></script>
+        <script src="app/core/filters.js"></script>
+         <script src="app/core/directives.js"></script>
+        <script src="app/core/controllers.js"></script>
+    </head>
+    <body ng-app="angApp" ng-controller="BaseController">
+        <div class="navbar navbar-inverse __navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="app/images/z-wave-logo-white.png" class="header-logo" alt="Z-Wave"/>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" id="main_nav">
+                         <li class="divider-vertical remove-margin"></li>
+                        <li><a href="#products" class="navigation-selector"><i class="fa fa-star fa-2x"></i> <span class="hide-navi-text">{{_t('Products')}}</span></a></li>
+                         <li class="divider-vertical remove-margin"></li>
+                        <li><a href="#vendors" class="navigation-selector"><i class="fa fa fa-tags fa-2x"></i> <span class="hide-navi-text">{{_t('Vendor')}}</span></a></li>
+                         <li class="divider-vertical remove-margin"></li>
+                        <li><a href="#categories" class="navigation-selector"><i class="fa fa-folder-open fa-2x"></i> <span class="hide-navi-text">{{_t('Categories')}}</span></a></li>
+                         <li class="divider-vertical remove-margin"></li>
+                         <li><a href="#products/zwaveplus/1" class="navigation-selector"><i class="fa fa-plus-square fa-2x"></i> <span class="hide-navi-text">{{_t('Z-Wave Plus')}}</span></a></li>
+                          <li class="divider-vertical remove-margin"></li>
+                        <li><a href="#manual" class="navigation-selector"><i class="fa fa-file-text fa-2x"></i> <span class="hide-navi-text">{{_t('Manual')}}</span></a></li>
+                         <li class="divider-vertical remove-margin"></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{download}}" class="navigation-selector"><i class="fa fa-download fa-2x"></i></a></li>
+                        <li class="divider-vertical remove-margin"></li>
+                        <li class="lang-switch"><a href="" class="navigation-selector" ng-click="changeLang('en')"><img src="app/images/en.png" alt="en"/></a></li>
+                        <li class="lang-switch"><a href="" class="navigation-selector" ng-click="changeLang('de')"><img src="app/images/de.png" alt="de"/></a></li>
+                    </ul>
+                </div> <!-- /.navbar-collapse -->
+            </div> <!-- /.container -->
+        </div> <!-- /.navbar --> 
+
+        <!-- Ang Container -->
+        <div id="respone_container" style="display: none;"></div>
+        <div id="main_content" class="container" ng-view></div>
+        <div class="clearfix"></div>
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted">
+                    <a href="#home" class="navigation-selector"><i class="fa fa-home fa-2x"></i></a>
+                    <a href="#products" class="navigation-selector"><i class="fa fa-star fa-2x"></i></a>
+                   <a href="#vendors" class="navigation-selector"><i class="fa fa fa-tags fa-2x"></i></a>
+                   <a href="#categories" class="navigation-selector"><i class="fa fa-folder-open fa-2x"></i></a>
+                   <a href="#products/zwaveplus/1" class="navigation-selector"><i class="fa fa-plus-square fa-2x"></i></a>
+                   <a href="#manual" class="navigation-selector"><i class="fa fa-file-text fa-2x"></i></a>
+                   
+                   
+                </p>
+            </div>
+        </div>
+
+    </body>
+</html>

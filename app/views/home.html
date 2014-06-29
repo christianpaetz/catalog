@@ -1,0 +1,53 @@
+<!-- Home view -->
+<div ng-controller="HomeController">
+    <!-- <div class="page-header"><h1>Home</h1></div>-->
+    <div class="row home-page">
+        <div class="col-sm-6 home-page-image">
+            <img src="app/images/z-wave-homepage.png" alt="Z-Wave"/>
+        </div>
+        <div class="col-sm-6 home-page-text">
+            <ul class="list-group media">
+                <li class="list-group-item">
+                    <div class="media">
+                        <a class="pull-left" href="#products"><i class="fa fa-star fa-3x"></i></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#products">{{_t('Products')}}</a></h4>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="media">
+                        <a class="pull-left" href="#vendor"><i class="fa fa fa-tags fa-3x"></i></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"> <a href="#vendors">{{_t('Vendor')}}</a></h4>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="media">
+                        <a class="pull-left" href="#categories"><i class="fa fa-folder-open fa-3x"></i></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#categories">{{_t('Categories')}}</a></h4>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="media">
+                        <a class="pull-left" href="#products/zwaveplus/1"><i class="fa fa-plus-square fa-3x"></i></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"> <a href="#products/zwaveplus/1">{{_t('Z-Wave Plus')}}</a></h4>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="media">
+                        <a class="pull-left" href="#manual"><i class="fa fa-file-text fa-3x"></i></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#manual">{{_t('Manual')}}</a></h4>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

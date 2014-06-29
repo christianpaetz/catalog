@@ -1,0 +1,10 @@
+<!-- Vendor detail view -->
+<div class="row clearfix">
+    <div class="col-md-4">
+        <img src="{{vendorImage}}" width="180" alt="Everspring">
+    </div>
+    <div class="col-md-8">
+        <div ng-if="vendorDescription" ng-bind-html="vendorDescription | stripTags | unsafeHtml"></div>
+        <p ng-if="vendorUrl"><a href="{{vendorUrl}}"><i class="fa fa-external-link-square"></i> {{vendorUrl}}</a></p>
+    </div>
+</div>

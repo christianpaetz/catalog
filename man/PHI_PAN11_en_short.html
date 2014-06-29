@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/Philio.png"><br><h2><span class="brandName"><b>PHI_PAN11<br><ProductHeadline>Z-Wave Schuko Plug-in Switch plus Power Meter</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.1</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/PHI/PHI_PAN11.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+<p><span class="icon_black">A</span> This device is a Z-Wave Actor. Tripple click the button on the device confirms the inclusion, exclusion and association.  
+After plugging in it will stay in auto inclusion mode for 4 minutes.</p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The PAN11 is a Plug-in switch, which can be placed between a wall outlet for Schuko plug and electric devices with a resistive load up to 
+3000W, plugged in by cord. In addition, this intelligent plug-in switch is able to detect the voltage, the power factor, the current amd measure 
+the electric power taken by this load (in Wh) as well as meter the electrical energy consumed (in kWh). It will also detect a 
+possible overload (3010 ~ 3300W) of the connected electrical device. When detecting an overload, the module 
+is deactivated and the LED will flash for 30 seconds.</p>
+</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+	<p align="center"> <img src="img/PHI/PHI_PAN11/PHI_PAN11_en.png" width="300" align="middle"></p>
+	<p>In the front casing there is an On/Off button with LED indicator, which is used to toggle switch on and off or carry out inclusion, exclusion, reset or association. When first powered, the LED flashes on and off alternately at a 2-seconds interval. 
+	It implies that it is not included in a Z-Wave network and has not been assigned a node ID.</p>
+	<p><b>Auto Inclusion</b></p>
+	<p>The auto inclusion starts when the switch is not included into a Z-Wave network and plugged into a wall outlet. Auto inclusion timeout is 4 minutes during the node information frame will be emitted once every 5 seconds. Unlike the normal inclusion 
+	it is not necessary pressing the On/Off button on the switch. If auto inclusion exceeds the timeout you have to include the device manually.</p>
+	<p><b>Note: </b>Do not locate the switch facing direct sunlight, humid or dusty places. The suitable ambient temperature for the switch is 0°C - 40°C. Do not locate the switch near to combustible substances or any source of heat. After putting it into 
+	use, the casing of the switch will become a little bit warm.</p>
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+	<p>Tripple Click the button on the device confirms inclusion and exclusion. After plugging in it will stay in auto inclusion mode for 4 minutes.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+	<p>	<p><b>Manual Operation</b></p>
+	<ul>
+	<li>Plug the device into a wall outlet near the load to be controlled.</li>
+	<li>Plug the load into the switch. Make sure the load to be controlled cannot exceed 3000 watts.</li>
+	<li>Press the button or switch the load to the ON position.</li>
+	<li>To manually turn ON the switch, press and release the On/Off button. The LED will turn on, and the load plugged into the switch will also turn on.</li>
+	<li>To manually turn OFF the switch, simply press and release the On/Off button again. The LED will turn off and the load plugged into the switch will also turn off.</li>
+	</ul></p>
+	<p><b>Remote Operation</b></p>
+	<p>Remote On/Off control of the switch is possible with any manufacturer's Z-Wave controller. Further you can set associations to let your device controlled by other Z-Wave devices like sensors.</p>
+	<p>The switch is able to detect the current wattage (5 - 3150W) and overload wattage (3010 - 3300W) of connected ligths or appliances. When detecting overload state, the switch will be disabled and its On/off button will be locked and the LED will flash 
+	quickly. However unplug and reconnect the switch to reset its overload condition to normal status.</p>
+</Usage><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+	<p>Tripple click the button on the device sends out a Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>When the power consumption of load vary over 5%, the PAN11 will send a Meter Report. When "on" or "off" state has been changed, it will send Binary Switch Report.
+			(max. nodes in group: 1)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Watt Meter Report Period</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 2)
+		</span><span class="parameterDescription">If  the  setting  is  configured for  1hour  (set  value  =720),  the  PAN11  will  report  its instant  power  consumption every  1  hour  to  Z-Wave Controller.
+
+Unit: 5 seconds</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				32767</td>
+<td>720 * 5s = 3600s = 1 hour
+					(Default 720)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">KWH Meter Report  Period</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 2)
+		</span><span class="parameterDescription">If  the  setting  is  configured for  1hour  (set  value  =6), the  PAN11  will  report  its Accumulated Power Consumption (KW/h) every hour to Z-Wave Controller. 
+
+Unit: 10min</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				32767</td>
+<td>6 * 10min = 1hour
+					(Default 6)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Threshold of Watt for Load caution</span><span class="parameterTechnical">
+			(Parameter Number 3, Parameter Size 2)
+		</span><span class="parameterDescription">This is a warning when the wattage of load over the preset threshold value, if the load wattage exceeds the setting value the PAN11 
+will send a warning alarm command to the controller.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>10
+				—
+				3000</td>
+<td>wattage threshold value
+					(Default 3000)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Threshold of KWh for Load caution</span><span class="parameterTechnical">
+			(Parameter Number 4, Parameter Size 2)
+		</span><span class="parameterDescription">This is a warning when the KWh of load over the preset threshold value, if the Accumulated Power Consumption exceeds the setting value the PAN11 
+will send a warning alarm command to the controller.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				10000</td>
+<td>KWh threshold value
+					(Default 10000)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>IP Rating</td>
+<td>IP20</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Binary Switch</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Binary Power Switch</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.1</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

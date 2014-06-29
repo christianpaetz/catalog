@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/Hunter-Douglas.png"><br><h2><span class="brandName"><b>HDL_DBMZ<br><ProductHeadline>Blind Control 24V DC</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 2.1</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/HDL/HDL_DBMZ.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+<p><span class="icon_black">A</span> This is a Z-Wave actuator. A short push on the 'LEARN' button
+confirms Inclusion and Exclusion. This button also issues a Node Information Frame.</p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The Hunter Douglas window blind control allows to control 24 DC motors of window blinds. The control 
+is performed with polarity reversal, which makes this device suitable for a wide variety of window blind 
+solutions among others Velux roof windows. Local operation is possible using two buttons.
+</p></ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+<p> The device requires an external power supply for 24 V DC with a minimum power of 12 W. Connect the two wires
+from the power supply in the right polarity with the terminals DC+ and DC-. The two wires from the DC Motor
+are connected to the terminals 'Motor'. It is recommended but not required to fix the device to a wall or a 
+wall box using the two mounting holes on the enclosure side.</p>
+<p><b>Calibration </b></p>
+<p>
+To calibrate the traveling time of the blind a calibration process needs to be started right after installation.
+Keep the two buttons 'OPEN' and 'CLOSE' pushed for 10 seconds until the green motor LED shines.
+Now release the two buttons. Hit the 'CLOSE' button to start the calibration sequence. The blind will now
+move between the end positions to detect the travel time.  </p>
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+<p>A short push on the 'LEARN' button confirms Inclusion and Exclusion.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+<p>The device is designed to control blind motors wirelessly. A local operation for tests is possible using the 
+two buttons 'OPEN' and 'CLOSE'.</p>
+</Usage><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+<p>A short push on the 'LEARN' button issues a Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Calibration</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 1)
+		</span><span class="parameterDescription">Starts the calibration sequence (1 = start)</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Normal
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Calibrate Command</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Motor Direction</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 1)
+		</span><span class="parameterDescription">Defines the direction of the motor and starts calibration sequence</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>normal
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>reverse</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Tilt Feature</span><span class="parameterTechnical">
+			(Parameter Number 3, Parameter Size 1)
+		</span><span class="parameterDescription">Allows precision positioning for wood blinds</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disable
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Enable</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Explorer Frame Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.27</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Multilevel Switch</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Multiposition Motor</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>2.1</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/Philio.png"><br><h2><span class="brandName"><b>PHI_PSM01<br><ProductHeadline>Z-Wave 3 in 1 Sensor(Door-/Window, Temperature, Illumination)</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.0</h5>
+</td>
+<td align="right"><img class="deviceImage" height="200" src="img/PHI/PHI_PSM01.png"></td>
+</tr></table>
+<div class="quickstart">
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+<p><span class="icon_black">S</span> This device is a Z-Wave Sensor. Tripple Click the Temper Switch on the backside to confirm inclusion, exclusion and association.</p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</div>
+<h3 class="chapterTitle">What is Z-Wave?</h3>
+<content>
+			<p>This device is equipped with wireless communication complying to the Z-Wave standard. 
+			Z-Wave is the <b>international standard for wireless communication</b> in smart homes and buildings. 
+			It is using the <b>frequency of 868.42 MHz</b> to realize a very stable and secure communication. 
+			Each message is reconfirmed (<b>two-way communication</b>) and every mains powered node can act as a 
+			repeater for other nodes (<b>meshed network</b>) in case the receiver is not in direct wireless 
+			range of the transmitter.</p>
+			
+			<p>Z-Wave differentiates between Controllers and Slaves. Slaves are either sensors 
+			<b>(S)</b> transmitting metered or measured data or actuators <b>(A)</b> capable to execute an action.
+			Controllers are either static mains powered controllers <b>(C)</b> also referred to as gateways or mobile battery
+			operated remote controls <b>(R)</b>.
+			This results in a number of possible communication patterns within a Z-Wave network that are  partly 
+			or completely supported by a specific device.</p>
+			<img src="img/zoverview.png" width="250" align="right">
+			<ol>
+			<li> Controllers control actuators </li>
+			<li> Actuators report change of status back to controller </li>
+			<li> Sensors report change of status of measured values to controller </li>
+			<li> Sensors directly control actuators </li>
+			<li> Actuators control other actuators </li>
+			<li> Remote controls send signals to static controllers to trigger scenes or other actions </li>	
+			<li> Remote controls control other actuators. </li>			
+			</ol>
+ 		</content><small><procontent>
+		<p>There are two different role a controller can have. There is always one single primary controller that is managing
+		the network and including/excluding devices. The controller may have other functions - like control buttons - as well.
+		All other controllers don't manage the network itself but can control other devices. They are called secondary controllers.
+		The image also shows that its not possible to operate a sensor just from a remote control. Sensors only communicate
+		with static controllers.</p>
+		</procontent></small><h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The Z-Wave 3 in 1 sensor is designed with three detection sensors:</p>
+<ul>
+<li>Door-/Window</li>
+<li>Temperature</li>
+<li>Illumination</li>
+</ul>
+<p>The sensor consists of two parts; a Detector and a Magnet. They are designed to be fitted to doors or windows with the Magnet mounted on the opening part and the Detector mounted on the fixed frame. Opening the protected door/window will remove the 
+magnetic field, trigger the detector and generate an alarm condition, (if the system is armed). The sensor can also applied to automatic light control, one scenario is to get the illumination lux level from built in illumination sensors and send a signal 
+to Z-wave switch to turn the light on once we open the door when the room is dark.</p>
+<p>Every time when Door/Window trig, the sensor will also send temperature and illumination value as well. Also the temperature will send out the value when temperature changes.</p>
+</ProductDescription><h3 class="chapterTitle">Batteries</h3>
+<content>
+			<p>The unit is operated by batteries. Use only batteries of correct type. Never mix old and new batteries 
+			in the same device. Used batteries contain hazardous substances and should not be disposed of 
+			with household waste!</p>
+		</content><p>Battery Type: 
+				1  * CR123A</p>
+<h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+	<p align="center"> <img src="img/PHI/PHI_PSM01/PHI_PSM01_en.png" width="700" align="middle"></p>
+	<ul>
+	<li>Open the casing and dissemble the front part of the case.</li>
+	<li>Put the included CR123A battery into the battery compartment and close the casing.</li>
+	<li>The sensor consists of two parts; a Detector and a Magnet. They are designed to be fitted to doors or windows with the Magnet mounted on the opening part and the Detector mounted on the fixed frame. Mount the device with the included screws or the 
+	adhesive tape on a plane surface.</li>
+	</ul>
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+	<p>Tripple Click the Temper Switch on the backside confirms inclusion and exclusion.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+	<p>Opening the protected door/window will remove the magnetic field, trigger the detector and generate an alarm condition, (if the system is armed).</p>
+	<p>The sensor can also applied to automatic light control, one scenario is to get the illumination lux level from built in illumination sensors and send a signal to Z-Wave switch to turn the light on once we open the door when the room is dark.</p>
+	<p>Also the temperature will send out the value when temperature changes.</p>
+	<p>Every time the Door/Window triggers, the sensor will also send temperature and illumination value as well.</p>
+	<p>After powering up the divice needs several minutes to setup and work properly.</p>
+	<p>The device has a tamper switch, which starts alarm when the device is forcibly removed.</p>
+</Usage><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+	<p>Tripple Click the Temper Switch on the backside sends out a Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>group 1 is for receiving the report message, like triggered event, temperature, illumination etc.
+			(max. nodes in group: 7)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>group 2 is for light control, the device will send the “Basic Set” command to this group.
+			(max. nodes in group: 7)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Basic Set Level</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 1)
+		</span><span class="parameterDescription">Setting the BASIC command value to turn on the light</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>255</td>
+<td>0xFF(-1) turns on the light.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>For dimmers 1 to 100 means the light strength</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Light Threshold</span><span class="parameterTechnical">
+			(Parameter Number 4, Parameter Size 1)
+		</span><span class="parameterDescription">Setting the illumination threshold to turn on the light. When the event triggered and the environment illumination lower then the threshold, the device will turn on the light</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 means turn off illumination detected function And never turn on the light.</td>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>1 means darkest.
+99 means brightest.
+100 means turn off illumination detected function. And always turn on the light
+
+					(Default 99)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Operation Mode</span><span class="parameterTechnical">
+			(Parameter Number 5, Parameter Size 1)
+		</span><span class="parameterDescription">parameter to set the Operation Mode</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0
+				—
+				127</td>
+<td>Bit 0: Reversed. 
+Bit 1: Reversed. 
+Bit 2: Disable the door/window function.
+Bit 3: Setting the temperature scale.
+  0: Fahrenheit, 1:Celsius
+Bit 4: Disable illumination report after event triggered.
+Bit 5: Disable temperature report after event triggered.
+					(Default 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Multi-Sensor Function Switch</span><span class="parameterTechnical">
+			(Parameter Number 6, Parameter Size 1)
+		</span><span class="parameterDescription">parameter to set the sensor functions</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0
+				—
+				127</td>
+<td>Bit 0: Disable magnetic integrate illumination.
+Bit 1: Reserved, always 1.
+Bit 2: Reserved, always 1.
+Bit 3: Reserved.
+Bit 4: Disable delay 5 seconds to turn off the light, when door/window closed.
+Bit 5: Disable auto turn off the light, after door/window opened to turn on the light. 
+Bit 6:Enable temperature monitoring.
+When this bit enable, the temperature changed 3 degree Fahrenheit, it will report.
+And also the temperature over 140 degree Fahrenheit, it will report every 64 seconds.
+					(Default 4)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Turn Off Light Time</span><span class="parameterTechnical">
+			(Parameter Number 9, Parameter Size 1)
+		</span><span class="parameterDescription">After turn on the light, setting the delay time to turn off the light when the PIR motion is not detected</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>4
+				—
+				127</td>
+<td>8 seconds per tick, and minimum time is 32 seconds, default tick is 4 (32 seconds)
+					(Default 4)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Auto Report Battery Time</span><span class="parameterTechnical">
+			(Parameter Number 10, Parameter Size 1)
+		</span><span class="parameterDescription">interval time for auto report the battery level</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				127</td>
+<td>30 minutes per tick and minimum time is 30 minutes, default tick is 12 (6 hours)
+					(Default 12)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Auto Report Door/Window State Time</span><span class="parameterTechnical">
+			(Parameter Number 11, Parameter Size 1)
+		</span><span class="parameterDescription">interval time for auto report the door/window state</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				127</td>
+<td>30 minutes per tick and minimum time is 30 minutes, default tick is 12 (6 hours)
+					(Default 12)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Auto Report Temperature Time</span><span class="parameterTechnical">
+			(Parameter Number 12, Parameter Size 1)
+		</span><span class="parameterDescription">interval time for auto report the temperature</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				127</td>
+<td>30 minutes per tick and minimum time is 30 minutes, default tick is 12 (6 hours)
+					(Default 12)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Auto Report Temperature Time</span><span class="parameterTechnical">
+			(Parameter Number 13, Parameter Size 1)
+		</span><span class="parameterDescription">interval time for auto report the temperature</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				127</td>
+<td>30 minutes per tick and minimum time is 30 minutes, default tick is 12 (6 hours)
+					(Default 12)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Command Classes</h3>
+<span class="supportedCommandClasses">Supported Command Classes</span><p><ul>
+<li>Battery
+		(version 1)
+	</li>
+<li>Basic
+		(version 1)
+	</li>
+<li>Wake Up
+		(version 2)
+	</li>
+<li>Association
+		(version 2)
+	</li>
+<li>Version
+		(version 1)
+	</li>
+<li>Configuration
+		(version 1)
+	</li>
+<li>Binary Sensor
+		(version 2)
+	</li>
+<li>Multilevel Sensor
+		(version 5)
+	</li>
+<li>Manufacturer Specific
+		(version 2)
+	</li>
+</ul></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Battery Type</td>
+<td>1  * CR123A</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Binary Sensor</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Routing Binary Sensor</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>No</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.0</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Explanation of Z-Wave specific terms</h3>
+<content>
+		<ul>
+		<li>
+<b>Controller</b> — is a Z-Wave device with capabilities to manage the network. Controllers are typically Gateways, 
+		Remote Controls or battery operated wall controllers.</li>
+		<li>
+<b>Slave</b> — is a Z-Wave device without capabilities to manage the network. Slaves can be sensors, actuators 
+		and even remote controls.</li>
+		<li>
+<b>Primary Controller</b> — is the central organizer of the network. It must be a controller. There can be only one primary controller in a Z-Wave network.</li>
+		<li>
+<b>Inclusion</b> — is the process of bringing new Z-Wave devices into a network.</li>
+		<li>
+<b>Exclusion</b> — is the process of removing Z-Wave devices from the network.</li>
+		<li>
+<b>Association</b> — is a control relationship between a controlling device and a controlled device.</li>	
+		<li>
+<b>Wakeup Notification</b> — is a special wireless message issued by a Z-Wave device to annonces that is 
+		is able to communicate.</li>
+		<li>
+<b>Node Information Frame</b> — is a special wireless message issued by a Z_Wave device to announce its capabilities and functions.</li>	
+		</ul>
+		</content><h3 class="chapterTitle">Disposal Guidelines</h3>
+<p>The product contains batteries. Please remove the batteries when the device is not used.</p>
+<content>
+		<p>Do not dispose of electrical appliances as unsorted municipal waste, use separate collection facilities. 
+		Contact your local government for information regarding the collection systems available. If electrical appliances 
+		are disposed of in landfills or dumps, hazardous substances can leak into the groundwater and get into the food chain, 
+		damaging your health and well-being.</p>
+		</content>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

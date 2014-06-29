@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/Duewi.png"><br><h2><span class="brandName"><b>DUW_05457<br><ProductHeadline>WAND-Schalter-Set für Design Busch-Jaeger Duro 2000</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.0</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/DUW/DUW_BJ2000.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+		<p><span class="icon_black">A</span> Dieses Gerät ist ein Z-Wave-Aktor. 
+		Nachdem der Controller in den Inklusion-Modus gesetzt wurde, bestätigt dreimal Drücken auf die 
+		Bedienwippe des Schalters die Inklusion. Eine grün leuchtende LED bestätigt den Erfolg. </p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Das Düwi Schaltereinsatz-Set ist ein Funk-Aktor und schaltet elektrische Lasten bis 2300 W mit einem Blindleistungsanteil von bis zu 460 VA. 
+Das Gerät wird als Set mit Schalteinsatz, Bedienwippe und Montagerahmen kompatibel zur Schalterserie DURO 2000 SI in der Farbe creme-weiß des 
+Herstellers Busch-Jaeger geliefert. Der Unterputzeinsatz kann aber auch ohne sichtbare Schaltfläche in Wanddosen mit 60 mm Durchmesser, Fehlböden 
+oder in Lampen eingebaut werden. Das Gerät ist für ein Dreileitersystem vorgesehen, d.h. es muss zur Installation ein Neutralleiter (blau) vorhanden 
+sein.</p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+		 <p>Das Gerät passt in standardisierte 60 mm Unterputzdosen. Nachdem der Funk-Einsatz elektrisch angeschlossen 
+		 wurde, kann er mit der Montageplatte mit Hilfe der beigelegten Schrauben auf der Wanddose fixiert werden. Der Montagerahmen
+		 wird auf die Montageplatte aufgesteckt und die Installation durch Aufdrücken der Schaltwippe vervollständigt. Bitte beachten Sie 
+		 die Einbaurichtung (Pfeil nach oben auf der Montageplatte), damit später der Druck  auf den oberen Teil der Schaltwippe
+		 ein EIN Signal und der Druck auf den unteren Teil der Schaltwippe ein AUS-Signal hervorruft.
+		 Der Schaltaktor kann auch ohne lokale Bedienmöglichkeit innerhalb der Wanddose betrieben werden.
+		 Montageplatte, Rahmen und Schaltwippe sind dann unnötig. </p>
+		<p align="center"> <img src="img/DUW/DUW_common/DUW_montage_common/DUW_montage_de.png" width="300" align="center"></p>
+		 <p> Die untenstehende Abbildung zeigt die elektrische Verschaltung des Aktors. Die Stromzuführung vom Schaltkasten wird auf die 
+		 Kontakte <b>N</b> und <b>L</b> gelegt. Der Kontakt <b>S</b> ist der geschaltete Kontakt, der mit dem elektrischen 
+		 Verbraucher verbunden wird. Für zweite Ableitung vom Verbraucher ist eine zweite Schaltklemme <b>N</b> vorhanden. Beide 
+		 Schaltklemmen <b>N</b> sind permanent miteinander verbunden.</p>
+		  <p align="center"> <img src="img/DUW/DUW_common/DUW_Einsatz_common/Switch/DUW_Switch_de.png" align="middle"></p>	 
+		 <p> Die Elektronik des Aktors ist durch eine Feinsicherung geschützt, die über einen entsprechenden Steckkontakt
+		 zugänglich ist. In diesem Stecker befindet sich über der eigentlichen Sicherung eine Ersatzsicherung.</p>
+		<p align="center"> <img src="img/duwfuse.png" width="300" align="middle"></p>
+ 	</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+		<p> Der Auslieferungszustand wird durch abwechselndes rot/grünes Blinken der LED angezeigt.
+ 		Die Bestätigung der <b><i>Inclusion</i> an diesem Gerät erfolgt durch schnelles dreifaches Drücken auf eine der beiden Tasten</b>.
+ 		Die erfolgreiche Inclusion wird durch eine grüne LED quittiert. Danach erlischt die LED.</p>
+   		<p>Die Bestätigung der <b><i>Exclusion</i> erfolgt an diesem Gerät durch schnelles dreifaches 
+ 		Drücken auf eine der beiden Tasten</b>.</p>
+	</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+ 		<p> Der Schalteinsatz wird über die Schaltwippen oder per Funk (Kommunikationmuster 1, 4, 5 und 7) geschaltet. Wenn der Schalteinsatz in der richtigen Orientierung eingebaut wurde, 
+ 		schaltet der Druck auf den oberen Wippenteil die angeschlossene Last ein und ein Druck auf den unteren Wippenteil schaltet die angeschlossene Last aus.</p>
+		<p> Das Gerät kann selbst auch andere Z-Wave-Aktoren über Funk steuern (Kommunikationsmuster 5). Wenn diese anderen Geräte ebenfalls 
+		Schaltaktoren sind, erfolgt die Bedienung analog zur lokalen Bedienung. Bis zu vier Geräte können untereinander verknüpft (Assoziation) 
+		werden, um so z.B. mehrere Geräte synchron und simultan zu schalten oder zu dimmen.</p>
+	</Usage><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>An/Aus Gruppe
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Stromversorgung</td>
+<td>230V ~50-60 Hz</td>
+</tr>
+<tr>
+<td>Schaltbare Lasten</td>
+<td> 2300 W ohmsche Last und bis zu 460 VA Blindleistung</td>
+</tr>
+<tr>
+<td>Schutzklasse</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>5.02 pl2</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Switch</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Binary Power Switch</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.0</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

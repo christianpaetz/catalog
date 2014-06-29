@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/eurotronic.png"><br><h2><span class="brandName"><b>EUR_STELLAZ<br><ProductHeadline>Wall Radiator Thermostat Valve Control</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 0.4</h5>
+</td>
+<td align="right"><img class="deviceImage" height="200" src="img/EUR/STELLA.png"></td>
+</tr></table>
+<div class="quickstart">
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+ 	<p><span class="icon_black">S</span> This device is a wireless sensor. All operation is performed using the 
+ 	little button behind the round hole in the enclosure. Please use the tool provided to operate the button.
+ 	Pushing the button for 2.5 seconds will turn the device into install mode where the valve control is moved into
+ 	end position to allows installation of the device. <b>Pushing the button for 5 seconds </b>will confirm inclusion or exclusion
+ 	of the device. A single click wakes up the device when sleeping.</p>
+		<p><b>Attention: You must apply the device to the valve before applying any wireless setups and actions. 
+		Without the back pressure from the valve the device will turn into error mode. in This mode no wireless operation is performed. </b></p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</div>
+<h3 class="chapterTitle">What is Z-Wave?</h3>
+<content>
+			<p>This device is equipped with wireless communication complying to the Z-Wave standard. 
+			Z-Wave is the <b>international standard for wireless communication</b> in smart homes and buildings. 
+			It is using the <b>frequency of 868.42 MHz</b> to realize a very stable and secure communication. 
+			Each message is reconfirmed (<b>two-way communication</b>) and every mains powered node can act as a 
+			repeater for other nodes (<b>meshed network</b>) in case the receiver is not in direct wireless 
+			range of the transmitter.</p>
+			
+			<p>Z-Wave differentiates between Controllers and Slaves. Slaves are either sensors 
+			<b>(S)</b> transmitting metered or measured data or actuators <b>(A)</b> capable to execute an action.
+			Controllers are either static mains powered controllers <b>(C)</b> also referred to as gateways or mobile battery
+			operated remote controls <b>(R)</b>.
+			This results in a number of possible communication patterns within a Z-Wave network that are  partly 
+			or completely supported by a specific device.</p>
+			<img src="img/zoverview.png" width="250" align="right">
+			<ol>
+			<li> Controllers control actuators </li>
+			<li> Actuators report change of status back to controller </li>
+			<li> Sensors report change of status of measured values to controller </li>
+			<li> Sensors directly control actuators </li>
+			<li> Actuators control other actuators </li>
+			<li> Remote controls send signals to static controllers to trigger scenes or other actions </li>	
+			<li> Remote controls control other actuators. </li>			
+			</ol>
+ 		</content><small><procontent>
+		<p>There are two different role a controller can have. There is always one single primary controller that is managing
+		the network and including/excluding devices. The controller may have other functions - like control buttons - as well.
+		All other controllers don't manage the network itself but can control other devices. They are called secondary controllers.
+		The image also shows that its not possible to operate a sensor just from a remote control. Sensors only communicate
+		with static controllers.</p>
+		</procontent></small><h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p> StellaZ is a wireless Thermostat Valve Control capable controlling heating, air ventilation and 
+climate control units. Sensors, control and actuator are combined in one single device allowing stand alone
+energy efficient room control.The device can run in four different operation modes (Off, Energy Saving, Comfort,
+Direct Control) to control the temperature. The room temperature can also be reported by the device. Open
+windows will be recognized and lead to a lower control temperature for 20 minutes to prevent waste of energy.
+Further functions of StellaZ are:</p>
+<ul>
+<li> Very high precision, valve speed only 3s/mm, low noise, max. valve distance: 4 mm.</li>
+<li> Connection to Valve: M 30 x 1,5, Adapters for other valve types available (e.g. Heimeier, Danfoss, Honeywell Braukmann, 
+Honeywell MNG, Oventrop from 1996 on) are part of scope of delivery.</li>
+<li> Protected installation, removal only possible with special tool provided as part of scope of delivery.</li>
+</ul>
+In the table below you can find the compatible adapters for the different vedors:
+	<img src="img/EUR/EUR_STELLAZ_Adapter_en.png" width="700" align="middle">
+</ProductDescription><h3 class="chapterTitle">Batteries</h3>
+<content>
+			<p>The unit is operated by batteries. Use only batteries of correct type. Never mix old and new batteries 
+			in the same device. Used batteries contain hazardous substances and should not be disposed of 
+			with household waste!</p>
+		</content><p>Battery Type: 
+				2  * AA</p>
+<h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+		<p>
+		<b>Installation</b>
+		<img src="img/stellaz_en.png" width="400" align="middle"><br>
+		The installation of the valve control is easy with any dirt of loss of water since the heating pipe system will not be 
+		interrupted.</p>
+		<ol>
+		<li>If needed select an adapter and mount this adapter to the valve.   </li>
+		<li> Insert Batteries. Pushing the little button behind the round hole for 2.5 seconds turns the device into the install mode.
+		In this mode the valve actuator is moved into the inner end position to simplify the installation of the device.</li>
+		<li> Continous pushing of the button starts the calibration function. The both end position of the valve will be detected automatically. Without
+		further operation of the button this calibration wil starts automatically after 3 minutes. the devices will go into sleep state after finisheding
+		the calibration.</li>
+		<li>Turn the white coupling ring onto the the valve resp. the adapter.</li>
+		<li>Push StellaZ to the white coupling ring until you hear is snapping in. </li>
+		</ol>
+		<p><b>Attention:</b> You must apply the device to the valve before applying any wireless setups and actions. 
+		Without the back pressure from the valve the device will turn into error mode.</p>
+		<p>
+		<b>Deinstallation</b>
+		<ol>
+		<li>Push both pins of the demounting tool into the two holes on the enclosure.</li>
+		<li>Remove Stella Z from the adapter or valve.</li>
+		</ol>
+		<img src="img/stellaz_de2.png" width="400" align="middle">		
+		</p>		
+ </Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+ 		<p><b>Pressing the button behind the round hole in the enclosure for 5 sec.
+ 		</b>will confirm inclusion and exclusion. Right after inserting the
+ 		battery the device will stay in the auto inclusion mode for 3 minutes. In this mode a controller in inclusion mode can include the device
+ 		without any further manual confirmation on the device.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+		<p>The device does not allow any local operation on the device itself but control via Z-Wave radio from a Z-wave controller only.
+		The thermostat has four operating modes. They are switched wirelessly as well:</p>
+		<ol>
+		<li>
+<b>Frost Protection:</b> The temperature in the room will be regulated to about 6 °C.</li>
+		<li>
+<b>Comfort:</b> The temperature in the room will be regulated to a comfortable level. On factory default this is  22 °C but the value 
+		can be adjusted by the respective Z-Wave command 'Thermostat Setpoint' to a value between 0 °C and 50 °C. This mode is active on factory default.</li>
+		<li>
+<b>Energy Saving:</b> The temperature in the room will be regulated to a energy saving level. On factory default this is  18 °C but the value 
+		can be adjusted by the respective Z-Wave command 'Thermostat Setpoint' to a value between 0 °C and 50 °C.</li>
+		<li>
+<b>Direct Valve Control:</b> This mode allows the direct control of the valve as percentage value of opening using the Z-Wave command class 
+		'Switch Multilevel'. The regulation of a temperature within the device is deactivated.</li>		
+		</ol>
+ 		<p>Additionally to regulating the temperature the valve control is reporting the measured temperature on request (using the command class 'Sensor Multilevel' 
+ 		implementing communication pattern 3).    
+ 		It may happen that the reported temperature will remain 0 °C for some minutes due to calibration. After the first regular wakeup the temperature value will 
+ 		however be correct. Switching between the four modes is accomplished using the Z-Wave command classes 'Thermostat Mode' and 'Basic'. The following mappings apply:
+ 		<ul>
+ 		<li>Frost Protection: BASIC SET 0x01, THERMOSTAT MODE SET 0x00</li>
+ 		<li>Energy Saving: BASIC SET 0x00, THERMOSTAT MODE SET 0x0b</li>
+ 		<li>Comfort: BASIC SET 0xff, THERMOSTAT MODE SET 0x01</li> 		
+ 		<li>Direct Control: BASIC SET 0xfe, THERMOSTAT MODE SET 0x1f</li>
+ 		</ul> 		 
+ 		</p>		
+ </Usage><h3 class="chapterTitle">Wakeup Intervals - how to communicate with the device?</h3>
+<content>
+ 		<p><span class="icon_white">W</span> This device is battery operated and turned into deep sleep state most of the time to save battery life time.  
+ 		Communication with the device is limited. In order to communicate with the device, a static controller <b>C</b>
+ 		is needed in the network. This controller will maintain a mailbox for the battery operated devices and store 
+ 		commands that can not be received during deep sleep state.
+		Without such a controller, communication may become impossible and/or the battery life time is significantly decreased. </p>
+		<p>This device will wakeup regularly and announce the wakeup state by sending out a so called Wakeup Notification.
+		The controller can then empty the mailbox. Therefore, the device needs to be configured with the desired wakeup 
+		interval and the node ID of the controller. If the device was included by a static controller this 
+		controller will usually perform all necessary configurations. The wakeup interval is a tradeoff between maximal 
+		battery life time and the desired responses of the device. </p>
+		</content><Wakeup>
+ 		<p><b> One Click on the button behind the round hole in the enclosure
+ 		</b>will wakeup the device and keeps
+ 		it awake for 5 seconds. The wakeup interval can be defined between 4 minutes and 180 day in steps of 4 minutes.
+ 		The factory default value is 7 days.</p>
+ </Wakeup><small><procontent>
+		<p>It is possible to set the node ID to 255 to send wakeup notifications as broadcast. In this mode device takes more time to go 
+		to sleep and drains battery faster, but can notify all it's direct neighbors about a wakeup. </p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+	<p>A single click on the button behind the round hole in the enclosure sends out a Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">LED Control</h3>
+<LEDControl>
+	<ul>
+	<li>Z-Wave OK:      2 Seconds Green   </li>
+	<li>Z-Wave Error:  2 Seconds Red  </li>
+	<li>Network Wide Inclusion:  blinking Red-Green  </li>
+	<li>Installer-Mode: blinking green  </li>
+	<li>Internal Error:   blinking red </li>
+	</ul>
+</LEDControl><h3 class="chapterTitle">Command Classes</h3>
+<span class="supportedCommandClasses">Supported Command Classes</span><p><ul>
+<li>Basic
+		(version 1)
+	</li>
+<li>Thermostat Mode
+		(version 3)
+	</li>
+<li>Thermostat Setpoint
+		(version 3)
+	</li>
+<li>Wake Up
+		(version 2)
+	</li>
+<li>Version
+		(version 1)
+	</li>
+<li>Multilevel Switch
+		(version 3)
+	</li>
+<li>Battery
+		(version 1)
+	</li>
+<li>Multilevel Sensor
+		(version 4)
+	</li>
+<li>Manufacturer Specific
+		(version 1)
+	</li>
+<li>Node Naming and Location
+		(version 1)
+	</li>
+</ul></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>IP Rating</td>
+<td>IP 20</td>
+</tr>
+<tr>
+<td>Battery Type</td>
+<td>2  * AA</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54 pl1</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Thermostat</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Thermostat General V2</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>No</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>0.4</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Explanation of Z-Wave specific terms</h3>
+<content>
+		<ul>
+		<li>
+<b>Controller</b> — is a Z-Wave device with capabilities to manage the network. Controllers are typically Gateways, 
+		Remote Controls or battery operated wall controllers.</li>
+		<li>
+<b>Slave</b> — is a Z-Wave device without capabilities to manage the network. Slaves can be sensors, actuators 
+		and even remote controls.</li>
+		<li>
+<b>Primary Controller</b> — is the central organizer of the network. It must be a controller. There can be only one primary controller in a Z-Wave network.</li>
+		<li>
+<b>Inclusion</b> — is the process of bringing new Z-Wave devices into a network.</li>
+		<li>
+<b>Exclusion</b> — is the process of removing Z-Wave devices from the network.</li>
+		<li>
+<b>Association</b> — is a control relationship between a controlling device and a controlled device.</li>	
+		<li>
+<b>Wakeup Notification</b> — is a special wireless message issued by a Z-Wave device to annonces that is 
+		is able to communicate.</li>
+		<li>
+<b>Node Information Frame</b> — is a special wireless message issued by a Z_Wave device to announce its capabilities and functions.</li>	
+		</ul>
+		</content><h3 class="chapterTitle">Disposal Guidelines</h3>
+<p>The product contains batteries. Please remove the batteries when the device is not used.</p>
+<content>
+		<p>Do not dispose of electrical appliances as unsorted municipal waste, use separate collection facilities. 
+		Contact your local government for information regarding the collection systems available. If electrical appliances 
+		are disposed of in landfills or dumps, hazardous substances can leak into the groundwater and get into the food chain, 
+		damaging your health and well-being.</p>
+		</content>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

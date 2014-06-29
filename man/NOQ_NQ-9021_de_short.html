@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/northq.jpg"><br><h2><span class="brandName"><b>NOQ_NQ-9021<br><ProductHeadline>Z-Wave Stromsensor</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 2.55</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img//NOQ/NOQ_NQ-9021.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">S</span> Dieses Gerät ist ein Z-Wave Sensor. Drücken Sie zum Inkludieren 
+oder Exkludieren des Gerätes dreimal den Taster am Sensor. 
+Einmaliges Drücken des Tasters weckt das Gerät auf und hält es eine kurze Zeit im Wachzustand.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Mit dem Z-Wave Smart Meter Sensor können alle Arten von elektrischen Stromzählern (Feraris, Digital, Smart) ausgelesen und der Zählerstand per Z-Wave übermittelt werden. Das Gerät ist universell in Z-Wave-Funknetzen einsetzbar- es wird 
+jedoch kostenfrei eine Windows-Software zur Darstellung und Auswertung der Zählerstände mitgeliefert. Der Sensor ist sehr leicht zu installieren. Der Impuls-Aufnehmer am Zähler ist vom Z-Wave Sensor getrennt, damit die Funkverbindung von außerhalb eines 
+Zählerschrankes erfolgen kann. Dies erhöht gegebenenfalls die Reichweite der Funkverbindung. Der Sensor zählt alle Zählimpulse und meldet diese sowohl als Zählimpuls als auch bereits umgerechnet auf KWh. Das Gerät ermittelt den Zählerstand aller 15 
+Minuten und kann Werte bis zu 3 Monate speichern. Eine permanente Funkverbindung ist daher nicht unbedingt notwendig.</p>
+<p>Im Lieferumfang enthalten ist:</p>
+	<ul>
+	<li>Der Z-Wave Funk Sensor</li>
+	<li>Batterien</li>
+	<li>Kontakt-Sensor für den Zähler</li>
+	<li>fertig bedruckte Schablonen um den Sensor am Zähler anzubringen</li>
+	<li>ein Schraubendreher für die Wandmontage</li>
+	<li>ein Werkzeug zur Einstellung des Sensors bei Mechanischen Zählern</li>
+	<li>kostenlose Windows Software für die Datenauswertung</li>
+	</ul>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+	<p>Reinigen Sie vor der Installation das Gehäuse Ihres Stromzählers, damit der NorthQ Power Reader alle Werte ordnungsgemäß ablesen kann.</p>
+	<p>Es ist wichtig die richtigen Daten bezüglich Zählertyp und Impulswert herauszufinden. Man findet diese Informationen normalerweise auf der Forderseite des Zählers.</p>
+	<p>Es gibt zwei Typen von Stromzählern: mechanische und elektronische Zähler. Der NorthQ Power Reader funktioniert mit neuen und alten Zählern.</p>
+	<p><b>Mechanische Zähler</b></p>
+	<p>Bei mechanischen Zählern wird die Bewegung der Scheibe gemessen. Der Wert Umdrehungen/kWh ist auf dem Zähler angegeben.</p>
+	<p><b>Electronische Zähler</b></p>
+	<p>Bei elektronischen Zählern wird der Lichtimpuls gemessen. Der Wert Lichtimpuls/kWh ist auf dem Zähler angegeben. Bei einigen elektronischen Zählern erfolgt der Impuls über Infrarot. Dieser wird auch von dem NorthQ Power Reader gemessen.</p>
+	<p>Um alle Funktionen des NorthQ Power Reader zu nutzen, sollten Sie eine Jahresabrechnung oder einen Zwischenbescheid Ihres Energieversorgungsunternehmens zur Hand haben. Diesem Bescheid können Sie den Preis pro kWh entnehmen. Einige 
+	Energieversorgungsunternehmen geben den Co2 Wert pro kWh an. Diese Informationen können Sie ebenfalls eingeben und sich veranschaulichen.</p>
+	<p align="center"> <img src="img/NOQ/NOQ_NQ-9021_a.png" width="700" align="middle"></p>
+	<ul>
+	<li>Geben Sie die notwendigen Informationen in die Eingabemaske ein.</li>
+	<li>Für die Installation nehmen Sie als erstes das Sensorkabel und stecken es in den Funksender. Der Stecker rastet hörbar ein. Ist der Stecker nicht richtig eingerastet kann es zu Fehlern kommen.</li>
+	<li>Befestigen Sie die Abdeckung darüber und fixieren diese mit den 3 Schrauben unter Zuhilfenahme des Schraubendrehers. Dies verhindert das Verrutschen des Sensorkabels. Setzen Sie nun die Batterien unten in den Funksender ein. Dies ist 
+	erfolgreich wenn der Funksender blinkt. </li>
+	<li>Betätigen Sie "weiter" wenn die Montage des Funksender abgeschlossen ist, und Sie bereit sind, die Funkverbindung zwischen dem Funksender mit dem PC herzustellen.</li>
+	<li>
+<b>Funkverbindung herstellen:</b> Stecken Sie den USB Stick an einen freien USB-Port im Computer. Der Funksender kann die Messdaten von 60 Tagen speichern. Es können nur Daten an übertragen werden wenn der USB-Stick angeschlossen ist. 
+	Warten Sie bis der USB-Stick vom Computer erkannt wurde. Ist der USB-Stick erkannt kann die Funkverbindung hergestellt werden. Dies geschieht durch dreimaliges drücken des Tasters an der Unterseite des Funksender. Die LED leuchtet 3 mal zur Bestätigung. 
+	Danach blinkt die LED 1 mal zur Bestätigung der Verbindung und auf dem Bildschirm erscheint "Funksender gefunden".</li>
+	<li>
+<b>Prüfen der Funkreichweite:</b> Vor der Installation des Funksenders auf Ihrem Zähler sollten Sie die Reichweite des USB-Stick prüfen. Betätigen Sie den Taster des Funksenders 4 mal während Sie neben Ihrem Zähler stehen. Der Funksender blinkt zur 
+	Bestätigung 4 mal. Der USB-Stick sendet 10 Sekunden lang jede Sekunde ein Signal. Ist der Funksender innerhalb der Reichweite leuchtet die LED. Je länger die LED leuchtet desto besser ist das Signal. Leuchtet die LED für 10 Sekunden, signalisiert 
+	dies eine gute Verbindung. Blinkt die LED während der 10 Sekunden, signalisiert dies eine schlechtere Verbindung. Sie sollten die Distanz zwischen den USB-Stick und den Funksender verkürzen. Ein langes Kabel zwischen dem Sensor und dem Funksender 
+	sorgt für Flexibilität bei der Wahl des Standortes und für eine optimale Verbindung. Leuchtet die LED während der ganzen Zeit nicht, ist der Funksender außerhalb der Reichweite. Sie sollten die Distanz zwischen den USB-Stick und den Funksender 
+	verkürzen, um eine Verbindung herzustellen. Auf Ihrem Computer sehen Sie eine kurze Information über die Verbindungsstärke. Betätigen Sie "weiter" um fortzufahren.</li>
+	</ul>
+	<p align="center"> <img src="img/NOQ/NOQ_NQ-9021_b_de.png" width="600" align="middle"></p>
+	<p><b>Installation auf mechanischen Zählern:</b></p>
+	<p>1. Zuerst entfernen Sie den weißen Hintergrund der Schablone. Platzieren Sie die Schablone auf dem Zähler. Die horizontale Linie muss mit der rotierenden Scheibe übereinstimmen und die linke vertikale Linie muss mit der Markierung in der Mitte 
+	des Zählers übereinstimmen. Danach ziehen Sie den Mittelteil der Schablone ab. Jetzt können Sie den Sensor auf dem Zähler anbringen. Der Sensor sollte in der Mitte der Schablone befestigt werden. Die 2 vertikalen Linien des Sensor und der Schablone 
+	müssen übereinstimmen. Entfernen Sie die 2 roten Abdeckungen der Klebestreifen auf der Vorderseite des Sensor und befestigen Ihn auf dem Zähler.</p>
+	<p>2. Zähler Anpassung: Da der NorthQ Power Reader auf diversen mechanischen Zählern funktioniert ist eine automatische Anpassung notwendig. Drücken Sie den Taster 5 mal. Am Anfang blinkt die LED sehr schnell. Beim Abschluss der Anpassung blinkt 
+	die LED langsamer. Ist die Anpassung erfolgreich, blinkt die LED nur wenn die Scheibe den Sensor passiert. Bei Problemen positionieren Sie den Sensor an einer anderen Stelle, zum Beispiel an der Seite. Bei Kratzern oder Fertigungsfehlern auf der 
+	Vorderseite des Zählers ist es nötig, den Sensor an einer anderen Stelle zu platzieren.</p>
+	<p><b>Installation auf elektronischen Zählern:</b></p>
+	<p>Zuerst entfernen Sie den weißen Hintergrund der Schablone. Platzieren Sie die Schablone auf dem Zähler. Die horizontale Linie und die rechte vertikale Linie muss genau auf der LED platziert werden. Danach ziehen Sie den Mittelteil der Schablone ab. 
+	Jetzt können Sie den Sensor auf dem Zähler anbringen. Der Sensor sollte in der Mitte der Schablone befestigt werden. Die 2 vertikalen Linien des Sensor und der Schablone müssen übereinstimmen. Entfernen Sie die 2 roten Abdeckungen der Klebestreifen 
+	auf der Vorderseite des Sensor und befestigen Ihn auf dem Zähler.</p>
+	<p><b>Beachte:</b> Es ist sehr wichtig die Schablone genau aufzubringen, da sonst das Messergebnis des NorthQ Power Readers verfälscht wird!</p>
+	<p>Geben Sie den Zählerstand ein. Sie können  damit feststellen ob Ihr NorthQ Power Reader richtig arbeitet. Zum Abschluss betätigen Sie "Installation abschließen".</p>
+	<p>Jetzt müssen Sie 30 Minuten warten bis genug Daten gesammelt wurden, um die ersten Tabellen und Grafiken anzuzeigen. Um den aktuellen Zählerstand anzuzeigen, können Sie in den Echtzeiz-Modus wechseln.</p>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+	<p>Bringen Sie Ihren Z-Wave Controller in den Inklusions-/Exklusionsmodus. Ein Dreifachklick auf die Z-Wave Taste am Funk Sensor bestätigt den Vorgang.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+	<p><b>Standard Modus:</b></p>
+	<p>Um die Lebensdauer der Batterien zu verlängern, überträgt der Funksender nur alle 15 Minuten die gesammelten Daten an den USB Empfänger.</p>
+	<p><b>Echtzeit Modus:</b></p>
+	<p>Sie können jederzeit durch 1-maliges betätigen des Tasters in den Echtzeit Modus wechseln. Ist der NorthQ Power Reader im Echtzeit Modus, sendet der Funksender alle 5 Sekunden Daten zu dem USB-Stick. Diese Funktion ist sinnvoll um den aktuellen 
+	Stromverbrauch zu prüfen oder um nicht auf die automatische Übertragung warten zu müssen. Der NorthQ Power Reader bleibt 10 Minuten im Echtzeit Modus. Danach geht er automatisch in den energiesparenden Standard Modus zurück.</p>
+	<p>Im Echtzeit Modus blinkt die LED auf dem Funksender immer wenn ein Impuls registriert wird.</p>
+	<p>Die häufige Benutzung des Echtzeit Modus verkürzt die Lebensdauer der Batterie. Die normale Lebensdauer beträgt 1,5 Jahre bei elektronischen und 1 Jahr bei mechanischen Zählern.</p>
+	<p>Um den Echtzeit Modus früher wieder zu verlassen und in den Standard Modus zurückzukehren, drücken Sie 2 mal den Taster.</p>
+</Usage><h3 class="chapterTitle">Kommunikation mit einem batteriebetriebenen Gerät</h3>
+<content>
+ 		<p> <span class="icon_white">W</span> Das Gerät ist batteriegespeist und damit in der Regel in einem Tiefschlafmodus um Strom zu sparen. Im Tiefschlafmodus 
+ 		kann das Gerät keine Funksignale empfangen. Daher wird ein (statischer) Controller benötigt, der netzgespeist und damit 
+ 		immer funkaktiv ist.  Dieser Controller - zum Beispiel ein IP-Gateway - 
+ 		verwaltet eine Nachrichten-Mailbox für dieses batteriegespeiste Gerät, in dem Nachrichten an dieses Gerät 
+ 		zwischengespeichert werden.
+ 		Ohne einen solchen statischen Controller wird die Nutzung dieses batteriebetriebenen Gerätes sehr schnell
+ 		zur Entladung der Batterie führen oder die Nutzung ist komplett unmöglich.</p>
+		<p>Dieses Gerät weckt regelmäßig auf, meldet dies durch Aussenden einer sogenannten Wakeup-Notifikation und leert dann seine Mailbox 
+		im statischen Controller. Dafür muss bei der Inclusion die Node-ID des Controllers 
+		und ein Aufweckinterval definiert werden. Erfolgt die Inklusion durch einen statischen Controller wie zum Beispiel ein IP-Gateway, wird dieser Controller
+		diese Konfiguration automatisch erledigen und in der Regel eine Nutzerschnittstelle anbieten, um das Aufweckinterval den Nutzerbedürfnissen anzupassen.
+		Das Aufweckinterval ist ein Kompromiss zwischen maximaler Batterielaufzeit und minimaler Reaktionszeit des batteriegespeisten Gerätes.  
+		</p>
+		</content><Wakeup>
+	<p>Der Einfachklick auf die Z-Wave Taste am Funk Sensor weckt das Gerät auf.</p>
+</Wakeup><small><procontent>
+		<p>Es ist möglich die Gerätenummer 255 als Zielgerät für die Wakeup-Notifikation anzugeben. In diesem Falle wird die Nachricht
+		als Broadcast an alle Geräte mit direkter Funkverbindung gesendet. Dem Vorteil der sofortigen Benachrichtigung steht
+		als Nachteil gegenüber, das das Gerät gegebenenfalls mehr Zeit im aktiven Modus und damit mehr Batterieladekapazität verbraucht.</p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Ein Dreifachklick auf die Z-Wave Taste am Funk Sensor führt zum Aussenden eines Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Pulsfaktor</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 2)
+		</span><span class="parameterDescription">Wie viele Pulse werden pro 10 kWh gezählt.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				65535</td>
+<td>Pulse
+					(Voreingestellt 1024)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Sensor Typ</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert die Art des Sensors</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Pulszähler</td>
+</tr>
+<tr>
+<td>2</td>
+<td>rotierende Scheibe
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Infrarotwartezeit</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription">Zusätzliche Zeit zum Messen des Infrarotimpulses (nur für rotierende Scheibe)</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				255</td>
+<td>.
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Infrarotpulsweite</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription">Infrarot Empfänger Ziel (IR Leistung wird schrittweise gehöht, bis dieses Niveau aus durchschnittlicher Messwert erreicht wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				255</td>
+<td>.
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Abtastfrequenz</span><span class="parameterTechnical">
+			(Parameternummer 5, Parametergröße 1)
+		</span><span class="parameterDescription">Wieviel mal pro Sekunde wird gemessen</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				50</td>
+<td>mal
+					(Voreingestellt 20)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Impulschwellwert Unten</span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 1)
+		</span><span class="parameterDescription">Unterer Schwellwert für Drehscheibenzähler  </span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				143</td>
+<td>.
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Impulschwellwert Oben</span><span class="parameterTechnical">
+			(Parameternummer 7, Parametergröße 1)
+		</span><span class="parameterDescription">Oberer Schwellwert für Drehscheibenzähler</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				143</td>
+<td>.
+					(Voreingestellt 5)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Ausweckinterval</span><span class="parameterTechnical">
+			(Parameternummer 8, Parametergröße 2)
+		</span><span class="parameterDescription">wie bei WAKEUP Kommandoklasse</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				65535</td>
+<td>s
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Anzahl Pulse</span><span class="parameterTechnical">
+			(Parameternummer 9, Parametergröße 4)
+		</span><span class="parameterDescription">Anzahl der Pulse. Durch Setzen dieses Wertes erhält der Zähler einen definierten Startwert</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				 4.294967295e+09</td>
+<td>Pulse
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Wachbleibeperiode</span><span class="parameterTechnical">
+			(Parameternummer 10, Parametergröße 2)
+		</span><span class="parameterDescription">Nach wieviel Sekunden der Inaktivität geht das Gerät in den Schlafmodus</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				65535</td>
+<td>s
+					(Voreingestellt 3)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Echtzeitmodus</span><span class="parameterTechnical">
+			(Parameternummer 11, Parametergröße 2)
+		</span><span class="parameterDescription">Nach wieviel Sekunden geht daa Gerät automatisch aus dem Echtzeitmodus (kein Schlafen)</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				65535</td>
+<td>s
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Debug</span><span class="parameterTechnical">
+			(Parameternummer 13, Parametergröße 1)
+		</span><span class="parameterDescription">Debugmodus</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Aus</td>
+</tr>
+<tr>
+<td>1</td>
+<td>LED blinkt bei Zählimpuls
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Batterietyp</td>
+<td>2  * AA</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>5.02 pl3</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Meter</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Simple Meter</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>2.55</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

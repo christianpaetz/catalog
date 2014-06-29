@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/zwave.me.png"><br><h2><span class="brandName"><b>ZME_05431<br><ProductHeadline>Wall Switch Set for REV Everlux</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.8</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/ZME/neue/ZME_05457.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+ 		<p> <span class="icon_black">A</span> This device is a Z-Wave Actuator. Triple click one of the buttons on the device will
+ 		include the device. A green blinking of LED will indicate successful inclusion. 
+ 		The device is excluded by triple click to one of the buttons.</p>
+	</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The switch Flush Mountable is a wireless actuator able to switch loads up to 2300 W. The device is delivered as complete set 
+with flush mountable insert, paddle and mounting frame compatible to the design of the switching series Everlux in color white 
+from REV / Duewi. The paddle of the device is used to control the device itself but can also be configured to activate scenes in a central 
+IP gateway or controller. The status of the switch is indicated on a dual color LED for test purposes and every status change is - 
+if configured - reported to a central IP gateway or controller. The function of the local paddle can be configured as detached from the local 
+operation. In this local control, different devices are controlled by Z-Wave while the local actuator is controlled by other devices using Z-Wave. 
+This device is designed for a 3 wire system and needs a neutral wire in the wall box.</p>
+</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+		<p> The insert is designed to fit into standard circular European wall boxes with 60 mm diameter. The insert combined
+		with the mounting plate can be screwed in top of the wall box using the two screws delivered with the device.
+		The mounting frame is then attached to the mounting plate and the switch is completed by pushing the switching
+		paddle into the mounting frame. Mind the arrow on the inserts top side showing the mounting direction of the insert.
+		It is also possible to mount the insert without any local operation behind a cover or inside a lamp. The mounting plate, frame
+		and the switching paddle become useless in such a scenario.</p>
+		 <p align="center"> <img src="img/ZME/ZME_common/ZME_montage/ZME_montage_en.png" width="300" align="center"></p>
+		 <p> The schematics below shows how to wire the actuator. The two wired from the mains distribution panel are connected to
+		 the inserts contacts <b>N</b> and <b>L</b>. The contact <b>S</b> is the switched contact and need to be connected to the cable to the load.
+		 The second wire to the load is connected to <b>N</b> as well. Both contacts marked as <b>N</b> are connected with each other.</p>
+		 <p> A fuse protects the electronics of the actuator. The fuse is accessible on the top side of the device.
+		 Inside the plug there is the working fuse plus a spare fuse. </p>
+		 <p align="center"> <img src="img/ZME/ZME_05457/05457_en.jpg" align="middle"></p>
+ 	</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+ 		<p> Blinking red/green LED indicates that the device is in factory reset state.
+ 		Once the controller is turned into inclusion mode <b> triple click of the buttons on the device will
+ 		include the device</b>. A green blinking of the LED will indicate successful inclusion that will be turned off shortly 
+ 		afterwards. The <b>device is excluded by triple click to one of the buttons</b> when the controller is in exclusion mode.</p>
+	</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+ 		<p> The actuator is operated by the local switching paddles or wirelessly using Z-Wave commands (communication patterns 1, 4, 5 and 7). 
+		If the insert is mounted correctly pushing the upper part of the paddle will turn on the load; pushing the lower part of the paddle will turn off the electric load.</p>
+		<p> The device is also able to report status changes to a controller (communication pattern 2) and to remotely operate other devices 
+		(communication pattern 5) by sending wireless Z-Wave commands. In case the remote device is a 
+		switch as well the remote operation is similar to the local operation by pushing upper to lower part of the switching paddle. However
+		the device can also be configured with configuration parameter <b>13</b> and <b>14</b> to operate remote dimmers. To dim a remote device
+		the paddle needs to be pushed and hold (upper part to dim up, lower part to dim down). Its furthermore possible to assign remote operation 
+		functions to the double click of the paddles.</p>
+		<p> Configuration parameter <b>2</b> enables a special function of the device. Its possible to define a timeout to automatically turn off 
+		the device after it was turned on manually.</p>
+	</Usage><h3 class="chapterTitle">Child Protection</h3>
+<content>
+		<p> The device can be turn into a child protection mode. In this mode all local operation is disabled.</p> 
+		</content><Protection>
+	<p>The child protection mode MUST be turned on wirelessly. However in protected by sequence mode it is possible to unlock the device for local 
+	operation with a triple click. The unlock state will last for 5 seconds.</p>
+	</Protection><h3 class="chapterTitle">LED Control</h3>
+<LEDControl>
+	<ul>
+	<li> Red and green blinking continuously: Device is not included in a Z-Wave network</li>
+	<li> Red lights up for 3 seconds: Device was not included/excluded after being put into learn mode by triple 
+	press of up/down button </li>
+	<li> Green lights up for 3 seconds: The inclusion/exclusion was successful or new association was saved successfully </li>
+	<li> Green or no light: depending on settings of configuration parameter for LED control </li>
+	</ul>
+	</LEDControl><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Single press and hold of up/down buttons
+			(max. nodes in group: 14)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Double press and press-hold of up/down buttons
+			(max. nodes in group: 14)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Send Reports on switch state change
+			(max. nodes in group: 14)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">LED mode</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 1)
+		</span><span class="parameterDescription">Set LED indication mode</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Show switch state</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Night mode (inverted switch state)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Operated by Indicator Command Class
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Automatically switch off after</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 2)
+		</span><span class="parameterDescription">If not zero, automatically switch off after a user defined time</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disabled
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				65535</td>
+<td>sec</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">What to do on RF off command</span><span class="parameterTechnical">
+			(Parameter Number 3, Parameter Size 1)
+		</span><span class="parameterDescription">Defines how to interpret RF Off command. Can be used in conjunction with Auto Off function: Ignore - to switch on the light by motion detectors and switch it off after some amount of time: in case of multiple motion detectors each would try to switch the light off that would break logics; Switch on - to switch on the light on both On and Off paddle press on the remote and switch it off after some amount of time. Button off click will still work (if button operations are not disabled).</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Switch off
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ignore</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch on</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Switch on if load is off else switch off</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Switch on dimming by buttons</span><span class="parameterTechnical">
+			(Parameter Number 4, Parameter Size 1)
+		</span><span class="parameterDescription">Defines if the switch should change it state to on/off if it is dimmed by buttons</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>No</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Yes
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Restore switch state after power cycle</span><span class="parameterTechnical">
+			(Parameter Number 5, Parameter Size 1)
+		</span><span class="parameterDescription">Defines if the switch should restore switch state to the last state prior to device power off (power cycle).</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>No, turn off</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Yes
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Typical click timeout</span><span class="parameterTechnical">
+			(Parameter Number 10, Parameter Size 1)
+		</span><span class="parameterDescription">Typical time used to differenciate click, hold, double and triple clicks</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>in 10ms units
+					(Default 50)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Invert buttons</span><span class="parameterTechnical">
+			(Parameter Number 11, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>No
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Yes</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Switch by buttons</span><span class="parameterTechnical">
+			(Parameter Number 12, Parameter Size 1)
+		</span><span class="parameterDescription">If disabled, the local operations by buttons will not switch the load, but only send commands to On/Off association group. In this mode buttons are not linked with the switch anymore. They can be used separately: buttons to control remote device, switch will operate by RF commands only.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>No</td>
+</tr>
+<tr>
+<td>1</td>
+<td>By single press and hold
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>By double press and press-hold</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Action on button single press or hold</span><span class="parameterTechnical">
+			(Parameter Number 13, Parameter Size 1)
+		</span><span class="parameterDescription">Defines which command should be sent on button single press or hold. Basic and Scene Activation commands are sent to Association group. Use Scene Controller Conf to set up Scene ID for Scene Activation. Switch All commands are sent broadcast.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Switch On/Off and Dim (send Basic Set and Switch Multilevel)
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Switch On/Off only (send Basic Set)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch All</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Send Scenes</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Send Preconfigured Scenes</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Action on button double press or hold</span><span class="parameterTechnical">
+			(Parameter Number 14, Parameter Size 1)
+		</span><span class="parameterDescription">Defines which command should be sent on button double press or press-hold. Basic and Scene Activation commands are sent to Association group. Use Scene Controller Conf to set up Scene ID for Scene Activation. Switch All commands are sent broadcast. If not disabled, the device will wait for a click timeout to see if the second click would be pressed. This will introduce a small delay for single click commands</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disabled
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Switch On/Off and Dim (send Basic Set and Switch Multilevel)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Switch On/Off only (send Basic Set)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch All</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Send Scenes</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Send Preconfigured Scenes</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Send the following Switch All commands</span><span class="parameterTechnical">
+			(Parameter Number 15, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Switch off only
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch on only</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Switch all on and off</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">What to do on button Down press</span><span class="parameterTechnical">
+			(Parameter Number 16, Parameter Size 1)
+		</span><span class="parameterDescription">Defines how to interpret button Down press. Depends on "Switch by buttons" parameter. If not Disabled this parameter will affect the action selected by the latter parameter. Can be used in conjunction with Auto Off function.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Switch off
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Switch On if load is Off, else switch Off</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Switch on</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Power Supply</td>
+<td>230V ~50-60 Hz</td>
+</tr>
+<tr>
+<td>Attachable Loads</td>
+<td> up to 2300 W resistive load or up to 460 VA inductive load</td>
+</tr>
+<tr>
+<td>Fuse</td>
+<td> Type: T 1.25 A H (Load 1.25 Ampere, high shutdown capacity), D: 5 mm, L: 20 mm </td>
+</tr>
+<tr>
+<td>IP Rating</td>
+<td>IP 20</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td> 868.42 MHz (SRD Band) </td>
+</tr>
+<tr>
+<td>Wireless Range</td>
+<td> up to 100 m outside, on average up to 20 m inside buildings  </td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54 pl1</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Binary Switch</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Binary Power Switch</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.8</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

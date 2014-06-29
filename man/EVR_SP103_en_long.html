@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/everspring.png"><br><h2><span class="brandName"><b>EVR_SP103<br><ProductHeadline>Z-Wave Motion Detector</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.0</h5>
+</td>
+<td align="right"><img class="deviceImage" height="200" src="img/EVR/EVR_SP103.png"></td>
+</tr></table>
+<div class="quickstart">
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+<p><span class="icon_black">S</span> This device is a Z-Wave Sensor. Single click the tamper switch behind the battery cover to include or exclude the device. 
+Clicking the little button behind the battery cover will wake up the device and keep it awake for 10 minutes.
+</p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</div>
+<h3 class="chapterTitle">What is Z-Wave?</h3>
+<content>
+			<p>This device is equipped with wireless communication complying to the Z-Wave standard. 
+			Z-Wave is the <b>international standard for wireless communication</b> in smart homes and buildings. 
+			It is using the <b>frequency of 868.42 MHz</b> to realize a very stable and secure communication. 
+			Each message is reconfirmed (<b>two-way communication</b>) and every mains powered node can act as a 
+			repeater for other nodes (<b>meshed network</b>) in case the receiver is not in direct wireless 
+			range of the transmitter.</p>
+			
+			<p>Z-Wave differentiates between Controllers and Slaves. Slaves are either sensors 
+			<b>(S)</b> transmitting metered or measured data or actuators <b>(A)</b> capable to execute an action.
+			Controllers are either static mains powered controllers <b>(C)</b> also referred to as gateways or mobile battery
+			operated remote controls <b>(R)</b>.
+			This results in a number of possible communication patterns within a Z-Wave network that are  partly 
+			or completely supported by a specific device.</p>
+			<img src="img/zoverview.png" width="250" align="right">
+			<ol>
+			<li> Controllers control actuators </li>
+			<li> Actuators report change of status back to controller </li>
+			<li> Sensors report change of status of measured values to controller </li>
+			<li> Sensors directly control actuators </li>
+			<li> Actuators control other actuators </li>
+			<li> Remote controls send signals to static controllers to trigger scenes or other actions </li>	
+			<li> Remote controls control other actuators. </li>			
+			</ol>
+ 		</content><small><procontent>
+		<p>There are two different role a controller can have. There is always one single primary controller that is managing
+		the network and including/excluding devices. The controller may have other functions - like control buttons - as well.
+		All other controllers don't manage the network itself but can control other devices. They are called secondary controllers.
+		The image also shows that its not possible to operate a sensor just from a remote control. Sensors only communicate
+		with static controllers.</p>
+		</procontent></small><h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>This motion detector (PIR = passive infrared receiver) detects the presence of a person in a room. The units sends information to a controller or any other associated Z-Wave device. 
+Up to 4 devices can be controlled from this device. It needs to be included into a Z-Wave network by a remote control or any other Z- Wave controller. For configuration of certain behaviour a static controller 
+such as a PC with home automation software or a gateway is required. The sensor is a battery-powered device, which is in sleeping state unless an action is detected. 
+After a programmable sleeping time the device wakes up and sends a status information. After this the unit goes back to sleeping modus. Batteries can be changed without unscrewing the device from the door or frame. 
+The unit will give a visual warning on the device and sends a warning to the Z-Wave controller, when batteries need to be replaced. The unit offers a tampering control and sends an alarm message when tampered.</p>
+</ProductDescription><h3 class="chapterTitle">Batteries</h3>
+<content>
+			<p>The unit is operated by batteries. Use only batteries of correct type. Never mix old and new batteries 
+			in the same device. Used batteries contain hazardous substances and should not be disposed of 
+			with household waste!</p>
+		</content><p>Battery Type: 
+				3  * AA</p>
+<h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+	<p>1. Release the Sensor from the battery cover by removing the fixing screws.</p>
+	<p align="center"> <img src="img/EVR/EVR_SP103/EVR_SP103_en.png" width="800" align="middle"></p>
+	<p>2. Put the 3 * AA batteries in the battery compartment.</p>
+	<p align="center"> <img src="img/EVR/EVR_SP103/EVR_SP103_b.png" width="700" align="middle"></p>
+	<p>3. For mounting use the battery cover, which is also the mount plate, and the screws. Further fix the sensor with mount plate like shown in the picture.</p>
+	<p>The recommended position for a Motion Detector is in the corner of a room mounted 2m from the floor. At this height, the detector will detect movement up to 6-12m depending on adjustment.
+	Also, in this position, the 100 degrees fan-shaped detection pattern can normally offer greater protection than mounting on a flat wall. Before selecting a position for a Motion Detector
+	the following points should be noted:</p>
+		<p>Do not position the detector facing a window or direct sunlight. Motion Detectors are not suitable for use in conservatories or draughty areas.</p>
+		<p>Do not position the detector directly above or facing any source of heat, eg: fires, radiators, boiler etc.</p>
+		<p>Where possible, mount the detector so that the logical path of an intruder would cut across the fan pattern rather than directly towards the detector.</p>
+	<p align="center"> <img src="img/EVR/EVR_SP103/EVR_SP103_c.png" width="300" align="middle"></p>
+	<p>4. Set the Time-off knob, which controls how long the connected load or lamp will stay on after the motion has been detected. It is set from 5 seconds to 12 minutes. 
+	"T" means 5 seconds, while "+" is 12 minutes. After the expiry of preset time-off, the Detector will turn OFF the load. The red indicator LED on the load or the
+	connected lamp will be off too.</p>
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+	<p>Make sure that your Z-Wave Controller is in the Inclusion-/Exclusion-Mode. Sinlge click the little button behind the battery cover to confirm the process.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+<p>The Motion Detector is designed to detect movement in a protected area by detecting changes in infra-red radiation levels caused, for example, when a person
+moves within or across the devices field of vision, a trigger radio signal will be transmitted.</p>
+<p>In the rear casing, there is a tamper switch which is used to carry out inclusion, exclusion or association. Put a Z-Wave Wireless Controller into inclusion/exclusion mode, 
+press the tamper switch on the detector to complete the inclusion/exclusion process. The Motion Detector will stay "awake" for ten minutes when changing the status of tamper switch from being pressed to be
+released or from being released to be pressed to allow time for configuration.</p>
+<p>1. With the tamper switch not being pressed, the unit enters test mode, which allows the user to make a test. When the movement has been detected, the red indicator LED on the Detector will illuminate and the load or the lamp 
+will turn ON. It implies that the unit is working properly.</p>
+<p>Note: When the battery is connected, the LED behind the lens will be on for about 1 minute as warming-up duration until the Motion Sensor has stabilized when the LED turns OFF.</p>
+<p>2. When the tamper switch is pressed, the unit will enter normal mode. Upon motion being sensed, the Detector will turn ON the connected load. After the elapse of preset time-off, the Detector will turn OFF the load.
+In normal mode with the tamper switch being pressed, the red indicator LED on the Detector will not illuminate to conserve battery life when the detector is triggered, (unless the battery is low).</p>
+<p>3. By pressing the tamper switch for more than 5 seconds, and then release it. The Detector will send an alarm command to the Module. 
+The load or the lamp will flash for 10 seconds.</p>
+</Usage><h3 class="chapterTitle">Wakeup Intervals - how to communicate with the device?</h3>
+<content>
+ 		<p><span class="icon_white">W</span> This device is battery operated and turned into deep sleep state most of the time to save battery life time.  
+ 		Communication with the device is limited. In order to communicate with the device, a static controller <b>C</b>
+ 		is needed in the network. This controller will maintain a mailbox for the battery operated devices and store 
+ 		commands that can not be received during deep sleep state.
+		Without such a controller, communication may become impossible and/or the battery life time is significantly decreased. </p>
+		<p>This device will wakeup regularly and announce the wakeup state by sending out a so called Wakeup Notification.
+		The controller can then empty the mailbox. Therefore, the device needs to be configured with the desired wakeup 
+		interval and the node ID of the controller. If the device was included by a static controller this 
+		controller will usually perform all necessary configurations. The wakeup interval is a tradeoff between maximal 
+		battery life time and the desired responses of the device. </p>
+		</content><Wakeup>
+	<p>Single click on the tamper switch  behind the battery cover or a detected action by the sensor will wake up the device and keep it awake.</p>
+</Wakeup><small><procontent>
+		<p>It is possible to set the node ID to 255 to send wakeup notifications as broadcast. In this mode device takes more time to go 
+		to sleep and drains battery faster, but can notify all it's direct neighbors about a wakeup. </p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+	<p>Sinlge click on the tamper switch  behind the battery cover or a detected action by the sensor sends a Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>Triggered
+			(max. nodes in group: 5)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Phase Level for ON Command</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 1)
+		</span><span class="parameterDescription">Defines which command to send when sensor triggers</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Set Off
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				96</td>
+<td>Set On</td>
+</tr>
+<tr>
+<td>97
+				—
+				239</td>
+<td>Set On to the last Dimmer phase</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Unterdrücke Schlaf-Funktion</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 1)
+		</span><span class="parameterDescription">Enables/Disables sleeping for debug purposes</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td>Enabled
+					(Default 1)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Command Classes</h3>
+<span class="supportedCommandClasses">Supported Command Classes</span><p><ul>
+<li>Basic
+		(version 1)
+	</li>
+<li>Battery
+		(version 1)
+	</li>
+<li>Wake Up
+		(version 1)
+	</li>
+<li>Association
+		(version 1)
+	</li>
+<li>Version
+		(version 1)
+	</li>
+<li>Binary Sensor
+		(version 1)
+	</li>
+<li>Configuration
+		(version 1)
+	</li>
+<li>Manufacturer Specific
+		(version 1)
+	</li>
+</ul></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Battery Type</td>
+<td>3  * AA</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.22</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Binary Sensor</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Routing Binary Sensor</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>No</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.0</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Explanation of Z-Wave specific terms</h3>
+<content>
+		<ul>
+		<li>
+<b>Controller</b> — is a Z-Wave device with capabilities to manage the network. Controllers are typically Gateways, 
+		Remote Controls or battery operated wall controllers.</li>
+		<li>
+<b>Slave</b> — is a Z-Wave device without capabilities to manage the network. Slaves can be sensors, actuators 
+		and even remote controls.</li>
+		<li>
+<b>Primary Controller</b> — is the central organizer of the network. It must be a controller. There can be only one primary controller in a Z-Wave network.</li>
+		<li>
+<b>Inclusion</b> — is the process of bringing new Z-Wave devices into a network.</li>
+		<li>
+<b>Exclusion</b> — is the process of removing Z-Wave devices from the network.</li>
+		<li>
+<b>Association</b> — is a control relationship between a controlling device and a controlled device.</li>	
+		<li>
+<b>Wakeup Notification</b> — is a special wireless message issued by a Z-Wave device to annonces that is 
+		is able to communicate.</li>
+		<li>
+<b>Node Information Frame</b> — is a special wireless message issued by a Z_Wave device to announce its capabilities and functions.</li>	
+		</ul>
+		</content><h3 class="chapterTitle">Disposal Guidelines</h3>
+<p>The product contains batteries. Please remove the batteries when the device is not used.</p>
+<content>
+		<p>Do not dispose of electrical appliances as unsorted municipal waste, use separate collection facilities. 
+		Contact your local government for information regarding the collection systems available. If electrical appliances 
+		are disposed of in landfills or dumps, hazardous substances can leak into the groundwater and get into the food chain, 
+		damaging your health and well-being.</p>
+		</content>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

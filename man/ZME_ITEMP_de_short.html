@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/zwave.me.png"><br><h2><span class="brandName"><b>ZME_ITEMP<br><ProductHeadline>Temperatur- und Digitalsensor mit Thermostatfunktion</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.0</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/ZME/ZME_iTEMP/ZME_iTEMP.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+ 	<p><span class="icon_black">S</span> Dieses Gerät ist ein Funksensor. Ein Dreifachklick auf den internen Schalter innerhalb 1.5 Sekunden inkludiert und exkludiert das Gerät. Ein Einfachklick auf 
+ 	den internen Schalter weckt das Gerät auf. Ein Doppelklick bestätigt eine netzweite Inklusion.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>iTEMP ist eine Kombination aus Temperatursensor, Digitalsensor mit externem 
+Schaltkontakt sowie einem Thermostat, der anhand einer per Funk eingestellten 
+Temperatur und der gemessenen Temperatur eine Heizung oder ein Kühlelement 
+steuern kann. Die Funktionen können einzeln oder auch parallel genutzt
+werden. Das Gerät ist batteriebetrieben und kann an jeder flachen Wand mit 
+Schrauben oder Kleber befestigt werden. Der Temperatursensor ist mit +/- 0.2 K
+recht genau, reagiert jedoch aufgrund des Plastegehäuses nur träge.</p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+<p>Das Gerät kann an mittels Schrauben oder doppelseitigem Klebeband an jede flache Oberfläche montiert oder schlicht irgendwo 
+abgelegt werden. Um die Batterien einzulegen muss das Gehuäuse mit einem spitzen flachen Gegensatz (Schraubendreher)
+aufgehebelt werden. Bitte beachten Sie die Polung der Batterien und verwenden Sie immer zwei gleiche Batterien. Beim Schließen 
+des Deckels ist zu beachten, daß die Aussparung im Deckel genau auf der Seite der Anschlussklemmen für den externen Schalter positioniert 
+sind. Ansonsten klemmt der Plastedeckel.</p>
+<img src="img/ZME/ZME_iTEMP/ZME_iTEMP_de.png" width="300" align="middle">
+<p><b>Achtung: </b>Bei falschem Einsetzen der Batterien kann das Gerät zerstört werden.</p>		
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+ 		<p> Wenn Sich der Controller im Standard-Inklusion-Modus befindet<b> wird der Vorgang durch einen Dreifach-Klick
+ 		auf den Internen Taster bestätigt</b>. Ein Doppelklick bestätigt die Netzweite Inklusion. Die Exklusion wird ebenfalls durch einen Dreifachklick bestätigt.</p>
+	</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+<p>Der <b>Temperatursensor </b> (Kommunikationsmuster 3) kann ohne zusätzliche Installationen oder Konfigurationen
+genutzt werden. Für den <b>
+		Digitalsensor</b> befinden sich zwei Anschlussklemmen im Gehäuse, an die ein externer Schalter angeschlossen wird. 
+		Dieser Schalter muss stromlos sein! Beim Kurzschließen der Schaltklemmen   
+		wird ein Schaltsignal per Funk an assoziierte Geräte (Kommunikationsmuster 4) gesendet.</p>
+		
+
+		<p> Das Gerät kann auch als funkgesteuerter <b>Raumthermostat</b> genutzt werden. In dieser Funktion
+		ermittelt das Gerät die aktuelle Raumtemperatur, vergleicht diese mit einem per Funk eingestellten Sollwert
+		und schaltet gegebenenfalls ein Gerät (Heizung, Kühlung) zwecks Regelung der Temperatur. Die Solltemperatur
+		wird durch das Z-Wave Kommando <i>(Command Class Temperature Setpoint)</i> eingestellt und die Steuerung 
+		eines Aktors erfolgt nach Kommunikationsmuster 4. Mittels Konfigurationsparameter werden die unteren und oberen 
+		Schwellwerte der Solltemperatur und damit der Regelbereich eingestellt.</p>
+</Usage><h3 class="chapterTitle">Kommunikation mit einem batteriebetriebenen Gerät</h3>
+<content>
+ 		<p> <span class="icon_white">W</span> Das Gerät ist batteriegespeist und damit in der Regel in einem Tiefschlafmodus um Strom zu sparen. Im Tiefschlafmodus 
+ 		kann das Gerät keine Funksignale empfangen. Daher wird ein (statischer) Controller benötigt, der netzgespeist und damit 
+ 		immer funkaktiv ist.  Dieser Controller - zum Beispiel ein IP-Gateway - 
+ 		verwaltet eine Nachrichten-Mailbox für dieses batteriegespeiste Gerät, in dem Nachrichten an dieses Gerät 
+ 		zwischengespeichert werden.
+ 		Ohne einen solchen statischen Controller wird die Nutzung dieses batteriebetriebenen Gerätes sehr schnell
+ 		zur Entladung der Batterie führen oder die Nutzung ist komplett unmöglich.</p>
+		<p>Dieses Gerät weckt regelmäßig auf, meldet dies durch Aussenden einer sogenannten Wakeup-Notifikation und leert dann seine Mailbox 
+		im statischen Controller. Dafür muss bei der Inclusion die Node-ID des Controllers 
+		und ein Aufweckinterval definiert werden. Erfolgt die Inklusion durch einen statischen Controller wie zum Beispiel ein IP-Gateway, wird dieser Controller
+		diese Konfiguration automatisch erledigen und in der Regel eine Nutzerschnittstelle anbieten, um das Aufweckinterval den Nutzerbedürfnissen anzupassen.
+		Das Aufweckinterval ist ein Kompromiss zwischen maximaler Batterielaufzeit und minimaler Reaktionszeit des batteriegespeisten Gerätes.  
+		</p>
+		</content><Wakeup>
+	<p>	iTEMP bleibt nach der Inklusion ca. 2.5 Sekunden wach, damit der Controller Konfigurationsaufgaben durchführen 
+	kann. Das Gerät kann mit der internen Taste aufgeweckt werden. Als Aufweckinterval
+	kann ein Wert zwischen 4 Minuten und 180 Tagen mit einer Auflösung von 4 Minuten gewählt werden. </p>
+</Wakeup><small><procontent>
+		<p>Es ist möglich die Gerätenummer 255 als Zielgerät für die Wakeup-Notifikation anzugeben. In diesem Falle wird die Nachricht
+		als Broadcast an alle Geräte mit direkter Funkverbindung gesendet. Dem Vorteil der sofortigen Benachrichtigung steht
+		als Nachteil gegenüber, das das Gerät gegebenenfalls mehr Zeit im aktiven Modus und damit mehr Batterieladekapazität verbraucht.</p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Ein einfacher Druck auf den internen Schalter sendet einen Node Information Frame.</p>
+	</NIF><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>empfangen Schaltkommando bei Erreichen der oberen Temperaturschranke
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>empfangen Schaltkommando bei Erreichen der unteren Temperaturschranke
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Geräte, die durch den externen Binär-Schalteingang gesteuert werden
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Geräte, die vom Termostat gesteuert werden
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>5</td>
+<td>?? Geräte, die über Änderungen der Thermostat-Zieltemperatur informiert werden
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Untere Temperaturschwelle</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 2)
+		</span><span class="parameterDescription">definiert die untere Temperaturschwelle der Thermostatfunktion</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>65136
+				—
+				65535</td>
+<td>in 0.1 C</td>
+</tr>
+<tr>
+<td>0
+				—
+				500</td>
+<td>in 0.1 C
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Obere Temperaturschwelle</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 2)
+		</span><span class="parameterDescription">definiert die obere Temperaturschwelle der Thermostatfunktion</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>65136
+				—
+				65535</td>
+<td>in 0.1 C</td>
+</tr>
+<tr>
+<td>0
+				—
+				500</td>
+<td>in 0.1 C
+					(Voreingestellt 400)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Binärsensormode</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription">definiert, welches Kommando vom Binärsensor bei Zustandsänderungen gesendet wird</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>BASIC ON wenn verbunden, BASIC OFF, wenn nicht verbunden
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>255</td>
+<td>BASIC OFF wenn verbunden, BASIC ON, wenn nicht verbunden</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Modus bei oberer Temperaturschranke</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltkommando bei Überschreiten der oberen Temperaturschranke</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>'AN', wenn gemessener Wert größer als definierter Schwellwert, ansonsten 'AUS'
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>255</td>
+<td>'AUS', wenn gemessener Wert größer als definierter Schwellwert, ansonsten 'AN'</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Modus bei unterer Temperaturschranke</span><span class="parameterTechnical">
+			(Parameternummer 5, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Schaltkommando bei Überschreiten der unteren Temperaturschranke</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>'AUS', wenn gemessener Wert größer als definierter Schwellwert, ansonsten 'AN'
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>255</td>
+<td>'AN', wenn gemessener Wert größer als definierter Schwellwert, ansonsten 'AUS'</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Status des Binärsensors</span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 1)
+		</span><span class="parameterDescription">aktiviert oder deaktiviert den Binärsensor</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Inaktiv</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Aktiv
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Obere Temperaturschranke</span><span class="parameterTechnical">
+			(Parameternummer 7, Parametergröße 1)
+		</span><span class="parameterDescription">aktiviert ode deaktiviert die Thermostatfunktion der oberen Temperaturschranke</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Aus</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Ein
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Obere Temperaturschranke</span><span class="parameterTechnical">
+			(Parameternummer 8, Parametergröße 1)
+		</span><span class="parameterDescription">aktiviert ode deaktiviert die Thermostatfunktion der oberen Temperaturschranke</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Aus</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Ein
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Temperaturmessung</span><span class="parameterTechnical">
+			(Parameternummer 10, Parametergröße 1)
+		</span><span class="parameterDescription">aktiviert oder deaktiviert die Temperatursensorfunktion</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>255</td>
+<td>Ja
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">max. Abweichung vom Regeltemperaturwert</span><span class="parameterTechnical">
+			(Parameternummer 11, Parametergröße 1)
+		</span><span class="parameterDescription">definiert die maximal erlaubte Abweichung von der gewünschten Regeltemperatur, bevor das Heiz- oder Kühlgerät geschaltet wird.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>5
+				—
+				50</td>
+<td>in 0.1 C Schritten
+					(Voreingestellt 10)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Schwellwert für Temperaturalarm</span><span class="parameterTechnical">
+			(Parameternummer 12, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert den Temperaturschwellwert, bei dem ein Temperaturalarm ausgelöst wird.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>5
+				—
+				50</td>
+<td>in 0.1 C Schritten
+					(Voreingestellt 10)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">?? Wiederholung des Alarms</span><span class="parameterTechnical">
+			(Parameternummer 13, Parametergröße 1)
+		</span><span class="parameterDescription">?? definiert, wie oft ein Alarm gesendet werden soll</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>sende nur einmal
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td>?? jede Menute</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Sende Batteriestatus automatisch</span><span class="parameterTechnical">
+			(Parameternummer 30, Parametergröße 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Nein
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>an Gerät das Wakeup Info empfängt</td>
+</tr>
+<tr>
+<td>2</td>
+<td>an alle Geräte</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Schutzklasse</td>
+<td>IP 20</td>
+</tr>
+<tr>
+<td>Batterietyp</td>
+<td>2  * AAA</td>
+</tr>
+<tr>
+<td>Z-Wave Frequenz</td>
+<td> 868.42 MHz (SRD Band) </td>
+</tr>
+<tr>
+<td>Funkreichweite</td>
+<td> bis zu 100 m im Freien, im Durchschnitt bis zu 20 m in Gebäuden </td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54 pl1</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Multilevel Sensor</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Routing Multilevel Sensor</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.0</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

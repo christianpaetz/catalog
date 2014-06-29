@@ -1,0 +1,675 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/fibaro.png"><br><h2><span class="brandName"><b>FIB_FGRM-222<br><ProductHeadline>Blind Control Insert 2</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 22.22</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/FIB/FIB_FGRM-222.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+		<p><span class="icon_black">A</span> This device is a Z-Wave Actuator. To include the device into the network, turn the controller into the inclusion mode and then triple click the B-button or a push button connected to the S1 terminal. 
+		Further you can use the auto-inclusion mode by setting the controller into the inclusion mode and then connect voltage supply. </p>
+	</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription><p>The Fibar Insert Motor Control FGRM-222 allows controlling motors for jalousies, blinds or other single-phase AC devices both wirelessly via Z-Wave and locally utilizing a traditional wall switch. Additionally to the 
+	Fibaro Blind Control Insert 1 (FGR-221) this device allows the control of garage doors and measuring the current and power consumption for the controlled devices and itself. This insert enables a precise positioning of motors with mechanical and electrical limit switch. In addition, this device has a power monitoring.</p>
+	<p>The device is placed in a wall box right behind the normal switch. The switch is not longer directly connected to the load but acts as input device for the Fibar insert that is controlling the load. The solution works with all switch design with or 
+	without neutral position as long as there is enough space in the wall box behind the switch. The device is just 15 mm height. The available space depends on the size of the traditional switch, the dimensions of the wall box and the amount of additional 
+	cabling placed in this box. This device is designed for a 3 wire system and needs a neutral wire in the wall box.</p>
+	</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+		<p> The motor control insert is designed to fit into standard circular European wall boxes with 60 mm diameter. With its 15 mm height, 
+		it can be also mounted behind traditional wall switches. This wall switch serves as an external control switch to controll loads.
+		The relays are realized in the insert.</p>
+		<p> The inserts contacts <b>N</b> and <b>L</b> are connected directly with the mains distribution of the power network. The three wires 
+		of the motor are connected like shown in the figure below.</p>
+		<p align="center"> <img src="img/FIB/FIB_FGRM-222/FIB_FGRM-222_en.png" width="700" align="middle"></p>
+		<p> The motor control can be operated locally using a switching paddle installed on the wall box. To connect the switching paddle with the insert
+		it has to be connected with the insert contacts <b>S1, S2</b>.</p>
+		<p><b>Attention: There must not be mains-power connected to the insert contacts. This would immediately lead to a destruction of the insert.</b></p>
+		<p> The local operation can be realized by a double switching paddle (bistable) or a double button (monostable). The connected switch type must 
+		be selected according to the inclusion by setting the configuration parameter 14. The local switch is connected with the motor control insert as shown 
+		in the schematics. If a bistable switch is connected it has to stay connected until the motor control insert is included into the Z-Wave network.</p>
+		<p>The Blind Control Insert 2 can also be used to control a Gate motor. Therefore it is necessery to install an additional safety switch NC and an sensor NC like shown in the figure.</p>
+		<p>Attention: The switch insert has an automatic endposition identification. This requires that the insert is connected with a tube motor with 
+		endposition switches. A test operation without motor leads to a wrong behavior.</p>
+		<p>It may be necessery to calibrate the module, when it's not working properly. The Calibration is a process during which a Roller Shutter learns the position of the limit switches and a motor characteristic. The procedure consists of an automatic, 
+		full movement between the limit switches (up, down, and up again). There are different procedures of calibrating a Fibaro Roller Shutter.</p>
+		<p><b>Calibration:</b></p>
+		<p>Calibration through the Z-Wave network</p>
+		<ol>
+		<li>Make sure the module is connected to the power supply.</li>
+		<li>Include the module into the Z-Wave network according to the inclusion procedure.</li>
+		<li>Set the parameter 29 value to 1.</li>
+		<li>Roller Shutter performs the calibration process, completing full cycle - up, down and up again.</li>
+		<li>The parameter 29 value will be automatically set to 0.</li>
+		<li>Using an interface test whether the positioning works correctly.</li>
+		</ol>
+		<p>Calibration through the switch keys</p>
+		<ol>
+		<li>Make sure the module is connected to the power supply and to the switch keys as well (S1 and S2 inputs).</li>
+		<li>Include the module into the Z-Wave network according to the inclusion procedure.</li>
+		<li>Press and hold the switch key connected to S1 or S2 input terminal and release it after at least 3 seconds.</li>
+		<li>Press and hold the same switch key again, and release it after 3 seconds.</li>
+		<li>Now press and hold the same button, for 3 seconds, for the 3rd time.</li>
+		<li>After pressing and releasing the button for the third time, automatic calibration sequence will start.</li>
+		<li>Roller Shutter performs the calibration process, completing full cycle - up, down and up again.</li>
+		</ol>
+		<p>Calibration through Menu (B-button)</p>
+		<ol>
+		<li>Make sure the module is connected to the power supply.</li>
+		<li>Include the module into the Z-Wave network according to the inclusion procedure.</li>
+		<li>Press and hold the B-button for ca. 6 seconds.</li>
+		<li>LED will glow blue.</li>
+		<li>Release the B-button and press it again, briefly.</li>
+		<li>Roller Shutter performs the calibration process, completing full cycle - up, down and up again.</li>
+		</ol>
+		<p><b>CALIBRATING LAMELLAS POSITIONING IN VENETIAN BLINDS</b></p>
+		<p>Apart from calibrating the roller blind position, it’s possible to calibrate the position of venetian blinds lamellas, in connection with a Fibaro Home Center 2. After correct calibration, in case of venetian blinds, it’s possible to set the 
+		position between the limit switches, as well as the lamellas angle. By default, time of full turn of the lamellas is set to 1,5 seconds. If necessary, it can be modified following below instructions.</p>
+		<ol>
+		<li>Make sure the module is connected to the power supply.</li>
+		<li>Include the module into the Z-Wave network according to the inclusion procedure.</li>
+		<li>Calibrate the Roller Shutter according to the instructions above.</li>
+		<li>Set the parameter 10 value to 2 or choose in HC2 interface: Device Type - Venetian Blind</li>
+		<li>Another device icon, responsible for lamellas operation, will show up in Home Center 2 interface. In case of any other Z-Wave network controllers managing the lamellas position is achieved through pressing and holding a switch key (up or down).</li>
+		<li>By default, time of transition between extreme positions is set to 1.500 ms (1,5 seconds).</li>
+		<li>Turn lamellas between extreme positions. If after full cycle a blind starts moving up or down, then parameter’s 12 value must be modified, e.g. to 1.000ms (1 second). Correctly configured lamellas should not force the blind to move up or down.</li>
+		</ol>
+ 	</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+ 		<p>To include the device into the network, turn the controller into the inclusion mode and then triple click the B-button or a push button connected to the S1 terminal. 
+		Further you can use the auto-inclusion mode by setting the controller into the inclusion mode and then connect voltage supply. The device is now ready to work.</p>
+	</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+ 		<p>The Fibaro Blind Control Insert 2 has different operating modes. Each operating mode affects certain parameters settings:</p>
+		<ol>
+		<li>Roller blind without positioning (parameter 10 set to 0).</li>
+		<li>Roller blind with positioning (parameter 10 set to 1).</li>
+		<li>Venetian blind (parameter 10 set to 2; parameter 13, set to 2).</li>
+		<li>Gate without positioning (parameter 10 set to 3; parameter 12 set to 0; parameter 17 set to 0).</li>
+		<li>Gate with positioning (parameter 10 set to 4; parameter 12 set to 0; parameter 17 set to 0).</li>
+		</ol>
+		<p>After chosing the operation mode the Fibaro Blind Control Insert 2 can be controlled with the Fibaro Home Center 2 or any other Z-Wave Primary Controller. Fibaro Roller Shutter allows for connecting push buttons to S1 and 
+		S2 terminals. These may be momentary or toggle switches, alternatively. Push buttons are responsible for managing the blind’s movement.</p>
+		<p><b>Using momentary switches:</b></p>
+		<p>Clicking UP button connected to S1 terminal, initiates up movement. Clicking button connected to S2 terminal, initiates down movement.</p>
+		<p>If the blind is moving, each click, of any button, will stop the movement. In addition a button click sends a command frame to I-st association group devices. In case of venetian blinds, it’s possible to manage the lamellas angle. 
+		Operating Mode - Venetian Blind, or Parameter 10 value set to 2.</p>
+		<p>Holding connected to S1 terminal initiates lamellas rotation up. Holding connected to S2 terminal initiates lamellas rotation down. In addition a button hold sends a Fibar Command Class control frame to II-nd association group devices.</p>
+		<p><b>Using toggle switches:</b></p>
+		<p>Changing switch key position, connected to S1 terminal, initiates up movement. Changing switch key position, connected to S2 terminal, initiates down movement. Choosing a middle position stops the blind.</p>
+	</Usage><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>triggered through a momentary switch click or a toggle switch position change
+			(max. nodes in group: 16)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>triggered through a momentary switch hold
+			(max. nodes in group: 16)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>reports the module status; default setting primary controller
+			(max. nodes in group: 1)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">local protection</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 1)
+		</span><span class="parameterDescription">enables/disables local entry. If activated module stops
+responding to S1 and S2 push buttons, SCENE ID and association commands will not be sent. Only exception is the
+B-button.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - no protection. Roller Shutter responds to push buttons.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - not supported.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Local protection active. Roller Shutter does not respond to push buttons.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">radio protection</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 1)
+		</span><span class="parameterDescription">enables/disables RF protection. If activated device stops responding to command frames. Configuration and polling still possible.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 – No protection. Roller Shutter responds to command frames.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - RF Protection active. Roller Shutter does not respond to the
+Z-Wave control frames.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - not supported.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">reports type</span><span class="parameterTechnical">
+			(Parameter Number 3, Parameter Size 1)
+		</span><span class="parameterDescription">Parameters value shoud be set to 1 if the module operates in
+Venetian Blind mode.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 – Blind position reports sent to the main controller using Z-Wave
+Command Class.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Blind position reports sent to the main controller using Fibar
+Command Class.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Roller Shutter operating modes</span><span class="parameterTechnical">
+			(Parameter Number 10, Parameter Size 1)
+		</span><span class="parameterDescription">parameter sets the operating mode.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - Roller Blind Mode, without positioning</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Roller Blind Mode, with positioning
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Venetian Blind Mode, with positioning</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3 - Gate Mode, without positioning</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4 - Gate Mode, with positioning</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">turning time/ delay time</span><span class="parameterTechnical">
+			(Parameter Number 12, Parameter Size 2)
+		</span><span class="parameterDescription">In Venetian Blind mode (parameter 10 set to 2) the
+parameter determines time of full turn of the lamellas.
+In Gate Mode (parameter 10 set to 3 or 4) the parameter defines the delay time after which an open gate starts closing.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>32769
+				—
+				32767</td>
+<td>Value 0 means the gate will not close automatically.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">lamellas positioning mode</span><span class="parameterTechnical">
+			(Parameter Number 13, Parameter Size 1)
+		</span><span class="parameterDescription">parameter influences the lamellas positioning in venetian blind mode (parameter 10 set to 2)</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - Lamellas return to previously set position only in case of the
+main controller operation.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Lamellas return to previously set position in case of the main controller operation, momentary switch operation, or when the
+limit switch is reached.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Lamellas return to previously set position in case of the main
+controller operation, momentary switch operation, when the limit
+switch is reached or after receiving a “STOP” control frame
+(Switch Multilevel Stop).</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">switch type</span><span class="parameterTechnical">
+			(Parameter Number 14, Parameter Size 1)
+		</span><span class="parameterDescription">parameter settings are relevant for Roller Blind Mode and
+Venetian Blind Mode (parameter 10 set to 0, 1, 2).</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - Momentary switches
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Toggle switches</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Single, momentary switch. (The switch should be connected to S1 terminal)</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">delay time after S2</span><span class="parameterTechnical">
+			(Parameter Number 17, Parameter Size 1)
+		</span><span class="parameterDescription">In roller blind mode or venetian blind mode (parameter 10
+set to 0, 1, 2) the parameter determines when the Roller
+Shutter relays are turned off after reaching a limit switch.
+In Gate Mode (parameter 10 set to 3 or 4) the parameter
+determines a time period after which a gate will start closing after a S2 contact has been disconnected.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>129
+				—
+				127</td>
+<td>value 10 = 1s.
+In Gate Mode, time to turn off the Roller Shutter relays after reaching a limit switch is set to 3 seconds and cannot be modified. Value of 0 means the gate will note close automatically.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">motor operation detection</span><span class="parameterTechnical">
+			(Parameter Number 18, Parameter Size 1)
+		</span><span class="parameterDescription">Power threshold to be interpreted as reaching a limit switch.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>129
+				—
+				127</td>
+<td>The value of 0 means reaching a limit switch will not be detected.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">motor operation time</span><span class="parameterTechnical">
+			(Parameter Number 22, Parameter Size 2)
+		</span><span class="parameterDescription">Time period for the motor to continue operation.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>32769
+				—
+				32767</td>
+<td>value of 0 means the function is disabled.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Forced Roller Shutter calibration</span><span class="parameterTechnical">
+			(Parameter Number 29, Parameter Size 1)
+		</span><span class="parameterDescription">seting the parameter to 1 Roller Shutter enters the calibration mode. Parameteronly is only relevant if a Roller Shutter is set to work in positioning mode (parameter 10 set to 1, 2 or 4).</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - deactivated (value 0 is automatically set after calibration process)
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Start calibration process</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Response to general alarm</span><span class="parameterTechnical">
+			(Parameter Number 30, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - No reaction.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Open blind.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Close blind.
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Response to flooding alarm</span><span class="parameterTechnical">
+			(Parameter Number 31, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - No reaction.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Open blind.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Close blind.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Response to smoke, CO or CO2 alarm</span><span class="parameterTechnical">
+			(Parameter Number 32, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - No reaction.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Open blind.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Close blind.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Response to temperature alarm</span><span class="parameterTechnical">
+			(Parameter Number 33, Parameter Size 1)
+		</span><span class="parameterDescription"></span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - No reaction.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Open blind.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 - Close blind.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Managing lamellas in response to alarm</span><span class="parameterTechnical">
+			(Parameter Number 35, Parameter Size 1)
+		</span><span class="parameterDescription">In Venetian Blind Mode (parameter 10 set to 2), the parameter determines how the lamellas will react upon alarm detection.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - Do not change lamellas position - lamellas return to the last set position.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Set lamellas to their extreme position.
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Power reports</span><span class="parameterTechnical">
+			(Parameter Number 40, Parameter Size 1)
+		</span><span class="parameterDescription">Power level change that will result in new power value report being
+sent. value is a percentage of the previous report.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>Value of 0 means the reports are turned off.
+					(Default 10)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Periodic power or energy reports</span><span class="parameterTechnical">
+			(Parameter Number 42, Parameter Size 2)
+		</span><span class="parameterDescription">time to the next report</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>32769
+				—
+				32767</td>
+<td>Value of 0 means the reports are turned off.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Energy reports</span><span class="parameterTechnical">
+			(Parameter Number 43, Parameter Size 1)
+		</span><span class="parameterDescription">Energy level change which will result in new energy value report
+being sent.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>130
+				—
+				127</td>
+<td>Value of 0 means the reports are turned off.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Self-measurement</span><span class="parameterTechnical">
+			(Parameter Number 44, Parameter Size 1)
+		</span><span class="parameterDescription">enables/disables to include the power and energy used by itself in reports to main controller.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - Self-measurement inactive.
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Self-measurement active.</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Scenes/ Associations activation</span><span class="parameterTechnical">
+			(Parameter Number 50, Parameter Size 1)
+		</span><span class="parameterDescription">Parameter determines whether scenes or associations are
+activated by the switch keys.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0 - Associations activation
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1 - Scenes activation</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Power Supply</td>
+<td>230V ~50-60 Hz</td>
+</tr>
+<tr>
+<td>Attachable Loads</td>
+<td> 1 kW</td>
+</tr>
+<tr>
+<td>IP Rating</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.55</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Multilevel Switch</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Motor Control Class B</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>22.22</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

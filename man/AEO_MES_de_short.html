@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/aeon%20labs%20logo.png"><br><h2><span class="brandName"><b>AEO_MES<br><ProductHeadline>Micro Modul Schalter</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.3</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/AEO/AEO_MEI.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p><span class="icon_black">A</span> Dieses Gerät ist ein Z-Wave-Aktor.</p>
+	<p>Drücken Sie zum Inkludieren oder Exkludieren des Gerätes den Knopf neben der Status LED oder alternativ den externen Taster 6 mal schnell hintereinander.
+	Wenn der Aeon Labs Micro Modul Schalter nicht in einem Z-Wave Netzwerk inkludiert ist, blinkt er gleichmäßig langsam.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>Der Aeon Labs Wanddoseneinsatz ermöglicht die Nachrüstung einer Standard-Elektroinstallation zu einem intelligenten Z-Wave-basierten System. Das Gerät selbst fungiert als Schalter. 
+Das Gerät wird in einer Wanddose direkt hinter dem dort bereits befindlichen konventionellen Schalter platziert. Der Schalter schaltet den Verbraucher nun nicht mehr direkt, 
+sondern liefert nur noch ein Steuersignal zum Aeon Labs Gerät, das wiederum den Verbraucher steuert. Diese Steuerung erfolgt entweder über den lokalen Schalter oder über Funk. 
+Dieses Produkt funktioniert mit jeder Schalterserie und jedem Design, so lange in der Einbaudose genügend Platz zur Installation vorhanden ist. In großen 65 mm tiefen Dosen sollte dies regelmäßg der Fall sein. 
+In kleineren Dosen (z.B. 45 mm) hängt die Einsatzmöglichkeit von der benötigten Tiefe des konventionellen Schalters sowie vom Platzbedarf der gegebenenfalls ebenfalls in der Dose befindlichen Elektroverbinder ab.
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+<p>Das Gerät ist für ein 3-Leiter-System ausgelegt und benötigt daher einen Neutralleiter. Es wird nach dem Anschliessen von der Netzspannung gespeist.</p>
+<p>Die untenstehende Abbildung zeigt die elektrische Verschaltung des Aktors. Die Stromzufuhr und der Verbraucher werden über die Anschlüsse Last, Neutralleiter und Spannungseingang angeschlossen.
+Die Anschlüsse 3.3 Volt und Externe Steuerung sind für die Steuerung per zusätzlichem Taster.
+</p>
+<p align="center"> <img src="img/AEO/AEO_MEI/AEO_MEI.de.png" width="450" align="center"></p>
+<p>Nach dem elektrischen Anschliessen des Gerätes, muss es in das Z-Wave Netz integriert werden.</p>
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+Um den Aeon Labs Micro Modul Schalter in ein Z-Wave Netzwerk zu inkludieren, bringen Sie einfach Ihren Z-Wave Controller in den Inklusionsmodus und drücken die Inklusion/Exklusion Taste am Schalter.
+Alternativ können Sie auch den externen Taster 6 mal schnell hintereinander betätigen.
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+<p>Der Schaltereinsatz wird über externe Schaltwippen oder per Funk geschaltet. Der Druck auf die externe Schaltwippe schaltet ein und aus.</p>
+</Usage><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+<p>Das Drücken der In-/Exklusionstaste am Gerät führt zum Senden eines Node Information Frame.</p>
+</NIF><h3 class="chapterTitle">Bedeutung der LED-Signale</h3>
+<LEDControl>
+	<ul>
+	<li>Die Status LED blinkt, wenn der Aeon Labs Micro Modul Schalter nicht in einem Z-Wave Netzwerk inkludiert ist.</li>
+	<li> Wenn der Aeon Labs Micro Modul Schalter erfolgreich inkludiert wurde, bleibt die Status LED für 10 Sekunden an oder aus, abhängig davon, 
+	ob der Schalter an- oder ausgeschaltet ist.</li>
+	</ul>
+</LEDControl><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>Geräte, die durch Kommandos  des Sensors gesteuert werden
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Batterietyp</td>
+<td>1  * CR2</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>5.02 pl2</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Binary Sensor</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Routing Binary Sensor</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.3</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

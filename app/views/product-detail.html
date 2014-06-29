@@ -1,0 +1,37 @@
+<!-- Home view -->
+<div ng-controller="ProductDetailController" id="page_product_detail">
+    <div class="page-header"><h1 >{{product.ZProductHeadline}}</h1></div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="product-detail-image"> 
+                <img class="vendor-logo" src="{{cfg.manufacturer_images + product.ZManufacturersImage}}" width="180" alt="{{product.ZProductHeadline}}" />
+               <img src="{{cfg.product_images_l + product.ZProductImage}}" width="300" alt="{{product.ZProductHeadline}}" />
+            </div>
+            <div class="product-description" ng-bind-html="product.ZProductDescription | stripTags | unsafeHtml"></div>
+        </div>
+        <div class="col-sm-5 product-data-list pull-right"> 
+            <h3><i class="fa fa-angle-down"></i> {{_t('Product')}}</h3>
+            <ul class="list-group">
+                <li data-ng-repeat="(k,v) in product.TechData" class="list-group-item">
+                    {{_t(k)}}: <strong>{{v}}</strong>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{cfg.pdf_product_detail}}&lang={{lang}}&id={{sku}}" class="text-info"><i class="fa fa-file-pdf-o fa-lg"></i>&nbsp;&nbsp;PDF</a>
+                </li>
+                
+
+                <li class="list-group-item" ng-if="manual_long">
+                    <a href="{{manual_long}}" class="text-info"><i class="fa fa-file-text fa-lg"></i></a>&nbsp;&nbsp;
+                     <a href="{{manual_short_pdf}}" class="text-info"><i class="fa fa-file-pdf-o fa-lg"></i></a>
+                    &nbsp;&nbsp;{{_t('Complete manual')}}
+                </li>
+                <li class="list-group-item" ng-if="manual_short">
+                    <a href="{{manual_short}}" class="text-info"><i class="fa fa-file-text fa-lg"></i></a>&nbsp;&nbsp;
+                     <a href="{{manual_short_pdf}}" class="text-info"><i class="fa fa-file-pdf-o fa-lg"></i></a>
+                    &nbsp;&nbsp;{{_t('Short version')}}
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

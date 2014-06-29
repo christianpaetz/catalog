@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/TKB.png"><br><h2><span class="brandName"><b>TKB_TZ65-D<br><ProductHeadline>Z-Wave Dual Paddle Wall Dimmer</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.3</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/TKB/TKB_TZ65-D.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+		<p><span class="icon_black">A</span> This device is a Z-Wave actuator. To include the device into the network, turn the controller into the inclusion mode and then press the upper or lower part of the paddle of the 
+		device. The device is now ready to work.</p>
+	</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The TZ65-D dual wall switch is switching attached loads and is controlled either by the local switching paddle or remotely via the Z-Wave wireless protocol. 
+It is included and controlled in a Z-Wave network by a remote control, a wireless control centre or any other kind of Z-Wave controller including a PC-software. 
+Beside the local switch the unit can control other Z-Wave units remotely in up to three additional Z-Wave groups, which are associated with this device. 
+Tipping one time or two times the switching paddle performs the control. The left paddle controls the local load while the right paddle remotely controls Z-Wave 
+associated devices only. The association of further Z-Wave devices needs to be done by a Z-Wave controller. The unit is powered by 230V and needs a 
+pattress box with 230 V power wires for installation.</p>
+<div>The unit is shipped completely with electronics, switching paddle and mounting frame in arctic white HomePro style, which can be replaced by another 
+mounting frame of the HomePro switching series. The unit is designed for use within a 3-wire system, which means that a neutral wire (blue) is needed for 
+operations.</div>
+<div>
+<strong>Attention:</strong> The Switch does not fit in a german 60mm pattress box!</div>
+</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+		<p> The TZ65-D wall mounted dimmer needs a pattress box with 230 V power wires for installation. It does not fit into European wall boxes with 60 mm diameter.</p> 
+		<ol>
+		<li>To install the wall dimmer first remove the paddle using a small screw driver. </li>
+		<li>Afterwards remove the four screws through the retaining ring holding the trim ring to the mounting plate. This will allow the removal of the trim ring. 
+			When removing the trim ring make sure not to bend or disrupt the shape of the antenna wire.</li>
+		<li>Wire the product according to the schematics. The two wired from the mains distribution panel are directly connected to the inserts contacts <b>N</b> 
+			and <b>L</b>. The contact <b>L'</b> is the switched load output and needs to be connected to the cable of the load.</li>
+		<li>Install the product in the wall box.</li>
+		<li>Reinstall the trim ring and the retaining ring with the four screws. Mind the arrow on the inserts top side showing the mounting direction of the insert.</li>
+		<li>Return the switching paddle by pushing it into the mounting frame. Make sure the LED window is also towards the stamped word "Bottom" on the retaining
+			ring.</li>
+		</ol>
+		 <p align="center"> <img src="img/TKB/TKB_TZ66-D/TKB_TZ66-D_en.jpg" width="300" align="center"></p>
+ 	</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+ 		<p> The device is included and excluded by a single click on the switch when the controller is in inclusion resp. exclusion mode.</p>
+	</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+ 		<p> The actuator can be set to control other Z-Wave devices and is operated by the local switching paddles or wirelessly using Z-Wave commands. The left paddle 
+		controls the local load while the right paddle remotely controls Z-Wave associated devices only. If the insert is mounted correctly pushing the upper part of the 
+		left or right paddle will turn ON the load. Pushing the lower part of the left or right paddle will turn OFF the electric load. Pressing and holding the switch 
+		will allow dimming and brightening of Z-Wave dimmers if associated. </p>
+	</Usage><h3 class="chapterTitle">LED Control</h3>
+<LEDControl>
+	<ul>
+	<li>The LED on the TZ65-D will turn on when the load attached is off, to act as a night light. However, the LED can be user configured to turn 
+	on when the load attached is on.</li>
+	<li>The TZ65-D will flicker its LED when it is transmitting to any of its 4 groups. This can be changed if desired. See "LED transmission indication".</li>
+	</ul>
+	</LEDControl><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Tap left paddle once
+			(max. nodes in group: 5)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tap right paddle once
+			(max. nodes in group: 5)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tap right paddle twice
+			(max. nodes in group: 5)
+		</td>
+</tr>
+<tr>
+<td>4</td>
+<td>every switching command
+			(max. nodes in group: 5)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Start Level Bit</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 1)
+		</span><span class="parameterDescription">defines if the start level bit shall be ignores when transmitting a dim command to a dimmer</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>ignore</td>
+</tr>
+<tr>
+<td>1</td>
+<td>dont ignore
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Suspend Group 4</span><span class="parameterTechnical">
+			(Parameter Number 2, Parameter Size 1)
+		</span><span class="parameterDescription">defines if the Association group 4 shall be active or not</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>yes
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>no</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Night Light</span><span class="parameterTechnical">
+			(Parameter Number 3, Parameter Size 1)
+		</span><span class="parameterDescription">Activates Night Light</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>LED blinks on activity
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Night Light active</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Invert Switch</span><span class="parameterTechnical">
+			(Parameter Number 4, Parameter Size 1)
+		</span><span class="parameterDescription">Inverts Switching (on is upper part)</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>dont invert
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>invert</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Enable Shade Control Group 2</span><span class="parameterTechnical">
+			(Parameter Number 14, Parameter Size 1)
+		</span><span class="parameterDescription">The device can operate shade control devices via Group 2  if this parameter is activated</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>inactive
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>active</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Enable Shade Control Group 3</span><span class="parameterTechnical">
+			(Parameter Number 15, Parameter Size 1)
+		</span><span class="parameterDescription">The device can operate shade control devices via Group 3 if this parameter is activated</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>inactive
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>active</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">LED Transmission Indication</span><span class="parameterTechnical">
+			(Parameter Number 19, Parameter Size 1)
+		</span><span class="parameterDescription">defines the behavior of the LED when transmitting data</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>no flicker
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>flicker all time of data transmission</td>
+</tr>
+<tr>
+<td>2</td>
+<td>flicker for one second only</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Poll Group 2 Interval</span><span class="parameterTechnical">
+			(Parameter Number 20, Parameter Size 1)
+		</span><span class="parameterDescription">defines the poll interfal for group 2 if polling is activated </span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td> Interval
+					(Default 2)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Poll Group 2</span><span class="parameterTechnical">
+			(Parameter Number 22, Parameter Size 1)
+		</span><span class="parameterDescription">defines if Group 2 shall be polled or not</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>dont poll</td>
+</tr>
+<tr>
+<td>1</td>
+<td>poll
+					(Default)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Power Supply</td>
+<td>230V</td>
+</tr>
+<tr>
+<td>Attachable Loads</td>
+<td> ohmic loads up to 300 W </td>
+</tr>
+<tr>
+<td>IP Rating</td>
+<td>IP 20</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td> 868.42 MHz</td>
+</tr>
+<tr>
+<td>Wireless Range</td>
+<td> </td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Multilevel Switch</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Multilevel Power Switch</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.3</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

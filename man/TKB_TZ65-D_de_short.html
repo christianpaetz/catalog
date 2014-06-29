@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/TKB.png"><br><h2><span class="brandName"><b>TKB_TZ65-D<br><ProductHeadline>Z-Wave Wanddimmer mit geteilter Schaltwippe</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.3</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/TKB/TKB_TZ65-D.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart> <p><span class="icon_black">A</span> Dieses Gerät ist ein Z-Wave-Aktor. Um das Gerät in das Z-Wave-Netz einzubinden, muss zunächst der Controller in den Inklusion-Modus gesetzt werden. Anschließend drücken
+	Sie den oberen oder unteren Teil der Schaltwippe. Der TZ65-D ist nun in das Netz inkludiert.</p> 
+	</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Der TZ65-D Zweifach-Wandschalter schaltet angeschlossene Leuchten und wird entweder über die Schaltfläche oder drahtlos
+ über das Z-Wave-Netz gesteuert. Das Gerät wird über eine Fernbedienung oder eine PC-Software in ein 
+ Z-Wave Netz eingebunden und kann dann selbst - zusätzlich zur lokal angeschlossenen Last - bis zu drei weitere 
+ Gruppen von Z-Wave-Geräten steuern, die mit dem Wandschalter assoziiert werden. Die linke Schaltwippe steuert die lokale Last, 
+ während die rechte Schaltwippe zur Steuerung anderer Z-Wave-Geräte zur Verfügung steht. Die Steuerung erfolgt durch ein- oder zweifaches 
+ Drücken der jeweiligen Schaltflächen. Das Gerät wird mit 230 V Spannung versorgt und benötigt daher zur Installation eine spannungsversorgte Unterputzdose.</p>
+<p>Das Gerät wird komplett vormontiert mit einem Einfach-Montagerahmen geliefert. Der Unterputzeinsatz hat keine Halteklemmen, so 
+dass in der Unterputzdose entsprechende Gewinde zur Verschraubung vorhanden sein müssen. Das Gerät ist für ein 
+Dreileitersystem vorgesehen, d.h. es muss zur Installation ein Neutralleiter (blau) vorhanden sein.</p>
+<div>
+<strong>Hinweis:</strong> Der Wanddimmer passt nicht in eine deutsche 60mm Wanddose!</div>
+<p></p>
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+		<p> Der TZ65-D Zweifach-Wandschalter benötigt zur Installation eine mit 230 V versorgte Unterputzdose. Er passt nicht in deutsche Wanddosen mit einem 
+		Durchmesser von 60 mm.</p>
+		<ol>
+		<li> Entfernen Sie als ersten Schritt die Schaltwippe (z.B. mit Hilfe eines kleinen Schraubenziehers).</li> 
+		<li> Anschließend entfernen Sie die vier Schrauben aus dem Haltering, um den Rahmen von der Montageplatte abzunehmen. Achten Sie bei der Entnahme unbedingt 
+			darauf, nicht die Antenne zu verbiegen oder zu beschädigen. </li>
+		<li>Schließen Sie das Gerät, wie in der Abbildung dargestellt, an. Die Anschlussklemmen <b>N</b> und <b>L</b> werden direkt mit den Zuleitungen 
+			des Stromnetzes verbunden. Der Kontakt <b>L'</b> dient dem Lastausgang und wird mit dem elektrischen Verbraucher verbunden.</li>
+		<li>Ist der Wandschaler elektrisch angeschlossen, kann dieser nun in der Wand installiert werden.</li>
+		<li>Befestigen Sie den Rahmen wieder mit den vier Schrauben auf dem Haltering. Bitte beachten Sie die Einbaurichtung (Pfeil nach oben auf der Montageplatte), 
+			damit später der Druck auf den oberen Teil der Schaltwippe ein EIN-Signal und der Druck auf den unteren Teil der Schaltwippe ein AUS-Signal hervorruft.</li>
+		<li>Montieren Sie die Schaltwippe wieder, indem Sie sie auf den Rahmen drücken. Achten Sie dabei darauf, dass die LED-Anzeige in der richtigen
+			Ausrichtung (Prägung "Bottom") ist. </li>
+		</ol>
+		<p> Die untenstehende Abbildung zeigt die elektrische Verschaltung des Aktors.</p>
+		
+		<p align="center"> <img src="img/TKB/TKB_TZ66-D/TKB_TZ66-D_de.png" width="300" align="center">
+		</p>
+	</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+		<p> Um das Gerät in das Z-Wave-Netz einzubinden, muss zunächst der Controller in den Inklusion-Modus gesetzt werden. Die Bestätigung 
+		der <b><i>Inklusion</i> an diesem Gerät erfolgt durch ein einmaliges Drücken auf den oberen oder unteren Teil der Schaltwippe.</b></p>
+		<p>Die Bestätigung der <b><i>Exklusion</i> erfolgt an diesem Gerät wie bei der Inklusion ebenfalls durch ein einmaliges Drücken auf 
+		den oberen oder unteren Teil der Schaltwippe.</b></p>
+	</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+ 		<p> Der TZ65-D kann andere Z-Wavegeräte steuern und wird über die Schaltwippen oder per Funk (Kommunikationmuster 1 und 4) geschaltet. Wenn der 
+		Schalteinsatz in der richtigen Orientierung eingebaut wurde, schaltet der Druck auf den oberen Wippenteil die Last ein und ein Druck auf den unteren Wippenteil 
+		schaltet die Last aus. Ein Drücken und Halten des Schalters ermöglicht das Dimmen und Aufhellen von Z-Wave Dimmern, wenn diese mit dem Gerät assoziiert sind.</p>
+	</Usage><h3 class="chapterTitle">Bedeutung der LED-Signale</h3>
+<LEDControl>
+	<ul>
+	<li>Die LED des TZ65-D leuchtet, wenn die angeschlossene Last aus ist. Auf diese Weise ist es möglich, den Schalter auch im Dunkeln zu finden. Dennoch ist es möglich,
+	diese Einstellung entsprechend den Wünschen des Nutzers umzustellen, sodass die LED leuchtet, wenn die angeschlossene Last an ist.</li>
+	<li>Die LED des TZ65-D flimmert, wenn Übertragungen zu seinen drei Gruppen vorgenommen werden. Dies kann ggf. geändert werden. Lesen Sie dazu unter "LED transmission indication".</li>
+	</ul>
+	<p>Das Flimmern kann komplett ausgeschaltet werden (0), auf Flimmern während des gesamten Übertragungsprozesses eingestellt werden (1) oder auf ein Flimmern für 1 Sekunde, 
+		wenn es mit der Übertragung beginnt(2), umgestellt werden. In der Standardeinstellung des TZ65-D ist ein Flimmert für nur 1 Sekunde.</p>
+	</LEDControl><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations">
+<tr>
+<td>1</td>
+<td>Linke Schaltwippe Einfachklick
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Rechte Schaltwippe Einfachklick
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Rechte Schaltwippe Doppelklick
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+<tr>
+<td>4</td>
+<td>jede Schaltaktion
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">Start Level</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 1)
+		</span><span class="parameterDescription">definiert, ob die Angabe über den Startpunkt beim Dimmen in der Funkanweisung ignoriert werden soll</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Ignorieren</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nicht ignorieren
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Assoziationsgruppe 4 deaktiveren</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 1)
+		</span><span class="parameterDescription">definiert, ob die Assoziationsgruppe 4 aktiv ist oder nicht</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>ja
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>nein</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Nachtlicht</span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription">aktiviert die Nachtlichtfunktion</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>LED blinkt bei Aktivität
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nachtlicht aktiv</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Schalter invertieren </span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription">invertiert die Belegung der Schaltwippe</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Nein
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ja</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Motorsteuerung für Assoziationsgruppe 2</span><span class="parameterTechnical">
+			(Parameternummer 14, Parametergröße 1)
+		</span><span class="parameterDescription">definiert, ob Geräte in der Assoziationsgruppe 2 als Motoren gesteuert werden (z.B. Jalousiecontroller)</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Nein
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ja</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Motorsteuerung für Assoziationsgruppe 3</span><span class="parameterTechnical">
+			(Parameternummer 15, Parametergröße 1)
+		</span><span class="parameterDescription">definiert, ob Geräte in der Assoziationsgruppe 3 als Motoren gesteuert werden (z.B. Jalousiecontroller)</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Nein
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ja</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">LED Indikator</span><span class="parameterTechnical">
+			(Parameternummer 19, Parametergröße 1)
+		</span><span class="parameterDescription">definiert wie die LED eine Indikator für die Funkübertragung ist</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>kein Blinken
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Binkt immer solange Funk aktiv ist</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Blinkt nur für eine Sekunde</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Pollen der Gruppe 2 Interval</span><span class="parameterTechnical">
+			(Parameternummer 20, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Poll interval für Assoziationsgruppe 2 </span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td> Interval
+					(Voreingestellt 2)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Poll-Gruppe 2</span><span class="parameterTechnical">
+			(Parameternummer 22, Parametergröße 1)
+		</span><span class="parameterDescription">definiert, of das Pollen in Gruppe 2 aktiv ist.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ja
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Stromversorgung</td>
+<td>230V</td>
+</tr>
+<tr>
+<td>Schaltbare Lasten</td>
+<td> bis 300 W</td>
+</tr>
+<tr>
+<td>Schutzklasse</td>
+<td>IP 20</td>
+</tr>
+<tr>
+<td>Z-Wave Frequenz</td>
+<td> 868.42 MHz </td>
+</tr>
+<tr>
+<td>Funkreichweite</td>
+<td></td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Multilevel Switch</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Multilevel Power Switch</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.3</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

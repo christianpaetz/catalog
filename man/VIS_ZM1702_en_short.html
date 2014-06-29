@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/vision.png"><br><h2><span class="brandName"><b>VIS_ZM1702<br><ProductHeadline>Z-Wave Door Lock with Handle</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 3.15</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/VIS/ZM1702.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+<p><span class="icon_black">A</span> This is a Z-Wave actor. To confirm Inclusion and Exclusion insert the following Key sequence on the key 
+pad: 'C' + '8' + '8' + '8' followed by turning the handle on the inside of the door lock.
+The operation is confirmed by a long beep. </p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The ZM1702 is a Z-Wave controllable door lock that fits into standard European doors. 
+The mechanics can be adopted to right or left opening doors. The door lock can be applied for 
+doors from a thickness of 38 mm and up. Since the lock is just a single dead bold lock it 
+will not replace modern three dead bold locking outer doors. The door can be locked and 
+unlocked using the inner side turn piece and/or the key pad. The wireless control allows 
+to lock/unlock the lock, set/unset up to 15 different key codes (4...8 key long) and to 
+limit the validity of certain key code.
+</p>
+<p> Note: The distance between the center of the handle axle and the center of the key 
+insert is 88 mm. If the lock shall be used to retrofit an existing door, the original handle
+lock distance needs ot be similar.
+</p>
+<p><b>Scope of Delivery:</b></p>
+<ul>
+<li>inner plate with handle and turn piece</li>
+<li>outer plate with handle and key pad</li>
+<li>inner lock mechanics</li>
+<li>cylinder with 3 keys</li>
+</ul>
+</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+<p><b>Dimensions of the door</b></p>
+<img src="img/VIS/1701_3.png" width="500" align="middle">
+<p><b>Change Orientation of the Handle</b></p>
+<ul>
+<li>Remove the Retaining Ring on both handles and remove the metal plate.<br>
+<img src="img/VIS/1702_1.png" width="250" align="middle">
+</li>
+<li>If handle is on the left hand side (seen from outer door side) place the spring and 
+the metal plate like below. <br><img src="img/VIS/1702_2.png" width="500" align="middle">
+</li>
+<li>If you want the handle on the right hand side (seen from the outer door side), place the spring and the metal plate like below.
+Apply the retaining ring again.<br><img src="img/VIS/1702_3.png" width="500" align="middle"> </li>
+<li>If needed change the latchbolt direction as described in the manual supplied with the product.
+</li>
+</ul>
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+<p>To confirm Inclusion and Exclusion insert the following Key sequence on the key 
+pad: 'C' + '8' + '8' + '8' followed by turning the handle on the inside of the door lock.
+The operation is confirmed by a long beep.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+<img src="img/VIS/ZM1702_1_en.png" width="500" align="middle">
+<ul>
+<li> Please press 'C', then enter a valid user code and press to unlock the door. 
+User shall hear one beep and light is green. If code is invalid, user shall hear one 
+beep and light is red.</li>
+<li> If user press invalid code during process, please press 'C' to start over. </li>
+<li> The Electronic Deadbolt Lock supports up to 13 sets of User code (including
+Master code). Each number combination can be 4 digits to 10 digits. </li>
+<li> The devices  supports up to 50 schedule slots (year, month, day, time) to 
+Entry lock for all user in the system. </li>
+</ul>
+<b>Visual feedback message definitions:</b><br>
+<ul>
+<li>
+<b>Valid Programming:</b> one long beep and light is green. </li>
+<li>
+<b>Invalid Programming:</b> one long beep and light is red. </li>
+<li>
+<b>Lock error:</b> three long beeps and lights red flash.</li>
+<li>
+<b>Low battery warning:</b> Beeps and lights red flash 5 seconds. 
+Please replace with good quality alkaline batteries. Note: Please re-enter 
+Year-Month-Date-Hour-Minute after batteries are complete dead.</li>
+</ul>
+</Usage><h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Battery Type</td>
+<td>4  * AA</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.51</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Entry Control</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Secure Keypad Door Lock</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>No</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>3.15</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

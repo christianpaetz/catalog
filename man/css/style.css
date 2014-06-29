@@ -1,0 +1,218 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.4em;
+    color:#333;
+    text-align:center;
+    background:url("../images/bcg-body.png") repeat-x top center #FFF;
+}
+
+/* Kopfzeile */
+#header {
+	width:960px;
+	height:274px;
+	background:url("../images/header.jpg");
+	margin: 0 auto;
+}
+
+/* Rahmen um die ganze Seite */
+
+#wrapper {
+    background:url("../images/z-wave-logo-white.png") no-repeat;
+	text-align:left;
+	margin: -35px auto 0 auto;
+        padding: 60px 0 20px 0;
+/*	position:relative;*/
+	width:960px;
+}
+
+/* Typo
+-------------------------------------------------- */
+h1, h2, h3 {
+    color: #2A6496;
+    font-weight: normal;
+}
+
+h3 {
+    /*    margin: 20px 0 0 0;*/
+    font-size: 18px;
+}
+h3.chapterTitle{
+    margin: 30px 0 10px 0;
+}
+procontent{
+    font-size: 14px;
+}
+
+.brandName{
+    font-size: 20px;
+    color: #2A6496;
+}
+.deviceandvendors h2{
+    line-height:1.6em;
+}
+.brandName b{
+    font-weight: normal;
+}
+h5.firmwareVersion{
+    padding-top: 20px;
+}
+
+
+/* ICON Formatierungen */
+.icon_black {
+    display: inline-block;
+    border-radius: 4px;
+     border: solid 1px #9fd8ef;
+    width: 2em;
+    background-color: #2A6496;;
+    color: white;
+    text-align: center;
+    font-weight:bold;
+}
+
+.icon_white {
+    display: inline-block;
+    border-radius: 4px;
+     color: #2A6496;
+     border: solid 1px #9fd8ef;
+    width: 4em;
+    text-align: center;
+    font-weight:bold;
+}
+
+ul {
+    margin:20px	; 
+    padding:0; 
+    list-style:none;
+}
+ul li {
+    list-style:disc;
+    padding: 0 0 10px 0px;
+}
+
+/* Images
+-------------------------------------------------- */
+img {
+	margin: 0 0 20px 20px;
+
+}
+.vendorsImage {
+	float:none;
+	 width: 150px;
+    margin: 0 0 40px 0;
+}
+
+.deviceImage {
+    float:right; 
+    clear:both; 
+    border:0;
+}
+.skunumber {
+    width:960px; 
+    text-align:right; 
+    padding-top:185px;	
+    font-family:PT Sans;
+    font-weight:normal; 
+    font-size:30px; 
+    color:#043882;
+}
+
+/* Tables
+-------------------------------------------------- */
+table {
+    width: 100%;
+    padding: 20px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #9fd8ef;
+    font-size: 13px;
+}
+
+.deviceandvendors{
+    border: 0 none !important;
+}
+.deviceandvendors td {
+    border:0; 
+    padding:0;
+}
+quickstart{
+    display: block;
+}
+.quickstart, quickstart{
+    padding: 0 20px 10px 20px;
+    border:1px solid #9fd8ef; 
+    background:#FFF;
+}
+div.quickstart quickstart{
+    padding: 0;
+    border:0 none; 
+}
+th {
+    padding: 5px;
+    text-align: left;
+    margin: 0;
+    border-bottom: 2px solid #9fd8ef;
+    background: #E4F5FC;
+    color:#2A6496;
+}
+.technicalDetails td, .associations td, .parameterValues td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #9fd8ef;
+}
+
+.parameterBlock{
+    display: block;
+}
+.parameterName,.parameterTechnical{
+    font-size: 14px;
+    color: #2A6496;
+    font-weight: bold;
+}
+
+.parameterDescription{
+    display: block;
+}
+.supportedCommandClasses{
+    margin-top: 20px;
+    font-weight: bold;
+}
+.parameterValuesTable{
+    display: block;
+}
+
+.parameterValues{
+    margin: 10px 0 20px 0;
+}
+
+/* Footer
+-------------------------------------------------- */
+#footer {
+    border-top: solid 2px #6BA2C8;
+    font-size: 12px;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 40px;
+   line-height: 40px;
+}
+
+#footer .inside {
+    width:960px; 
+    margin: 0 auto;
+    text-align: center;
+    color: #6BA2C8;
+}
+
+#footer a{
+    color: #6BA2C8;
+}
+#footer a:hover{
+    color: #17497B;
+}
+

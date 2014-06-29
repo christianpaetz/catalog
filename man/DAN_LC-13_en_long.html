@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/danfossredlogo.png"><br><h2><span class="brandName"><b>DAN_LC-13<br><ProductHeadline>Z-Wave Radiator Valve Thermostat (013)</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 3.48</h5>
+</td>
+<td align="right"><img class="deviceImage" height="200" src="img/DAN/DAN_LIVC_RAK.png"></td>
+</tr></table>
+<div class="quickstart">
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+ 	<p><span class="icon_black">S</span> This device is a Z-Wave Radiator Thermostat.  	
+ 	Click on the middle button will confirm inclusion or exclusion and wakeup the device for wireless communication. 
+	A long push for 3 seconds on the middle buttons enters and leaves the management mode indicated by a 'M' on the LCD display.</p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</div>
+<h3 class="chapterTitle">What is Z-Wave?</h3>
+<content>
+			<p>This device is equipped with wireless communication complying to the Z-Wave standard. 
+			Z-Wave is the <b>international standard for wireless communication</b> in smart homes and buildings. 
+			It is using the <b>frequency of 868.42 MHz</b> to realize a very stable and secure communication. 
+			Each message is reconfirmed (<b>two-way communication</b>) and every mains powered node can act as a 
+			repeater for other nodes (<b>meshed network</b>) in case the receiver is not in direct wireless 
+			range of the transmitter.</p>
+			
+			<p>Z-Wave differentiates between Controllers and Slaves. Slaves are either sensors 
+			<b>(S)</b> transmitting metered or measured data or actuators <b>(A)</b> capable to execute an action.
+			Controllers are either static mains powered controllers <b>(C)</b> also referred to as gateways or mobile battery
+			operated remote controls <b>(R)</b>.
+			This results in a number of possible communication patterns within a Z-Wave network that are  partly 
+			or completely supported by a specific device.</p>
+			<img src="img/zoverview.png" width="250" align="right">
+			<ol>
+			<li> Controllers control actuators </li>
+			<li> Actuators report change of status back to controller </li>
+			<li> Sensors report change of status of measured values to controller </li>
+			<li> Sensors directly control actuators </li>
+			<li> Actuators control other actuators </li>
+			<li> Remote controls send signals to static controllers to trigger scenes or other actions </li>	
+			<li> Remote controls control other actuators. </li>			
+			</ol>
+ 		</content><small><procontent>
+		<p>There are two different role a controller can have. There is always one single primary controller that is managing
+		the network and including/excluding devices. The controller may have other functions - like control buttons - as well.
+		All other controllers don't manage the network itself but can control other devices. They are called secondary controllers.
+		The image also shows that its not possible to operate a sensor just from a remote control. Sensors only communicate
+		with static controllers.</p>
+		</procontent></small><h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>Living Connect is a Z-Wave controlled electronic radiator thermostat. It is mounted on wall heating valves and controls 
+them by a motor. The device accepts a setpoint that is either set manually using buttons on the device or wirelessly using 
+Z-Wave. Afterwards, the device will regulate the warm water supply to the wall radiator and compare the detected 
+temperature to ensure, that the temperature in the room is kept at the desired level. A small LCD panel on the device displays 
+the setpoint temperature on request.</p>
+<p> The device has an internal scheduler, that allows to define up to 9 setpoints for up to 7 week days. Once programmed, 
+these setpoints will be activated without any further manual or wireless interaction. Beside setting a desired temperature 
+the device will support special heating schemes, such as energy saving and frost protection and intelligent functions such as 
+detection of open windows or a valve training function to ensure that valves are still operational after longer periods. 
+</p>
+<p> The living connect can be mounted to valves with standard M30x1.5 connector or RA2000 (Danfoss snap in).</p>
+</ProductDescription><h3 class="chapterTitle">Batteries</h3>
+<content>
+			<p>The unit is operated by batteries. Use only batteries of correct type. Never mix old and new batteries 
+			in the same device. Used batteries contain hazardous substances and should not be disposed of 
+			with household waste!</p>
+		</content><p>Battery Type: 
+				2  * AA</p>
+<h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+<b> Installation </b>
+<p><img src="img/DAN/DLC2_en.png" width="500" align="middle"></p>
+
+<b> Adjustment to the radiator </b>
+<p> The device can be adjusted to the room size. Three room sizes are known. The default size is P1. To change the assumed room size
+press (p) for 3 seconds to enter management mode (M in display). Press (v) until a 'P' is displayed in the LCD display. Hit the (o) button.
+Now select 1, 2 or 3 using the arrow keys and exit with (o). </p>
+<b> Removal </b>
+<p>To remove the thermostat, insert an appropriate tool in the hole in the thermostat's battery chamber (see illustration). 
+Keeping the tool in position, turn the entire thermostat anticlockwise until it is completely unscrewed.</p>
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+ <p>Click on the middle button will confirm	inclusion or exclusion and wakeup the device for wireless communication. A long push for 3 seconds on the 
+ 	middle buttons enters and leaves the management mode indicated by a 'M'.</p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+<p>The Danfoss device is operated by wireless commands from a Z-Wave controller. It is operated in two different modes:
+<ul>
+<li> Direct setting of Temperature Set Point by Controller. (Attention: There may be a delay in execution of a setpoint 
+command due to the wakeup interval of the device. If the setpoint is to be changed at e.g. 16.00 and the wakeup interval 
+is 15 minutes, make sure to send the command latest at 15.45)</li>
+<li> Downloading of a whole weekly schedule into the device that will then regulate the heat independent of the controller. 
+The device is capable holding a complete schedule with up 
+to 9 different setpoints for each individual week day. The device will calculate the best time to start heating up or 
+heating down. </li>
+</ul>
+</p>
+<p> The actual temperature setpoint is shown in the LCD display and can be overwritten by using the arrow keys on the device. This 
+overwriting is temporary and only valid until the next change of the temperature setpoint (either triggered from external wireless 
+command or from the internal downloaded schedule) becomes active. </p>
+<p> The device will also recognize an open window (sudden temperature drop within short period of time) and turn down the heat for 
+30 minutes to save energy. </p>
+<b> Local LCD Display </b>
+<p> The local LCD display gives information about the status of the device</p> 
+<p><img src="img/DAN/DLC_en.png" width="400" align="middle"></p>
+<b> Link Test </b>
+<p> The Thermostat allows to check the link quality to the controller device. Press the middle button (o) for 3 seconds until 
+M is displayed. Select 'LI' in display using the arrow keys, then confirm the link test with the middle button.
+A blinking antenna symbol indicates the link test. If the antenna symbol keeps flashing after about 3 seconds there is a problem 
+with the wireless connection.
+If the antenna symbol stops flashing, the link quality is sufficient. A successfull link test will also terminate the exception 
+mode described below.
+</p>
+<p><i> The device applies multiple technologies to extend battery life. It is combining multi commands to a single command and adapt its behavior
+to the capabilities of the network controller. Make sure to use Danfoss Living connects only with Z-Wave controllers fully implementing all
+battery life time extention methods recommended by Danfoss. All controllers based on Z-Wave.Me software (e.g. RaZberry) fully support these
+methods. </i></p>
+<p>When the battery level is low, the alarm bell icon flashes and the display will flash 8 times an hour between 
+19 and 22 hrs. If the battery goes flat, the system switches automatically to frost protection mode.</p>
+</Usage><h3 class="chapterTitle">Child Protection</h3>
+<content>
+		<p> The device can be turn into a child protection mode. In this mode all local operation is disabled.</p> 
+		</content><Protection>
+ <p>The protection must be enabled/disabled wireless with Z-Wave commands. The protection status is indicated by a little protection shield in the LCD display.</p>
+</Protection><h3 class="chapterTitle">Wakeup Intervals - how to communicate with the device?</h3>
+<content>
+ 		<p><span class="icon_white">W</span> This device is battery operated and turned into deep sleep state most of the time to save battery life time.  
+ 		Communication with the device is limited. In order to communicate with the device, a static controller <b>C</b>
+ 		is needed in the network. This controller will maintain a mailbox for the battery operated devices and store 
+ 		commands that can not be received during deep sleep state.
+		Without such a controller, communication may become impossible and/or the battery life time is significantly decreased. </p>
+		<p>This device will wakeup regularly and announce the wakeup state by sending out a so called Wakeup Notification.
+		The controller can then empty the mailbox. Therefore, the device needs to be configured with the desired wakeup 
+		interval and the node ID of the controller. If the device was included by a static controller this 
+		controller will usually perform all necessary configurations. The wakeup interval is a tradeoff between maximal 
+		battery life time and the desired responses of the device. </p>
+		</content><Wakeup>
+ <p>Click on the middle button will wakeup the device for wireless communication (if not in exception mode). </p>
+</Wakeup><small><procontent>
+		<p>It is possible to set the node ID to 255 to send wakeup notifications as broadcast. In this mode device takes more time to go 
+		to sleep and drains battery faster, but can notify all it's direct neighbors about a wakeup. </p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NI</span> The Node Information Frame is the business card of a Z-Wave device. It contains information about the device type and the technical
+		capabilities. The inclusion and exclusion of the device is confirmed by sending out a Node Information Frame.  Beside this
+		it may be needed for certain network operations to send out a Node Information Frame. </p>
+		</content><NIF>
+	<p>Click on the middle button will send out a Node Information Frame (if not in exception mode).</p>
+</NIF><h3 class="chapterTitle">Associations</h3>
+<content>
+		<p><span class="icon_white">A</span> Z-Wave devices control other Z-Wave devices. The relationship between one device controlling another device is 
+		called <i>association</i>. In order to control a different device, the controlling device needs to maintain a list of 
+		devices that will receive controlling commands. These lists are called <b> association groups </b> and they are always 
+		related to certain events (e.g. button pressed, sensor triggers, ...). In case the event happens all devices stored
+		in the respective association group will receive a common wireless command. </p>			
+		<p>Association Groups:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>Target for Wakeup and Override Notifications
+			(max. nodes in group: 1)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Command Classes</h3>
+<span class="supportedCommandClasses">Supported Command Classes</span><p><ul>
+<li>Battery
+		(version 1)
+	</li>
+<li>Clock
+		(version 1)
+	</li>
+<li>Thermostat Setpoint
+		(version 2)
+	</li>
+<li>Wake Up
+		(version 2)
+	</li>
+<li>Version
+		(version 1)
+	</li>
+<li>Climate Control Schedule
+		(version 1)
+	</li>
+<li>Multi Command Encapsulated
+		(version 1)
+	</li>
+<li>Manufacturer Specific
+		(version 1)
+	</li>
+<li>Protection
+		(version 2)
+	</li>
+</ul></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Battery Type</td>
+<td>2  * AA</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>No</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td></td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Thermostat</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Setpoint Thermostat</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>No</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>3.48</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Explanation of Z-Wave specific terms</h3>
+<content>
+		<ul>
+		<li>
+<b>Controller</b> — is a Z-Wave device with capabilities to manage the network. Controllers are typically Gateways, 
+		Remote Controls or battery operated wall controllers.</li>
+		<li>
+<b>Slave</b> — is a Z-Wave device without capabilities to manage the network. Slaves can be sensors, actuators 
+		and even remote controls.</li>
+		<li>
+<b>Primary Controller</b> — is the central organizer of the network. It must be a controller. There can be only one primary controller in a Z-Wave network.</li>
+		<li>
+<b>Inclusion</b> — is the process of bringing new Z-Wave devices into a network.</li>
+		<li>
+<b>Exclusion</b> — is the process of removing Z-Wave devices from the network.</li>
+		<li>
+<b>Association</b> — is a control relationship between a controlling device and a controlled device.</li>	
+		<li>
+<b>Wakeup Notification</b> — is a special wireless message issued by a Z-Wave device to annonces that is 
+		is able to communicate.</li>
+		<li>
+<b>Node Information Frame</b> — is a special wireless message issued by a Z_Wave device to announce its capabilities and functions.</li>	
+		</ul>
+		</content><h3 class="chapterTitle">Disposal Guidelines</h3>
+<p>The product contains batteries. Please remove the batteries when the device is not used.</p>
+<content>
+		<p>Do not dispose of electrical appliances as unsorted municipal waste, use separate collection facilities. 
+		Contact your local government for information regarding the collection systems available. If electrical appliances 
+		are disposed of in landfills or dumps, hazardous substances can leak into the groundwater and get into the food chain, 
+		damaging your health and well-being.</p>
+		</content>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

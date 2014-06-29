@@ -1,0 +1,117 @@
+body,td {
+font-family:Arial, Sans-serif;
+font-size:12px;
+margin:20px;
+margin-left:30px;
+padding:0;
+line-height:18px;
+}
+
+@media screen {
+        div.divFooter {
+            display: none;
+        }
+    }
+@media print {
+        div.divFooter {
+            position: fixed;
+            bottom: 0;
+        }
+    }
+ 
+
+#main{
+
+	margin-right:20px;
+	margin-bottom: 20px;
+}
+
+.brandName,.deviceName {
+	font-size:22px;
+	font-weight: bold;
+	color: #0000ff;
+//	margin-left:35px;
+}
+
+.deviceDescription {
+	color: #0000ff;
+	margin-top: -1em;
+//	margin-left:35px;
+}
+
+.firmwareVersion {
+	margin-top: -1em;
+//	margin-left:35px;
+}
+
+.chapterTitle {
+	font-size:16px;
+	font-weight: bold;
+	text-decoration:underline;
+}
+
+.subchapterTitle{
+	color: #0000ff;
+}
+
+.parameterName, .parameterTechnical {
+	color: #0000ff;
+	font-weight: bold;
+}
+
+.parameterBlock {
+	margin-top: 1em;
+}
+
+.parameterDescription {
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.parameterValuesTable {
+}
+
+.parameterValues {
+}
+
+ .associations, td, .parameterValuesTable td {
+	min-width: 5em;
+	
+}
+
+img.deviceImage {
+	float: right;
+	width: 200px;
+}
+
+/*
+li li:before {
+	counter-increment: item;
+	content: counter(item) ". ";
+}
+*/
+
+.icon_black {
+	display: inline-block;
+	border-radius: 4px;
+	border-color: black;
+	border-width: 1px;
+	border-style:solid;
+	width: 2em;
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-weight:bold;
+}
+
+.icon_white {
+	display: inline-block;
+	border-radius: 4px;
+	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+	width: 4em;
+	text-align: center;
+	font-weight:bold;
+}

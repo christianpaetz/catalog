@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="images/manufacturers/TKB.png"><br><h2><span class="brandName"><b>TKB_TZ67-F<br><ProductHeadline>Z-Wave Wall Plug Dimmer for Typ F</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.4</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="img/TKB/TKB_TZ67-F.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Quick Start</h3>
+<Quickstart>
+<p> <span class="icon_black">A</span> This is a Z-Wave actuator. Inclusion and Exklusion are confirmed 
+by hitting the button one time.</p>
+</Quickstart><content> 
+		<p>Please refer to the chapters below for detailed information about all aspects of the products usage.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Product description</h3>
+<ProductDescription>
+<p>The TKB TZ67 is a dimmer plug that can be placed between a wall outlet for Typ F Plug and electric devices, 
+plugged in by cord. It can dim resistive loads up to 300 W. The device is IP 20 rated and can therefore 
+only be used in dry environments. For dimming the devices apply leading edge phase cutting. It is therefore 
+only possible to dim incandescent lamps and high voltage halogen lights. Low voltage halogen lights, LEDs and 
+CFLs must not be attached. Dimming is controlled wirelessly using Z-Wave or locally applying a button. 
+A blue LED indicates the dimming status.</p>
+</ProductDescription><h3 class="chapterTitle">Installation Guidelines</h3>
+<Installation>
+<p>The Dimmer Plug can be plugged into every wall outlet for Plug-Type F (France, Poland, ...). 
+It is IP20 rated and can therefore only be used in dry environments. Do not locate the device facing 
+direct sunlight, humid or dusty place. The suitable ambient temperature for the device is 0°C ~ 40°C.</p> 
+</Installation><h3 class="chapterTitle">Behavior within the Z-Wave network</h3>
+<content>
+		<p><span class="icon_white">I</span> On factory default the device does not belong to any Z-Wave network. The device needs to join an existing 
+		wireless network to communicate with the devices of this network. This process is called <b>Inclusion</b>. 
+		Devices can also leave a network. This process is called  <b>Exclusion</b>. Both processes are initiated by the 
+		primary controller of the Z-Wave network. This controller will be turned into exclusion respective inclusion mode. 
+		Please refer to your primary controllers manual on how to turn your controller into inclusion or exclusion mode. 
+		Only if the primary controller is in inclusion or exclusion mode, this device can join or leave the network. 
+		Leaving the network - i.e. being excluded - sets the device back to factory default.</p>
+		<p>If the device already belongs to a network, follow the exclusion process before including it in your network.
+		Otherwise inclusion of this device will fail. If the controller being included was a primary controller, it has to be reset 
+		first.  
+		</p>
+		
+		</content><InclusionExclusion>
+<p><b>To confirm Inclusion or Exclusion hit the button on the device.</b> </p>
+</InclusionExclusion><h3 class="chapterTitle">Operating the device</h3>
+<Usage>
+<p align="center"><img src="img/TKB/TKB_Zwischenstecker_common/TZ_F_en.png" width="300" align="middle"> </p>
+<p>The device is able to dim electric load up to 300 W. Short press of the button will toggle. This means that the power
+will be turned on if it was off and turned off when it was on. When switching the lamp on or off the light will 
+dim for about 2 seconds until the final level is reached.</p>
+<p> The the button is constantly pressed the light will be dimmed. The dimming function will also toggle. Constantly
+pressing the the button will either dim up or dim down the light until it reaches the final level.</p>
+</Usage><h3 class="chapterTitle">Configuration Parameters</h3>
+<content>
+		<p>Z-Wave products are supposed to work out of the box after inclusion, however certain configuration can adapt the 
+		function better to user needs or unlock further enhanced features.</p>
+		<p><b>IMPORTANT:</b> Controllers may only allow to configure signed values. In order to set values in the range 128 … 255 the value 
+		sent in the application shall be the desired value minus 256. For example: to set a parameter to 200  it may be needed to set 
+		a value of 200 minus 256 =  minus 56. In case of two byte value the same logic applies: Values greater than 32768 may 
+		needed to be given as negative values too.</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">LED- Behavior</span><span class="parameterTechnical">
+			(Parameter Number 1, Parameter Size 1)
+		</span><span class="parameterDescription">defines the behavior of the blue LED </span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>blue indicates off
+					(Default)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>blue indicates on</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Technical Data</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Power Supply</td>
+<td>230V ~50-60 Hz</td>
+</tr>
+<tr>
+<td>Attachable Loads</td>
+<td>resistive loads up to 300 W</td>
+</tr>
+<tr>
+<td>IP Rating</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Explorer Frame Support</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54</td>
+</tr>
+<tr>
+<td>Device Type</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Generic Device Class</td>
+<td>Binary Switch</td>
+</tr>
+<tr>
+<td>Specific Device Class</td>
+<td>Binary Power Switch</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.4</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

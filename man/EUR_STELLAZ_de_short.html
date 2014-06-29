@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/eurotronic.png"><br><h2><span class="brandName"><b>EUR_STELLAZ<br><ProductHeadline>Heizkörper-Stellventil</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 0.4</h5>
+</td>
+<td align="right"><img class="deviceImage" width="150" src="http://pepper1.net/zwavedb/uploads/resources/955e57822982336b95a50ecde5f01d608ac9848d.png"></td>
+</tr></table>
+<table class="deviceandvendors" border="1"><tr><td>
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+ 	<p><span class="icon_black">S</span> Dieses Gerät ist ein Z-Wave-Funksensor. Alle Bedienung erfolgt durch einen 
+ 	kleinen Taster hinter der runden Ausparung am Gehäuse, der mittels einer 
+ 	Büroklammer oder des mitgelieferten Werkzeuges betätigt wird. Das Drücken dieses Taster für 2.5 Sekunden schaltet
+ 	das Gerät in den Installiermodus, in dem die Ventilsteuerung komplett eingefahren ist. <b>5 Sekunden langes Drücken
+ 	inkludiert und exkludiert das Gerät</b> in bzw. aus das Z-Wave-Netz. Ein einfacher Druck auf die Taste weckt das Gerät auf.</p>
+ 	<p><b> Achtung: Das Gerät muss mit dem Ventil verbunden sein, um irgendwelche Z-Wave Funktionen auszuführen. 
+	Ohne den Gegendruck durch das Ventil erkennt das Stellglied einen Fehler und wird keine Funkoperationen durchführen.</b></p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</td></tr></table>
+<h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p> StellaZ ist ein kabelloser Z-Wave gesteuerter Stellantrieb geeignet für Heizungs-, Lüftungs- und Klimaanlagen. 
+Sensor, Regler und Stellantrieb sind in einem Gerät vereint und ermöglichen damit eine autarke energieeffiziente 
+Raumregelung. Das Gerät verfügt über vier verschiedene Betriebsmodi (Normal,
+Energiepsaren, Frostschutz, direkte Ventil-Kontrolle per Funk) zum Steuern
+und Regeln der Temperatur. Diese kann auch per Funk aus dem Gerät ausgelesen werden.
+Offene Fenster werden automatisch erkannt und führen zu einer 20 - minütigen Reduzierung 
+der Heizleistung, um Energie zu sparen.
+Weitere Funktionen des StellaZ sind:</p>
+<ul>
+<li> sehr hohe Stellgenauigkeit, Stellzeit nur ca. 3 s/mm, geräuscharmer Lauf, max. Ventilhub: 4 mm</li>
+<li> Anschluss: M 30 x 1,5, Adapter für andere Ventiltypen (z.B. Heimeier, Danfoss, Honeywell Braukmann, 
+Honeywell MNG, Oventrop ab ca. 1996 u.a.) sind im Lieferumfang enthalten</li>
+<li> Demontage mit Sicherheitsmechanismus, nur mit beiliegendem Werkzeug abnehmbar</li>
+</ul>
+Die folgende Liste zeigt alle unterstützten Ventile und die zugehörigen Adapter:
+	<img src="img/EUR/EUR_STELLAZ_Adapter_de.png" width="700" align="middle">
+</ProductDescription><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+		<p>
+		<b>Montage</b>
+		<img src="img/stellaz_de.png" width="400" align="middle"><br>
+		Die Montage ist problemlos auf allen bekannten Ventilunterteilen ohne Schmutz und Wasserflecken möglich, 
+		da der Heizwasserkreis nicht unterbrochen werden muss.</p>
+		<ol>
+		<li>Falls benötigt einen passenden Ventil-Adapter auswählen und diesen auf das Ventil montieren. </li>
+		<li> Batterien einlegen. Ein Drücken auf den kleinen Taster hinter der Gehäuseaussparung für 2.5 Sekunden
+		schaltet das Gerät in den Insallation-Modus. Dabei wird zur besseren Montage die Ventilsteuerung komplett eingefahren.</li>
+		<li> Ein weiteres Drücken auf den Taster startet die Kalibrationsfunktion, bei der die Position und die Endlagen
+		des Ventils automatisch erkannt werden. Ohne Tastendruck startet dieser Modus nach ca. 3 Minuten automatisch und das 
+		Gerät geht in den Schlafmodus.</li>
+		<li>Den Kupplungsring auf das Ventil bzw. auf den Adapter drehen.</li>
+		<li>StellaZ auf das Kupplungsstück aufsetzen, bis das Gerät hörbar einrastet.</li>
+		</ol>
+		<p><b> Achtung:</b> Das Gerät muss mit dem Ventil verbunden sein, um irgendwelche Z-Wave Funktionen auszuführen. 
+		Ohne den Gegendruck durch das Ventil erkennt das Stellglied einen Fehler und wird keine Funkoperationen durchführen.</p>
+		<p>
+		<b>Demontage</b>
+		<ol>
+		<li>Beide Spitzen des Entriegelungswerkszeug (1) in die Öffnung einsetzen.</li>
+		<li>Stella Z vom Adapter/Ventil abziehen.</li>
+		</ol>
+		<img src="img/stellaz_de2.png" width="400" align="middle">		
+		</p>		
+ </Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+ 		<p><b>Das Gerät wird durch 5 Sekunden Drücken des Taster hinter der runden Aussparung am Gehäuse inkludiert und auch exkludiert. Direkt 
+ 		nach dem Einsetzen der Batterien befindet sich das Gerät 3 Minuten lang im Auto-Inklusion-Modus und wird von einem Controller im 
+ 		Inclusion-Modus ohne Bestätigung durch Tastendruck inkludiert.</b></p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+		<p>Das Gerät verfügt nicht über eine lokale Steuermöglichkeit sondern wird komplett per Funk von einer Z-Wave-fähigen 
+		Funkzentrale aus gesteuert. Der Thermostat verfügt über 4 Betriebszustände, die über Funk umgeschaltet werden können:</p>
+		<ol>
+		<li>
+<b>Frostschutz:</b> Der Raum wird auf die Frostschutztemperatur von 6 °C geregelt. </li>
+		<li>
+<b>Komfort:</b> Der Raum wird auf die Komforttemperatur geregelt. Diese beträgt bei Auslieferung 22 °C und 
+		kann per Z-Wave Kommando 'Thermostat Setpoint' zwischen 0 °C und 50 °C geändert werden. Dieser Modus ist bei Auslieferung aktiv. </li>
+		<li>
+<b>Energiesparen:</b> Der Raum wird auf die Energiespartemperatur geregelt. Diese beträgt bei Auslieferung 18 °C und 
+		kann per Z-Wave Kommando 'Thermostat Setpoint'  zwischen 0 °C und 50 °C geändert werden. </li>
+		<li>
+<b>Direktsteuerung:</b> In diesem Modus ist es möglich, das Ventil direkt per Z-Wave Funkkommandos 'Switch Multilevel' in eine bestimmte Position 
+		zu setzen und damit die Regelung im Thermostat zu deaktivieren. </li>		
+		</ol>
+ 		<p>Zusätzlich zur Regelung oder direkten Steuerung des Stellventils kann die am Gerät ermittelte Ist-Temperatur per Funk
+ 		ausgelesen werden (implementiert Kommunikationsmuster 3 mittels Z-Wave Kommando 'Sensor Multilevel'). Das Gerät dient also zusätzlich als Temperatursensor im Raum. Der Temperatursensor benötigt einige Zeit
+ 		bis zu korrekten Anzeige und kann daher direkt nach der Inklusion noch 0 °C anzeigen. Spätestens nach dem ersten regelmäßigen 
+ 		Aufwecken des Gerätes ist der Temperaturwert jedoch korrekt. 
+ 		Das Umschalten der Modi erfolgt per Funk über die das Kommando 'Thermostat Mode"  oder 'Basic'. Dabei gelten folgende 
+ 		Zuordnungen:
+ 		<ul>
+ 		<li>Frostschutz: BASIC SET 0x01, THERMOSTAT MODE SET 0x00</li>
+ 		<li>Energiesparen: BASIC SET 0x00, THERMOSTAT MODE SET 0x0b</li>
+ 		<li>Komfortheizen: BASIC SET 0xff, THERMOSTAT MODE SET 0x01</li> 		
+ 		<li>Direktsteuerung: BASIC SET 0xfe, THERMOSTAT MODE SET 0x1f</li>
+ 		</ul>
+		</p>
+ </Usage><h3 class="chapterTitle">Kommunikation mit einem batteriebetriebenen Gerät</h3>
+<content>
+ 		<p> <span class="icon_white">W</span> Das Gerät ist batteriegespeist und damit in der Regel in einem Tiefschlafmodus um Strom zu sparen. Im Tiefschlafmodus 
+ 		kann das Gerät keine Funksignale empfangen. Daher wird ein (statischer) Controller benötigt, der netzgespeist und damit 
+ 		immer funkaktiv ist.  Dieser Controller - zum Beispiel ein IP-Gateway - 
+ 		verwaltet eine Nachrichten-Mailbox für dieses batteriegespeiste Gerät, in dem Nachrichten an dieses Gerät 
+ 		zwischengespeichert werden.
+ 		Ohne einen solchen statischen Controller wird die Nutzung dieses batteriebetriebenen Gerätes sehr schnell
+ 		zur Entladung der Batterie führen oder die Nutzung ist komplett unmöglich.</p>
+		<p>Dieses Gerät weckt regelmäßig auf, meldet dies durch Aussenden einer sogenannten Wakeup-Notifikation und leert dann seine Mailbox 
+		im statischen Controller. Dafür muss bei der Inclusion die Node-ID des Controllers 
+		und ein Aufweckinterval definiert werden. Erfolgt die Inklusion durch einen statischen Controller wie zum Beispiel ein IP-Gateway, wird dieser Controller
+		diese Konfiguration automatisch erledigen und in der Regel eine Nutzerschnittstelle anbieten, um das Aufweckinterval den Nutzerbedürfnissen anzupassen.
+		Das Aufweckinterval ist ein Kompromiss zwischen maximaler Batterielaufzeit und minimaler Reaktionszeit des batteriegespeisten Gerätes.  
+		</p>
+		</content><Wakeup>
+ 		<p><b> Ein Klick auf den Taster hinter der runden Aussparung am Gehäuse weckt das Gerät auf.</b>
+ 		Er bleibt danach 5 Sekunden wach. Das Aufwachinterval kann in einem Bereich von 4 min bis zu 
+ 		einem halben Jahr gewählt werden. Der voreingestellte Wert beträgt 7 Tage.</p>
+ </Wakeup><small><procontent>
+		<p>Es ist möglich die Gerätenummer 255 als Zielgerät für die Wakeup-Notifikation anzugeben. In diesem Falle wird die Nachricht
+		als Broadcast an alle Geräte mit direkter Funkverbindung gesendet. Dem Vorteil der sofortigen Benachrichtigung steht
+		als Nachteil gegenüber, das das Gerät gegebenenfalls mehr Zeit im aktiven Modus und damit mehr Batterieladekapazität verbraucht.</p>
+		</procontent></small><h3 class="chapterTitle">Node Information Frame</h3>
+<content>
+		<p><span class="icon_white">NIF</span> Der Node Information Frame ist die Visitenkarte eines Z-Wave Gerätes. 
+		Es ist ein spezielles Datenpaket, in dem
+		der Gerätetyp sowie die Funktionen des Gerätes bekanntgemacht werden. Inklusion und Exklusion eines Gerätes wird von diesem
+		mit einem Node Information Frame beantwortet. Zusätzlich kann der Node Information Frame für bestimmte Konfigurationsprozesse
+		des Z-Wave Netzes - zum Beispiel das Setzen von Assoziationen - benötigt werden.</p>
+		</content><NIF>
+	<p>Ein Klick auf den Taster hinter der runden Aussparung am Gehäuse sendet einen Node Information Frame aus.</p>
+</NIF><h3 class="chapterTitle">Bedeutung der LED-Signale</h3>
+<LEDControl>
+	<ul>
+	<li>Z-Wave-OK:      2 Sekunden Grün   </li>
+	<li>Z-Wave-Fehler:  2 Sekunden Rot  </li>
+	<li>Netzweite Inklusion:     blinkt Rot-Grün  </li>
+	<li>Installier-Modus: blinkt grün  </li>
+	<li>Interner Fehler:   blinkt rot </li>
+	</ul>
+</LEDControl><h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Schutzklasse</td>
+<td>IP 20</td>
+</tr>
+<tr>
+<td>Batterietyp</td>
+<td>2  * AA</td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54 pl1</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Thermostat</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Thermostat General V2</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>0.4</td>
+</tr>
+</table></p>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>

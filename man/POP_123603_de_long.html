@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "_http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:p1="http://www.pepper1.net/zwavedb/xml-schemata/z-wave">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="StyleSheet" type="text/css">
+<link rel="StyleSheet" href="css/style.css" type="text/css" media="screen">
+<link rel="StyleSheet" href="css/print.css" type="text/css" media="print">
+</head>
+<body>
+<br><br><div id="wrapper">
+<script type="text/php">
+if (isset($pdf) ) {
+  $font = Font_Metrics::get_font("helvetica");;
+  $size = 8;
+  $color = array(0,.184,.286);
+  $text_height = Font_Metrics::get_font_height($font, $size);
+  $foot = $pdf->open_object();
+  $w = $pdf->get_width();
+  $h = $pdf->get_height();
+  // Draw a line along the bottom
+  $y = $h - $text_height - 24;
+  $pdf->line(0, $y, $w, $y, $color, 2);
+ // $pdf->line(16, 24, $w - 16, 24, $color, 0.5);
+  $pdf->close_object();
+  $pdf->add_object($foot, "all");
+  $text = "(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com - pp {PAGE_NUM} ";  
+  $pdf->page_text(50, $y+10, $text, $font, $size, $color);
+}
+</script><table class="deviceandvendors"><tr>
+<td>
+<img class="vendorsImage" src="http://store.zwaveeurope.com/images/manufacturers/popp_c200x65.png"><br><h2><span class="brandName"><b>POP_123603<br><ProductHeadline>Z-Wave UK-Zwischenstecker Dimmer</ProductHeadline></b></span></h2>
+<h5 class="firmwareVersion">Firmware Version
+		: 1.0</h5>
+</td>
+<td align="right"><img class="deviceImage" height="200" src="img/POP/PLUGS/POP_123634.png"></td>
+</tr></table>
+<div class="quickstart">
+<h3 class="chapterTitle">Kurzinfo</h3>
+<Quickstart>
+<p> <span class="icon_black">A</span> Dies ist ein Z-Wave-Schaltaktor. Inklusion und Exklusion werden durch
+einen Dreifachklick auf den Taster bestätigt.</p>
+</Quickstart><content> 
+		<p>Weitergehende Informationen finden sich in den jeweiligen Abschnitten dieses Handbuches.</p>
+		</content>
+</div>
+<h3 class="chapterTitle">Was ist Z-Wave?</h3>
+<content>
+			<p>Dieses Produkt entspricht dem Z-Wave-Standard. Z-Wave ist der internationale Funkstandard 
+			zur Kommunikation von Geräten im intelligenten Haus. Z-Wave-Geräte funken in Europa auf der 
+			Frequenz von <b>868.42 MHz</b>.Z-Wave ermöglicht eine sichere und stabile 
+			Kommunikation indem jede Nachricht vom Empfänger 
+			rückbestätigt wird (<b>Zweiwege-Kommunikation</b>) und alle netzbetriebenen Geräte 
+			Nachrichten weiterleiten (<b>Routing</b>) können, wenn eine direkte Funkbeziehung  zwischen 
+			Sender und Empfänger gestört ist. </p>
+			<p>Dank Z-Wave können <b>Produkte unterschiedlicher Hersteller</b> miteinander in einem Funknetz 
+			verwendet werden. Damit ist auch dieses Produkt mit beliebigen anderen Produkten anderer 
+			Hersteller in einem gemeinsamen Z-Wave Funknetz einsetzbar.</p>
+			
+			<p>Z-Wave unterscheidet zwischen Controllern  und Slaves. Slaves sind entweder 
+			Sensoren <span class="icon_black">S</span>, die Daten ermitteln oder Aktoren <span class="icon_black">A</span>, die Aktionen ausführen 
+			(Sensoren und Aktoren sind mitunter in einem Gerät vereint).
+			Controller sind entweder statische netzgespeiste Controller <span class="icon_black">C</span> (auch IP-Gateways genannt) oder
+			mobile batteriebetriebene Controller (Fernbedienungen, Batteriewandschalter)<span class="icon_black">R</span>.
+			Damit ergeben sich eine Reihe prinzipieller  Kommunikationsmöglichkeiten in einem Z-Wave-Netz: 
+			</p>
+			<img src="img/zoverview.png" width="250" align="right">
+			<ol>
+			<li> Controller steuern Aktoren. </li>
+			<li> Aktoren melden Änderungen ihres Schaltzustandes </li>
+			<li> Sensoren melden Messwerte oder Statusänderungen an Controller </li>
+			<li> Sensoren steuern Aktoren direkt bei Ereignissen </li>
+			<li> Aktoren steuern andere Aktoren </li>
+			<li> Fernbedienungen erzeugen Ereignisse in einem statischen Controller, die zum Beispiel zum 
+			Steuern von Szenen genutzt werden </li>
+			<li> Fernbedienungen steuern Aktoren </li>
+			</ol>
+		</content><small><procontent>
+		<p>Controller können in einem Z-Wave Netzwerk zwei unterschiedliche Rollen einnehmen. Es gibt immer genau einen
+		Primärcontroller der das Netzwerk steuert und Geräte in das Netzwerk inkludiert oder aus dem Netzwerk exkludiert.
+		Dieser Controller kann weiter Nutzerfunktionen - zum Beispiel Tasten - besitzen. Alle anderen Controller mit 
+		Nutzerfunktionen erfüllen keine Managementaufgaben. Sie heißen Sekundärcontroller. Trotzdem verfügen sie - sozusagen
+		als Backup - über alle notwendigen Informationen über das Netz. Das Übersichtsbild zeigt, das - batteriegestützt - Sensoren nicht direkt mit 
+		- batteriebetriebenen - Fernbedienungen kommunizieren. Sie senden nur Daten an statische Controller oder steuern Aktoren direkt.</p>
+		</procontent></small><h3 class="chapterTitle">Produktbeschreibung</h3>
+<ProductDescription>
+<p>Dieser Dimmer-Zwischenstecker kann an jede britische Steckdose (Steckertyp G) angesteckt werden und 
+dimmt Lasten bis 300 W. Das Gerät ist ein Phasenanschittdimmer, kann jedoch dank
+Nullpunktkompensation und anderer Optimierungsmöglichkeiten neben induktiven (Trafos) und ohmschen 
+(Glühlampe, Hochvolthalogen) auch die meisten kapazitiven Lasten (Schaltnetzteile, LED Leuchten, 
+Energiesparleuchten) dimmen, wenn diese Leuchtmittel dimmbar sind.
+Das Gerät hat die Schutzklasse IP20 und kann daher nur in trockenen Innenräumen eingesetzt werden. 
+Es wird über Z-Wave Funkkommandos oder über den lokalen Taster bedient. Eine blaue LED zeigt den 
+Dimmerzustand an, kann aber über Funk auch für andere Funktionen umprogrammiert werden. Ein 
+programmierbarer Zeitgeber sowie ebenfalls programmierbares Verhalten bei Funkkommandos erlauben 
+einen sehr flexiblen Einsatz des Gerätes im Haus. Eine Baby-Schlaf-Funktion ermöglicht das ganz
+langsame Herunterdimmen von einem definierten in einen anderen definierten Wert.</p>
+</ProductDescription><h3 class="chapterTitle">Sicherheitshinweis</h3>
+<content>		
+ 		<p>Lesen Sie dieses Handbuch vor der Installation!</p>
+		<p>Achtung! Dieses Gerät wird mit 230 V Netzspannung betrieben. Beachten Sie die 
+		Sicherheitshinweise während der Installation. Vor Beginn der Installation müssen alle
+		Anschlussleitungen potentialfrei sein. Weiterhin muss sichergestellt sein, dass während
+		der Installation niemand die Spannung wieder zuschalten kann (Sicherung wieder aktivieren).
+		Elektrische Arbeiten dürfen nur von einer Elektrofachkraft in Übereinstimmung mit den 
+		geltenden Regeln und Vorschriften durchgeführt werden.</p>
+		<p>Verwenden Sie das Gerät auf keine andere Weise als im Handbuch angegeben. 
+		Der Hersteller übernimmt keine Garantie für unsachgemäße Bedienung. </p>
+ 		</content><h3 class="chapterTitle">Installationsanleitung</h3>
+<Installation>
+<p>Das Gerät kann in jede  britische Steckdose (Stecker-Typ G) gesteckt werden. Es verfügt über Schutzgrad 
+IP20 und darf daher nicht in feuchten Umgebungen eingesetzt werden. Die Umgebungstemperatur sollte 
+zwischen 0°C und 40°C liegen. Aus Überhitzungsgründen sollte das Gerät nicht direktem Sonnenlicht 
+ausgesetzt werden. Pro Steckdose darf nur ein Gerät eingesteckt werden; ein Übereinanderstecken
+mehrerer Geräte ist nicht erlaubt.</p> 
+</Installation><h3 class="chapterTitle">Verhalten des Gerätes im Z-Wave Netz</h3>
+<content>
+			<p><span class="icon_white">I</span> Im Auslieferungszustand ist das Gerät mit keinem 
+			Z-Wave-Netz verbunden. Damit es mit anderen Z-Wave Geräten
+			kommunizieren kann, muss es in ein bestehendes Z-Wave Netz eingebunden werden. Dieser Prozess wird bei Z-Wave
+			  <b>Inklusion</b> genannt. Geräte können Netzwerke auch wieder verlassen. Dieser Prozess heißt bei Z-Wave
+			<b>Exklusion</b>. Beide Prozesse werden von einem Controller gestartet, der dazu in einen Inklusion- bzw. Exklusion-Modus 
+			geschaltet werden muss. Das Handbuch des Controllers enthält Informationen, wie er in diese Modi zu schalten
+			ist. Erst wenn der Controller des Z-Wave Netzes im Inclusion-Modus ist, können Geräte hinzugefügt werden.
+			Das Verlassen des Netzes durch Exklusion führt zum Rücksetzen dieses Gerätes in den Auslieferungszustand.</p>
+		</content><InclusionExclusion>
+<p>Inklusion und Exklusion werden durch einen Dreifachklick auf den Taster bestätigt.</p>
+</InclusionExclusion><h3 class="chapterTitle">Bedienung des Gerätes</h3>
+<Usage>
+<p align="center"><img src="img/POP/PLUGS/POP_123634_op_de.png" width="200" align="middle"> </p>
+<p><b> Bedienung am Gerät</b><br>
+<ul>
+<li>Wenn das Licht komplett ausgeschaltet ist, schaltet ein kurzer Druck auf die Taste den 
+Dimmer auf den letzten Dimmzustand vor dem Ausschalten (der auch sehr niedrig gewesen sein kann).</li>
+<li>Ist das Licht angeschaltet - unabhängig von Dimmerniveau - schaltet ein kurzer Druck auf den Taster das Licht aus.</li>
+<li>Wird die Taste gedrückt gehalten, startet der Dimmer auf- oder abzudimmen. Die Dimmrichtung ist entgegengesetzt zur letzten
+Dimmrichtung in dieser Betriebsart (langer Druck).</li>
+</ul></p>
+<p><b> LED Nutzung</b><br>
+Das Gerät verfügt über eine blaue LED, um Statusinformationen anzuzeigen. Die Funktion der LED kann durch Konfigurationsparameter
+umprogrammiert werden:
+<ul>
+<li> Dimmzustand (ein oder aus) - das ist der Auslieferungszustand</li>
+<li> Nachtlicht (invertierter Dimmzustand)</li>
+<li> komplett deaktiviert</li>
+<li> kontrolliert durch die Z-Wave Kommandoklasse "Indikator"</li>
+</ul>
+</p>
+<p><b> Automatisiertes Herunterdimmen </b> <br>
+Diese Funktion ist im Auslieferungszustand deaktiviert. Wenn aktiviert, dimmt ein eingeschalteter 
+Dimmer nach einer definierbaren Zeit automatisch herunter. Dies ist zum Beispiel dann sinnvoll, wenn
+der Dimmer durch das Steuersignal eines Bewegungsmelders oder eines anderen Sensors eingeschaltet 
+wurde. Konfigurationsparameter können auch das Verhalten bei einem Ausschaltkommando festlegen. Dies
+ermöglicht einen flexiblen Einsatz in Automatisierungsszenarien.
+</p>
+<p><b> Baby-Einschlaf-Funktion. </b> <br>
+Der Dimmer kann genutzt werden, um Babies oder kleinen Kindern beim Einschlafen zu helfen. (Das Gerät 
+hat eine Kindersicherung an den Hochspannungsanschlussklemmen und kann damit ohne Bedenken in der
+Nähe von Kinderbetten betrieben werden).
+Wenn die Funktion aktiviert wurde, schaltet ein Doppelklick auf den Taster den Dimmer auf einen einstellbaren
+Wert. Über einen längeren Zeitraum - zum Beispiel 30 Minuten - dimmet der Dimmer das Licht langsam herunter,
+bis der ebenfalls zuvor definierte Wert erreicht ist. 
+</p>
+<p><b> Dimmen von LED-Leuchten und Energiesparleuchten</b><br> 
+LED-Leuchten und Energiesparlampen sind aus mehreren Gründen nur sehr schwer dimmbar.
+<ul>
+<li> Die Leuchten stellen eine sogenannte kapazitive Last dar, bei der der Strom der Spannung vorauseilt. Im Einschaltmoment
+erzeugen solche Lasten einen sehr hohen Einschaltstrom, der den Dimmer zerstören kann.</li>
+<li> Die Ansteuerung der LEDs oder der Leuchtstoffröhre in der Energiesparleuchte erfolgt durch eine Elektronik, die sich 
+dem Dimmer gegenüber anders verhält als traditionelle Leuchten. Eine durch den den Dimmer mögliche Verringerung
+des Spannungsmittelwertes führt dann nicht automatisch zu einer Verringerung der Leuchtstärke, kann aber ein Flackern
+der Leuchte zur Folge haben.</li>
+</ul>
+Es existieren spezielle LED-Leuchten oder Energiesparlampen, die dimmbar sein sollen. Meist funktioniert diese Dimmbarkeit
+aber nicht über die gesamte Dimmbreite von 0% bis 100 %. Einige Leuchten flackern bei sehr niedrigen oder sehr hohen Dimm-Niveau.
+Dieses Flackern ist sehr störend und kann das Leuchtmittel auch zerstören. Dieser Dimmer ermöglicht daher mittels der 
+Konfigurationsparameter 17 und 18 das maximale und das minimale Dimmerniveau einzuschränken.</p>
+<p>
+Als Werkseinstellung dimmt das Gerät über die maximal mögliche Dimmbreite von 0% bis 100%. Falls Probleme auftreten, muss durch langsames
+Auf- oder Abdimmen das Dimmer-Niveau bestimmt werden, bei dem der Dimmer gerade noch zufriedenstellen funktionmiert.
+Das steuernde Gateway liefert dann den prozentualen Zahlenwert für dieses Dimm-Niveau, das dann mittels Konfigurationsparameter
+als neuer Endwert eingestellt wird. Ein Extremwert dieser Einstellung ist es, wenn nur die Dimm-Niveaus 0 % und 100 % erlaubt sind.
+In diesem Falle arbeitet der Dimmer als elektronischer Schalter und kann alle Leuchten steuern. Der Wert für das schnelle
+Dimmen (Parameter 5) sollte in diesem Fall auf 0 (sofortiges Dimmen) gesetzt werden.</p>
+
+<p align="center"><img src="img/POP/PLUGS/POP_DimmerScale_de.png" width="300" align="middle"> </p>
+<p><b>Weitere Optimierungen für LED/Leichtstoffröhren (nur für Fachleute)</b><br> 
+Die Konfigurationsparameter 51 bis 54 ermöglichen weitere Anpassungen des Dimmers an spezielle Erfordernisse von Leuchten.
+Diese Werte sollten nur von Spezialisten und nur bei entsprechendem Fachwissen verändert werden! Falsche Konfigurationen
+können zur Zerstörung des Dimmers und/oder der Leuchte führen. <br>
+Dimmer werden durch ein sogenanntes Nulldurchgangs-Signal gesteuert und steuern ihrerseits den Strom durch Zünden
+eines TRIACs mittels eines Zündimpulses. Der TRIAC muss genau einmal in einer Halbwelle des 50 Hz Stromes gezündet werden.
+Der Zyklus startet genau beim Nulldurchgang und dauert dann geräteintern 156 Zeitscheiben. Eine Zeitscheibe ist damit 
+10 ms/156 lang, da eine Halbwelle bei 50 Hz Netzfrequenz genau 10 ms dauert. Der Wert 51 definiert, wie viel Zeit nach dem 
+Nulldurchgang mindestens vergehen muss, bis der TRIAC gezündet werden darf. Dies ist unabängig vom Dimmer-Niveau.
+Parameter 54 legt fest, of der Zündimpuls eine definierte Länge (kurz) hat oder bis zu einem Zeitpunkt anhält (lang), der durch
+den minimalen Abstand des Zündimpulses von dem nächstfolgenden Nulldurchgang festgelegt ist.</p>
+</Usage><h3 class="chapterTitle">Kinderschutz</h3>
+<content>
+		<p> Das Gerät verfügt über einen Kinderschutzmechanismus. Dabei wird die lokale Bedienung über Tasten gesperrt und es 
+		ist nur noch eine Bedoenung über Funk möglich.</p> 
+		</content><Protection>
+<p>Die Aktivierung eines Kinderschutzmodus kann nur via 
+Funk, z.B. durch eine Funkfernbedienung, erfolgen. Durch 3-maliges Drücken der Taste kann diese Sicherung 
+deaktiviert werden. Nach 5 Sekunden ohne Aktion wird der Kinderschutzmodus automatisch wieder aktiviert.</p>
+</Protection><h3 class="chapterTitle">Assoziationen - wie werden andere Geräte gesteuert?</h3>
+<content>
+			<p><span class="icon_white">A</span> Z-Wave Geräte können andere Geräte direkt steuern. Diese direkte Steuerung heißt in 
+			Z-Wave Assoziation. In den steuernden Geräten muss dazu die Geräte-ID des zu steuernden 
+			Gerätes hinterlegt werden. Dies erfolgt in sogenannten Assoziationsgruppen. Eine 
+			Assoziationsgruppe ist immer an ein Ereignis im steuernden Gerät gebunden (Tastendruck 
+			oder Auslösen eines Sensors). Bei Eintritt dieses Ereignisses wird an alle in einer 
+			Assoziationsgruppe hinterlegten Geräte ein Steuerkommando gesendet. </p>
+			<p>Assoziationsgruppen:</p>
+		</content><p><table class="associations"><tr>
+<td>1</td>
+<td>Aktualisierung bei jeder Statusänderung
+			(max. Anzahl Geräte: 5)
+		</td>
+</tr></table></p>
+<p></p>
+<h3 class="chapterTitle">Konfigurationseinstellungen</h3>
+<content>
+		<p>Z-Wave Produkte können direkt nach der Inklusion im Netz verwendet werden. Durch 
+		Konfigurationseinstellungen kann das Verhalten des Gerätes jedoch noch besser an die Anforderungen
+		der Anwendung angepasst und zusätzliche Funktionen aktiviert werden.</p>
+		<p><b>WICHTIG:</b> Manche Steuerungen erlauben nur die Konfiguration von vorzeichenbehafteten Werten
+		zwischen -128 und 127. Um erforderliche Werte zwischen 128 und 255 zu programmieren, muss der gewünschte
+		Wert minus 256 eingegeben werden. Beispiel: um einen Parameter auf einen Wert von 200 zu setzen, müsste
+		der Wert 200-256 = -56 eingegeben werden, wenn nur positive Werte bis 128 akzeptiert werden. Bei Werten
+		von 2 Byte Länge wird die gleiche Logik angewandt: Werte über 32768 werden als negative Werte angegeben		
+		</p>
+		</content><p><div class="parameterBlock">
+<span class="parameterName">LED Modus</span><span class="parameterTechnical">
+			(Parameternummer 1, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert das Verhalten der LED</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Zeigt Dimmer-Zustand (An/Aus)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Nachtlicht (invertierter Dimmer-Zustand)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>gesteurt durch Funkkommando (Kommandoklasse 'Indicator')
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Automatisches Ausschalten</span><span class="parameterTechnical">
+			(Parameternummer 2, Parametergröße 2)
+		</span><span class="parameterDescription">Wenn ungleich 0, dimmt das Gerät nach x Sekunden auf Null</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				65535</td>
+<td>Sekunden</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Verhalten bei Funkkommando 'AUS' </span><span class="parameterTechnical">
+			(Parameternummer 3, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert das Verhalten beim Empfang eines 'AUS'-Kommandos. Dies kann in Verbindung mit der Automatic-AUS-Funktion verwendet werden, um zum Beispiel ein Licht durch einen Bewegungsmelder einzuschalten und danach
+		nach einer definierten Zeit wieder auszuschalten.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Ausschalten
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ignorieren</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Einschalten</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Schalte ein, wenn ausgeschaltet und schalte aus, wenn eingeschaltet</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Ignoriere Startlevel des Dimmers</span><span class="parameterTechnical">
+			(Parameternummer 4, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert, ob der Dimmer den Startwert beim Start eines Dimmvorganges ignorieren soll </span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ja 
+					(Voreingestellt)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Geschwindigkeit bei schnellen Dimmen</span><span class="parameterTechnical">
+			(Parameternummer 5, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert die Dimm-Geschwindigkeit beim direkten Setzens eines Dimmerniveaus, entweder per Funk oder durch kurzem Klick auf die Taste</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Sofort</td>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td>in 10 ms Schritten 
+					(Voreingestellt 30)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Geschwindigkeit bei langsamen Dimmen</span><span class="parameterTechnical">
+			(Parameternummer 6, Parametergröße 1)
+		</span><span class="parameterDescription">Zeit bei manuellen Dimmeen (Drücken der Taste) bzw. Funksteuerung zum langsamen Dimmen</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				255</td>
+<td>Sekunden
+					(Voreingestellt 3)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Dimmer-Verhalten bei Einschaltkommando </span><span class="parameterTechnical">
+			(Parameternummer 7, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert das Dimmer-Niveau bei Funkkommando 'EIN'</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Letztes Dim-Niveau von Ausschalten
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>maximales Dim-Niveau, wenn bereits eingeschaltet</td>
+</tr>
+<tr>
+<td>2</td>
+<td>immer auf maximales Dim-Niveau</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Kinderschlaf-Funktion</span><span class="parameterTechnical">
+			(Parameternummer 8, Parametergröße 1)
+		</span><span class="parameterDescription">Ein Doppel-Klick aktiviert die Kinderschlaf-Funktion. Hier bei wird die Leuchte über einen längeren definierbaren
+		Zeitraum langsam heruntergedimmt, um dem Kind das Einschlafen zu erleichtern.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Deaktiviert
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				99</td>
+<td>in Minuten</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Ziel-Dimm-Niveau bei Kinderschlaf-Funktion</span><span class="parameterTechnical">
+			(Parameternummer 9, Parametergröße 1)
+		</span><span class="parameterDescription">Definiert das End-Niveau, das der Dimmer nach Ablauf der Kinderschlaf-Funktion ereichen soll. Ein Wetr von 0 schaltet die Leuchte komplett aus</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0
+				—
+				255</td>
+<td>%
+					(Voreingestellt 0)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Typischer Klick-Timeout</span><span class="parameterTechnical">
+			(Parameternummer 10, Parametergröße 1)
+		</span><span class="parameterDescription"> Definiert die Wartezeit zum Erkennen eines Doppel-Klickes</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				100</td>
+<td>in 10 ms Schritten 
+					(Voreingestellt 50)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Untere Begrenzung des Dimm-Bereiches</span><span class="parameterTechnical">
+			(Parameternummer 17, Parametergröße 1)
+		</span><span class="parameterDescription">Minimales Dimmer-Niveau. Die Begrenzung kann bei Energiesparlampen oder LEDs Sinn machen und muss kleiner sein als
+		das maximal erlaubte Dimmer-Niveau</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>1
+				—
+				95</td>
+<td>Prozent
+					(Voreingestellt 1)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Obere Begrenzung des Dimm-Bereiches</span><span class="parameterTechnical">
+			(Parameternummer 18, Parametergröße 1)
+		</span><span class="parameterDescription">Maximales Dimmer-Niveau. Die Begrenzung kann bei Energiesparlampen oder LEDs Sinn machen.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Funktioniert als Schalter zwischen 0 % und 100 % </td>
+</tr>
+<tr>
+<td>10
+				—
+				99</td>
+<td>Prozent
+					(Voreingestellt 99)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Dimmer-Niveau bei Schaltkommando 'EIN'</span><span class="parameterTechnical">
+			(Parameternummer 19, Parametergröße 1)
+		</span><span class="parameterDescription">definiert das Dimmerverhalten beim Einschaltkkommando (Switch Binary On oder Basic On).</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Zurück zum letzten Dimmerzustand 
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1
+				—
+				99</td>
+<td> Definiertes Dimmerniveau in %</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Pause vor dem Startimpuls</span><span class="parameterTechnical">
+			(Parameternummer 51, Parametergröße 1)
+		</span><span class="parameterDescription">Achtung: Dieser Wert darf nur bei genauer Kenntnis des Dimmerverhaltens 
+	geändert werden. Eine Fehlkonfiguration kann zur Zerstörung des Dimmers und/oder der angeschlossenen Last führen. Bei dimmbaren Energiesparlampen oder LED-Leuchten mti Bypass kann ein Wert von 1 verwendet werden. Für normale
+	Leichten wird der Standardwert empfohlen.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>5
+				—
+				60</td>
+<td>
+					(Voreingestellt 28)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Pause nach dem Startimpuls</span><span class="parameterTechnical">
+			(Parameternummer 52, Parametergröße 1)
+		</span><span class="parameterDescription">Achtung: Dieser Wert darf nur bei genauer Kenntnis des Dimmerverhaltens 
+	geändert werden. Eine Fehlkonfiguration kann zur Zerstörung des Dimmers und/oder der angeschlossenen Last führen. Bei dimmbaren Energiesparlampen oder LED-Leuchten mti Bypass kann ein Wert von 40 verwendet werden. Für normale
+	Leichten wird der Standardwert empfohlen.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>5
+				—
+				60</td>
+<td>
+					(Voreingestellt 28)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Pulsweite</span><span class="parameterTechnical">
+			(Parameternummer 53, Parametergröße 1)
+		</span><span class="parameterDescription">Achtung: Dieser Wert darf nur bei genauer Kenntnis des Dimmerverhaltens 
+	geändert werden. Eine Fehlkonfiguration kann zur Zerstörung des Dimmers und/oder der angeschlossenen Last führen. Bei dimmbaren Energiesparlampen oder LED-Leuchten mti Bypass kann ein Wert von 20 verwendet werden. Für normale
+	Leichten wird der Standardwert empfohlen.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>3
+				—
+				20</td>
+<td>
+					(Voreingestellt 10)
+				</td>
+</tr>
+</table></span>
+</div><div class="parameterBlock">
+<span class="parameterName">Impulstyp</span><span class="parameterTechnical">
+			(Parameternummer 54, Parametergröße 1)
+		</span><span class="parameterDescription">Achtung: Dieser Wert darf nur bei genauer Kenntnis des Dimmerverhaltens 
+	geändert werden. Eine Fehlkonfiguration kann zur Zerstörung des Dimmers und/oder der angeschlossenen Last führen.</span><span class="parameterValuesTable"><table class="parameterValues">
+<tr>
+<th>Wert</th>
+<th>Beschreibung</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Langer Impuls
+					(Voreingestellt)
+				</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Kurzer Impuls</td>
+</tr>
+</table></span>
+</div></p>
+<h3 class="chapterTitle">Kommandoklassen</h3>
+<span class="supportedCommandClasses">Unterstützte Kommandoklassen</span><p><ul>
+<li>Basic
+		(Version 1)
+	</li>
+<li>Multilevel Switch
+		(Version 2)
+	</li>
+<li>Version
+		(Version 1)
+	</li>
+<li>Indicator
+		(Version 1)
+	</li>
+<li>All Switch
+		(Version 1)
+	</li>
+<li>Configuration
+		(Version 1)
+	</li>
+<li>Manufacturer Specific
+		(Version 1)
+	</li>
+<li>Protection
+		(Version 1)
+	</li>
+<li>Node Naming and Location
+		(Version 1)
+	</li>
+<li>Association
+		(Version 2)
+	</li>
+</ul></p>
+<h3 class="chapterTitle">Technische Daten</h3>
+<p><table class="technicalDetails">
+<tr>
+<td>Stromversorgung</td>
+<td>230V ~50-60 Hz</td>
+</tr>
+<tr>
+<td>Schaltbare Lasten</td>
+<td>ohmsche und industive Lasten bis 300 W, kapazitive Lasten bis 100 W</td>
+</tr>
+<tr>
+<td>Schutzklasse</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Z-Wave Frequenz</td>
+<td> 868.42 MHz (SRD Band) </td>
+</tr>
+<tr>
+<td>Funkreichweite</td>
+<td> bis zu 100 m im Freifeld, üblich 20 m in Gebäuden </td>
+</tr>
+<tr>
+<td>Explorer Frames</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>SDK</td>
+<td>4.54 pl1</td>
+</tr>
+<tr>
+<td>Geräteart</td>
+<td>Slave with routing capabilities</td>
+</tr>
+<tr>
+<td>Allgemeiner Z-Wave-Gerätetyp</td>
+<td>Multilevel Switch</td>
+</tr>
+<tr>
+<td>Spezieller Z-Wave-Gerätetyp</td>
+<td>Multilevel Power Switch</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>FLiRS</td>
+<td>Nein</td>
+</tr>
+<tr>
+<td>Firmware Version</td>
+<td>1.0</td>
+</tr>
+</table></p>
+<p></p>
+<h3 class="chapterTitle">Erläuterung Z-Wave-spezifischer Begriffe</h3>
+<content>
+		<ul>
+		<li>
+<b>Controller</b>... ist ein Z-Wave-Gerät mit erweiterten Fähigkeiten zur Verwaltung eines Netzes. Dies sind in der Regel
+		Gateways oder Fernbedienungen. Batteriegespeiste Wandschalter können auch Controller sein. </li>
+		<li>
+<b>Slave</b>... ist ein Z-Wave-Gerät mit erweiterten Fähigkeiten zur Verwaltung eines Netzes. Es gibt Sensoren,
+		Aktoren und auch Fernbedienungen als Slaves.</li>
+		<li>
+<b>Primärcontroller <i>(engl. Primary Controller)</i></b>... ist der zentrale Netzverwalter des Z-Wave-Netzes.</li>
+		<li>
+<b>Inklusion <i>(eng. Inclusion)</i></b>... ist der Prozess des Einbindens eines neuen Gerätes ins Z-Wave-Netz.</li>
+		<li>
+<b>Exklusion <i>(engl. Exclusion)</i></b>... ist der Prozess des Entfernens eines Gerätes aus dem Z-Wave-Netz.</li>
+		<li>
+<b>Assoziation <i>(engl. Association)</i></b>... ist eine Steuerbeziehung zwischen einem steuernden und einem 
+		gesteuerten Gerät. Die Information dazu wird im steuernden Gerät in einer <b>Assoziationsgruppe</b> hinterlegt.</li>	
+		<li>
+<b>Wakeup Notifikation <i>(engl. Wakeup Notification)</i> </b>... ist eine spezielle Funknachricht, mit der ein 
+		batteriegespeistes Gerät bekanntmacht, daß es im Aufwachstatus ist 
+		und Z-Wave-Nachrichten empfangen kann.</li>
+		<li>
+<b>Node Information Frame</b>... ist eine spezielle Funknachricht, mit der ein Z-Wave-Gerät seine Geräteeigenschaften bekanntgibt.</li>		
+		</ul>
+		</content><h3 class="chapterTitle">Entsorgungshinweis</h3>
+<p>Dieses Gerät enthält keine Batterien.</p>
+<content>
+ 		<p> Das ist ein elektrisches Gerät. Es kann kostenfrei bei entsprechenden Annahmestellen abgegeben werden.</p>
+ 		</content>
+</div>
+<div id="footer"><div class="inside">(c) 2012 Z-Wave Europe GmbH, Goldbachstr. 13, 09337 Hohenstein-Ernstthal, Germany, All rights reserved, www.zwaveeurope.com</div></div>
+</body>
+</html>
